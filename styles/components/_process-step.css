@@ -50,7 +50,7 @@
   position: relative;
 }
 
-/* Numbered circle node */
+/* Circle node — decorative dot (number removed per design direction) */
 .process__phase-node {
   width: 56px;
   height: 56px;
@@ -67,6 +67,23 @@
     background-color var(--duration-base) var(--ease-out),
     border-color var(--duration-base) var(--ease-out),
     box-shadow var(--duration-base) var(--ease-out);
+}
+
+/* Teal dot centre — replaces removed number span */
+.process__phase-node::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  opacity: 0.7;
+  transition: opacity var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out);
+}
+
+.process__phase:hover .process__phase-node::after {
+  opacity: 1;
+  box-shadow: 0 0 12px var(--color-accent);
 }
 
 .process__phase:hover .process__phase-node {
@@ -267,8 +284,9 @@
     height: 40px;
   }
 
-  .process__phase-num {
-    font-size: var(--text-xs);
+  .process__phase-node::after {
+    width: 6px;
+    height: 6px;
   }
 
   .process__phase-title {

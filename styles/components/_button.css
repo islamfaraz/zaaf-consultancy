@@ -18,6 +18,8 @@
   cursor: pointer;
   border-radius: var(--radius-md);
   padding: 0.875rem 2rem;
+  /* WCAG: min 44px touch target height */
+  min-height: 44px;
   transition:
     background-color var(--duration-fast) var(--ease-out-expo),
     box-shadow var(--duration-base) var(--ease-out-expo),
@@ -31,6 +33,18 @@
 
 .btn:active {
   transform: translateY(1px);
+}
+
+/* WCAG 2.1 AA — visible focus ring for keyboard navigation */
+.btn:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.25);
+}
+
+.btn--primary:focus-visible {
+  outline-color: var(--color-accent-light);
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.35);
 }
 
 /* ── Primary: pill-shaped solid teal fill ─────────────────────────────────── */
@@ -98,4 +112,6 @@
 .btn--sm {
   font-size: var(--text-xs);
   padding: 0.5rem 1.25rem;
+  /* Maintain 44px touch target via min-height */
+  min-height: 44px;
 }

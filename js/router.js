@@ -104,6 +104,12 @@
       nav.addEventListener('click', handleNavClick);
     }
 
+    // Wire footer links into router
+    var footer = document.querySelector('.site-footer');
+    if (footer) {
+      footer.addEventListener('click', handleNavClick);
+    }
+
     // Logo click goes home
     var logo = document.querySelector('.site-nav__logo');
     if (logo) {
