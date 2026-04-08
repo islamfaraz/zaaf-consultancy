@@ -1,44 +1,72 @@
-/* === Keyframes === */
+/* ==========================================================================
+   Animations — ZAAF Consultancy
+   All durations 150–300ms (UI/UX Pro Max guideline).
+   All motion uses transform/opacity only (GPU-composited, no layout thrash).
+   prefers-reduced-motion handled globally in _motion.css.
+   ========================================================================== */
 
+/* ─────────────────────────────────────────────────────────────────────────────
+   KEYFRAMES
+───────────────────────────────────────────────────────────────────────────── */
+
+/* Scroll reveal — up + fade */
 @keyframes reveal-up {
-  from { opacity: 0; transform: translateY(24px); }
+  from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Scroll reveal — fade only (for wide elements) */
 @keyframes reveal-fade {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
 
-/* Vertical float — 6s, -20px, zaf-tech style */
-@keyframes float {
-  0%, 100% { transform: translateY(0px) rotate(0deg); }
-  50%       { transform: translateY(-20px) rotate(1deg); }
+/* Scroll reveal — scale in from slightly small */
+@keyframes reveal-scale {
+  from { opacity: 0; transform: scale(0.96) translateY(12px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
 }
 
-/* Pulse glow on rings */
-@keyframes pulse-glow {
-  0%, 100% { opacity: 0.4; }
-  50%       { opacity: 0.85; }
+/* Hero diagram float */
+@keyframes diagram-float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-14px); }
 }
 
-/* Expanding ring — sky blue + indigo */
+/* Ambient glow drift */
+@keyframes glow-drift-1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  33%  { transform: translate(40px, 30px) scale(1.05); }
+  66%  { transform: translate(-20px, 50px) scale(0.97); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes glow-drift-2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  50%  { transform: translate(-60px, -40px) scale(1.08); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+@keyframes glow-drift-3 {
+  0%   { transform: translateX(-50%) translateY(0) scale(1); }
+  50%  { transform: translateX(-50%) translateY(-30px) scale(1.04); }
+  100% { transform: translateX(-50%) translateY(0) scale(1); }
+}
+
+/* Expanding teal+indigo ring — process nodes, stat numbers */
 @keyframes pulse-ring {
-  0%   { box-shadow: 0 0 0 0 rgba(14,165,233,0.4), 0 0 0 0 rgba(99,102,241,0.3); }
-  70%  { box-shadow: 0 0 0 16px rgba(14,165,233,0), 0 0 0 24px rgba(99,102,241,0); }
-  100% { box-shadow: 0 0 0 0 rgba(14,165,233,0), 0 0 0 0 rgba(99,102,241,0); }
+  0%  { box-shadow: 0 0 0 0 rgba(14,165,233,0.35), 0 0 0 0 rgba(99,102,241,0.25); }
+  70% { box-shadow: 0 0 0 14px rgba(14,165,233,0),  0 0 0 22px rgba(99,102,241,0); }
+  100%{ box-shadow: 0 0 0 0 rgba(14,165,233,0),     0 0 0 0 rgba(99,102,241,0); }
 }
 
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+/* Subtle opacity pulse — ambient decorative elements */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.35; }
+  50%       { opacity: 0.75; }
 }
 
-@keyframes shimmer {
-  from { background-position: -200% center; }
-  to   { background-position:  200% center; }
-}
-
+/* Scroll indicator line draw */
 @keyframes scroll-line-draw {
   0%   { transform: scaleY(0); transform-origin: top;    opacity: 1; }
   50%  { transform: scaleY(1); transform-origin: top;    opacity: 1; }
@@ -46,33 +74,64 @@
   100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
 }
 
+/* Button shimmer sweep */
+@keyframes shimmer-sweep {
+  from { transform: translateX(-100%) skewX(-15deg); }
+  to   { transform: translateX(200%)  skewX(-15deg); }
+}
+
+/* Feature strip item entrance */
 @keyframes strip-in {
-  from { opacity: 0; transform: translateY(16px); }
+  from { opacity: 0; transform: translateY(12px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-32px); }
-  to   { opacity: 1; transform: translateX(0); }
+/* Page enter — SPA transition */
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
-@keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(32px); }
-  to   { opacity: 1; transform: translateX(0); }
+/* Teal gradient text shimmer */
+@keyframes text-shimmer {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-@keyframes diagram-float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-16px); }
+/* Nav link active dot pop */
+@keyframes dot-pop {
+  0%   { transform: translateX(-50%) scale(0); opacity: 0; }
+  70%  { transform: translateX(-50%) scale(1.4); opacity: 1; }
+  100% { transform: translateX(-50%) scale(1); opacity: 1; }
 }
 
-/* === Scroll-triggered reveal === */
+/* Card border glow trace — clockwise along border */
+@keyframes border-trace {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 200% 0%; }
+}
+
+/* Stat counter — number slides up on reveal */
+@keyframes count-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SCROLL-TRIGGERED REVEAL SYSTEM
+   Base: translateY(20px) → 0, opacity 0 → 1
+   Duration: 500ms ease-out-quint (smooth deceleration, feels premium)
+   Delays: 100ms steps — staggered children feel orchestrated not uniform
+───────────────────────────────────────────────────────────────────────────── */
+
 [data-reveal] {
   opacity: 0;
-  transform: translateY(24px);
+  transform: translateY(20px);
   transition:
-    opacity var(--duration-slow) var(--ease-out-quint),
-    transform var(--duration-slow) var(--ease-out-quint);
+    opacity  500ms var(--ease-out-quint),
+    transform 500ms var(--ease-out-quint);
+  will-change: opacity, transform;
 }
 
 [data-reveal].is-visible {
@@ -80,30 +139,243 @@
   transform: translateY(0);
 }
 
-[data-reveal-delay="1"] { transition-delay: 100ms; }
-[data-reveal-delay="2"] { transition-delay: 200ms; }
-[data-reveal-delay="3"] { transition-delay: 300ms; }
-[data-reveal-delay="4"] { transition-delay: 400ms; }
-[data-reveal-delay="5"] { transition-delay: 500ms; }
-[data-reveal-delay="6"] { transition-delay: 600ms; }
+/* Delay steps */
+[data-reveal-delay="1"] { transition-delay: 80ms; }
+[data-reveal-delay="2"] { transition-delay: 160ms; }
+[data-reveal-delay="3"] { transition-delay: 240ms; }
+[data-reveal-delay="4"] { transition-delay: 320ms; }
+[data-reveal-delay="5"] { transition-delay: 400ms; }
+[data-reveal-delay="6"] { transition-delay: 480ms; }
 
-/* === Glass card hover === */
-.glass-card {
-  transition: border-color var(--duration-base) var(--ease-out),
-              box-shadow var(--duration-base) var(--ease-out),
-              transform var(--duration-base) var(--ease-out);
+/* Variant: scale reveal — used on cards with data-reveal="scale" */
+[data-reveal="scale"] {
+  transform: scale(0.97) translateY(12px);
+}
+[data-reveal="scale"].is-visible {
+  transform: scale(1) translateY(0);
 }
 
-/* Feature strip stagger */
-.feature-strip__item:nth-child(1) { animation: strip-in 0.5s 0.1s var(--ease-out-quint) both; }
-.feature-strip__item:nth-child(2) { animation: strip-in 0.5s 0.2s var(--ease-out-quint) both; }
-.feature-strip__item:nth-child(3) { animation: strip-in 0.5s 0.3s var(--ease-out-quint) both; }
-.feature-strip__item:nth-child(4) { animation: strip-in 0.5s 0.4s var(--ease-out-quint) both; }
-.feature-strip__item:nth-child(5) { animation: strip-in 0.5s 0.5s var(--ease-out-quint) both; }
+/* Variant: left slide — used on left-column content */
+[data-reveal="left"] {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+[data-reveal="left"].is-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
 
-/* Process card flip stagger */
-.process__step:nth-child(1) .process__step-inner { transition-delay: 0ms; }
-.process__step:nth-child(2) .process__step-inner { transition-delay: 40ms; }
-.process__step:nth-child(3) .process__step-inner { transition-delay: 80ms; }
-.process__step:nth-child(4) .process__step-inner { transition-delay: 120ms; }
-.process__step:nth-child(5) .process__step-inner { transition-delay: 160ms; }
+/* Variant: right slide */
+[data-reveal="right"] {
+  transform: translateX(20px);
+  opacity: 0;
+}
+[data-reveal="right"].is-visible {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   FEATURE STRIP — staggered entrance (CSS animation, not scroll trigger)
+───────────────────────────────────────────────────────────────────────────── */
+.feature-strip__item {
+  animation: strip-in 0.45s var(--ease-out-quint) both;
+}
+.feature-strip__item:nth-child(1) { animation-delay: 0.05s; }
+.feature-strip__item:nth-child(2) { animation-delay: 0.12s; }
+.feature-strip__item:nth-child(3) { animation-delay: 0.19s; }
+.feature-strip__item:nth-child(4) { animation-delay: 0.26s; }
+.feature-strip__item:nth-child(5) { animation-delay: 0.33s; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CARD HOVER — glass/navy cards across site
+   Lift + border-colour + teal shadow — 250ms ease-out-expo
+───────────────────────────────────────────────────────────────────────────── */
+.glass-card {
+  transition:
+    border-color 250ms var(--ease-out-expo),
+    box-shadow   250ms var(--ease-out-expo),
+    transform    250ms var(--ease-out-expo);
+  will-change: transform;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ICON BOX — teal icon containers (feature strip, service items, etc.)
+───────────────────────────────────────────────────────────────────────────── */
+.feature-strip__icon,
+.service-item__icon,
+.expertise__card-icon,
+.process__phase-icon,
+.about__phil-icon {
+  transition:
+    background   200ms var(--ease-out),
+    border-color 200ms var(--ease-out),
+    box-shadow   200ms var(--ease-out),
+    transform    200ms var(--ease-out);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   NAV ACTIVE DOT — animate in when page switches
+───────────────────────────────────────────────────────────────────────────── */
+.site-nav__link.is-active::before {
+  animation: dot-pop 250ms var(--ease-spring) forwards;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TEAL GRADIENT TEXT — slow animated shimmer on hero headline highlight
+───────────────────────────────────────────────────────────────────────────── */
+.hero__headline .text-gradient,
+.hero__headline .text-gradient-teal {
+  background-size: 200% auto;
+  animation: text-shimmer 4s var(--ease-in-out) infinite;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ABOUT STAT NUMBERS — count-in on reveal
+───────────────────────────────────────────────────────────────────────────── */
+.about__stat-number {
+  transition: opacity 400ms var(--ease-out-quint), transform 400ms var(--ease-out-quint);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   PROCESS PHASE NODE — pulse ring on hover
+───────────────────────────────────────────────────────────────────────────── */
+.process__phase:hover .process__phase-node {
+  animation: pulse-ring 1.4s var(--ease-out) forwards;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SECTION HEADING — underline draw on hover
+   Applied to .section-heading elements that are not inside a card
+───────────────────────────────────────────────────────────────────────────── */
+.section-heading {
+  position: relative;
+  display: inline-block;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   WORK FILTER BUTTONS — active state scale pop
+───────────────────────────────────────────────────────────────────────────── */
+.work__filter-btn {
+  transition:
+    color        200ms var(--ease-out),
+    border-color 200ms var(--ease-out),
+    background   200ms var(--ease-out),
+    transform    150ms var(--ease-spring),
+    box-shadow   200ms var(--ease-out);
+}
+
+.work__filter-btn.is-active {
+  transform: scale(1.04);
+}
+
+.work__filter-btn:active {
+  transform: scale(0.97);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   CASE CARD — stagger children on reveal (industry badge, heading, metric)
+───────────────────────────────────────────────────────────────────────────── */
+.case-card.is-visible .case-card__industry  { animation: reveal-fade  300ms 50ms  var(--ease-out-quint) both; }
+.case-card.is-visible .case-card__challenge { animation: reveal-up    350ms 100ms var(--ease-out-quint) both; }
+.case-card.is-visible .case-card__metric-block { animation: reveal-up 400ms 180ms var(--ease-out-quint) both; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   ABOUT PHIL CARD — icon lifts independently on card hover
+───────────────────────────────────────────────────────────────────────────── */
+.about__phil-card:hover .about__phil-icon {
+  transform: translateY(-3px) scale(1.08);
+  background: rgba(14, 165, 233, 0.18);
+  border-color: rgba(14, 165, 233, 0.4);
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   SERVICE ITEM ICON — lift + glow on hover
+───────────────────────────────────────────────────────────────────────────── */
+.service-item:hover .service-item__icon {
+  transform: translateY(-2px) scale(1.06);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   EXPERTISE CARD ICON — scale in on hover
+───────────────────────────────────────────────────────────────────────────── */
+.expertise__card:hover .expertise__card-icon {
+  transform: scale(1.08);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   TAG CHIPS — subtle scale on hover
+───────────────────────────────────────────────────────────────────────────── */
+.tag {
+  transition:
+    background   150ms var(--ease-out),
+    border-color 150ms var(--ease-out),
+    color        150ms var(--ease-out),
+    transform    150ms var(--ease-spring);
+}
+
+.tag:hover {
+  transform: scale(1.04);
+  border-color: rgba(14, 165, 233, 0.35);
+  color: var(--color-accent-light);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   FOOTER LINK — underline slide in
+───────────────────────────────────────────────────────────────────────────── */
+.site-footer__link {
+  position: relative;
+}
+
+.site-footer__link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 200ms var(--ease-out-expo);
+}
+
+.site-footer__link:hover::after {
+  transform: scaleX(1);
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   HERO EYEBROW BADGE — subtle pulse on load
+───────────────────────────────────────────────────────────────────────────── */
+.hero__eyebrow {
+  animation: reveal-fade 600ms 200ms var(--ease-out-quint) both;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   HERO HEADLINE — each line staggers in
+───────────────────────────────────────────────────────────────────────────── */
+.hero__headline-line:nth-child(1) { animation: reveal-up 550ms 100ms var(--ease-out-quint) both; }
+.hero__headline-line:nth-child(2) { animation: reveal-up 550ms 220ms var(--ease-out-quint) both; }
+.hero__headline-line:nth-child(3) { animation: reveal-up 550ms 340ms var(--ease-out-quint) both; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   HERO STATS STRIP — each stat slides in
+───────────────────────────────────────────────────────────────────────────── */
+.hero__stat:nth-child(1) { animation: reveal-up 450ms 500ms var(--ease-out-quint) both; }
+.hero__stat:nth-child(2) { animation: reveal-up 450ms 600ms var(--ease-out-quint) both; }
+.hero__stat:nth-child(3) { animation: reveal-up 450ms 700ms var(--ease-out-quint) both; }
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   MOBILE NAV LINK — staggered entrance in overlay
+───────────────────────────────────────────────────────────────────────────── */
+.site-nav__mobile-overlay:not([hidden]) .site-nav__mobile-links li {
+  animation: reveal-up 300ms var(--ease-out-quint) both;
+}
+
+.site-nav__mobile-overlay:not([hidden]) .site-nav__mobile-links li:nth-child(1) { animation-delay: 80ms; }
+.site-nav__mobile-overlay:not([hidden]) .site-nav__mobile-links li:nth-child(2) { animation-delay: 140ms; }
+.site-nav__mobile-overlay:not([hidden]) .site-nav__mobile-links li:nth-child(3) { animation-delay: 200ms; }
+.site-nav__mobile-overlay:not([hidden]) .site-nav__mobile-links li:nth-child(4) { animation-delay: 260ms; }
+.site-nav__mobile-overlay:not([hidden]) .site-nav__mobile-links li:nth-child(5) { animation-delay: 320ms; }
+.site-nav__mobile-overlay:not([hidden]) .site-nav__mobile-links li:nth-child(6) { animation-delay: 380ms; }

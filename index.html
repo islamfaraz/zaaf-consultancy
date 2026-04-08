@@ -28,8 +28,8 @@
     <div class="glow-circle"></div>
   </div>
 
-  <!-- Fixed background: CSS grid pattern -->
-  <div class="grid-bg" aria-hidden="true"></div>
+  <!-- Fixed 3D particle constellation background -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
 
   <!-- ============================================================
        NAVIGATION
@@ -1496,6 +1496,9 @@
   <!-- ============================================================
        SCRIPTS (all deferred)
   ============================================================ -->
+  <!-- Three.js CDN — required by bg-canvas.js -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js" defer></script>
+  <script src="js/bg-canvas.js"        defer></script>
   <script src="js/scroll-trigger.js"  defer></script>
   <script src="js/parallax.js"        defer></script>
   <script src="js/nav.js"             defer></script>

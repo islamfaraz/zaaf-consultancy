@@ -8,23 +8,24 @@
    These live in the <body> before <main>, not inside .hero
    ========================================================================== */
 
-/* --- Full-screen fixed grid pattern --- */
-.grid-bg {
+/* --- 3D particle canvas (replaces CSS grid-bg) --- */
+#bg-canvas {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgba(14, 165, 233, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14, 165, 233, 0.03) 1px, transparent 1px);
-  background-size: 60px 60px;
+  width: 100vw;
+  height: 100vh;
+  /* Only fade bottom edge so 3D fills full width */
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
 }
 
 /* --- Ambient glow circles container --- */
 .glow-circles {
   position: fixed;
   inset: 0;
-  z-index: 0;
+  z-index: -1;
   pointer-events: none;
   overflow: hidden;
 }
@@ -106,26 +107,22 @@
 .hero {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
   display: flex;
   align-items: center;
-  background-color: var(--color-bg);
+  /* No background-color — body background shows through, canvas renders behind */
   padding-top: var(--nav-height);
 }
 
-/* --- Hero-specific grid overlay (denser, masked to ellipse) --- */
+/* --- Hero-specific subtle dot grid (very faint — canvas provides depth) --- */
 .hero__grid-bg {
   position: absolute;
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgba(14, 165, 233, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
-  background-size: 60px 60px;
-  /* Fade grid toward edges — keeps focus on content */
-  mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
+  background-image: radial-gradient(circle, rgba(14, 165, 233, 0.12) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at 50% 40%, black 20%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 40%, black 20%, transparent 70%);
 }
 
 /* --- Two-column inner grid --- */
