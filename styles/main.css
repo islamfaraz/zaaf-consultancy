@@ -19,4 +19,5 @@
 @import url("components/_contact-form.css") layer(components);
 @import url("components/_footer.css") layer(components);
 @import url("utilities/_a11y.css") layer(utilities);
+@import url("utilities/_pages.css") layer(utilities);
 @import url("utilities/_motion.css") layer(utilities);

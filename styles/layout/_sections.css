@@ -6,6 +6,7 @@
 /* --- Base section shell --- */
 .section {
   position: relative;
+  z-index: var(--z-base);
   padding-block: clamp(5rem, 10vw, 8rem);
   overflow: hidden;
 }
@@ -218,4 +219,10 @@
   .section__inner {
     padding-inline: var(--space-4);
   }
+}
+
+/* ── Standalone page sections (SPA routing) ──────────────────────────────── */
+/* Remove double top-border when section is shown as a standalone page */
+section[data-page]:not([data-page="home"]).section--has-rule::after {
+  display: none;
 }

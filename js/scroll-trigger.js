@@ -22,6 +22,14 @@
     });
   }
 
+  // Expose re-trigger for router page switches
+  window.__triggerReveal = function () {
+    var newEls = document.querySelectorAll('[data-reveal]:not(.is-visible)');
+    newEls.forEach(function (el) {
+      if (observer) observer.observe(el);
+    });
+  };
+
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
   } else {
