@@ -17,6 +17,11 @@ body {
   line-height: var(--leading-normal, 1.5);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 72px;
+}
+
+#hero {
+  margin-top: -72px;
 }
 
 img, picture, video, canvas, svg {

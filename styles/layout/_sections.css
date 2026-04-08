@@ -1,8 +1,28 @@
 .section {
   position: relative;
   padding-block: var(--space-32);
-  border-top: 1px solid var(--color-border);
   overflow: hidden;
+}
+
+/* Alternating surface backgrounds for rhythm */
+.section:nth-of-type(even) {
+  background-color: var(--color-surface-1);
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-border) 20%,
+    var(--color-border) 80%,
+    transparent
+  );
 }
 
 .section__header {
@@ -10,28 +30,47 @@
 }
 
 .section__title {
-  font-size: clamp(var(--text-xl), 4vw, var(--text-2xl));
+  font-size: clamp(var(--text-2xl), 5vw, var(--text-3xl));
   font-family: var(--font-serif);
-  line-height: var(--leading-tight);
+  line-height: 1.05;
   letter-spacing: var(--tracking-tight);
-  color: var(--color-text-primary);
+  color: #FFFFFF;
   margin-top: var(--space-3);
-  max-width: 20ch;
+  max-width: 22ch;
 }
 
+/* Large decorative section index in top-right */
 .section-number {
   position: absolute;
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(var(--text-3xl), 12vw, var(--text-5xl));
-  color: var(--color-text-tertiary);
-  opacity: 0.05;
+  font-size: clamp(var(--text-3xl), 14vw, 10rem);
+  color: var(--color-text-primary);
+  opacity: 0.025;
   z-index: var(--z-below);
   pointer-events: none;
   user-select: none;
-  top: var(--space-12);
+  top: var(--space-10);
   right: var(--space-6);
   line-height: 1;
+  letter-spacing: var(--tracking-tight);
+}
+
+/* Accent divider line left of section header */
+.section__header-accent {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-6);
+}
+
+.section__header-accent::before {
+  content: "";
+  display: block;
+  flex-shrink: 0;
+  width: 2px;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+  margin-top: var(--space-1);
 }
 
 @media (max-width: 768px) {
@@ -41,5 +80,10 @@
 
   .section__header {
     margin-bottom: var(--space-10);
+  }
+
+  .section-number {
+    font-size: clamp(var(--text-2xl), 18vw, var(--text-4xl));
+    opacity: 0.03;
   }
 }

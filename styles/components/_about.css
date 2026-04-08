@@ -3,21 +3,21 @@
 }
 
 .about__grid {
-  gap: var(--space-16);
+  gap: var(--space-20);
 }
 
 .about__pull-quote {
   position: relative;
   padding-left: var(--space-8);
-  border-left: 1px solid var(--color-accent-dim);
+  border-left: 2px solid var(--color-accent-dim);
 }
 
 .about__pull-quote .section-number {
   position: absolute;
   top: calc(-1 * var(--space-10));
   left: 0;
-  font-size: var(--text-5xl);
-  opacity: 0.05;
+  font-size: clamp(var(--text-3xl), 14vw, 10rem);
+  opacity: 0.04;
   z-index: var(--z-below);
   pointer-events: none;
   user-select: none;
@@ -26,22 +26,23 @@
 .about__quote {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+  font-size: clamp(var(--text-xl), 3.5vw, var(--text-2xl));
   line-height: var(--leading-snug);
-  color: var(--color-text-primary);
+  color: #FFFFFF;
   letter-spacing: var(--tracking-tight);
   max-width: 22ch;
 }
 
 .about__quote p {
-  color: var(--color-text-primary);
+  color: #FFFFFF;
   font-size: inherit;
   max-width: none;
 }
 
 .about__heading {
-  font-size: var(--text-xl);
+  font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
   margin-bottom: var(--space-8);
+  color: #FFFFFF;
 }
 
 .about__body p {
@@ -49,8 +50,21 @@
   line-height: var(--leading-loose);
   margin-bottom: var(--space-5);
   max-width: 60ch;
+  color: var(--color-text-secondary);
 }
 
 .about__body p:last-child {
   margin-bottom: 0;
+}
+
+/* Floating accent number label */
+.about__index {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-4);
 }

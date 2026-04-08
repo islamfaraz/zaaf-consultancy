@@ -1,7 +1,7 @@
 .work__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-6);
   align-items: start;
 }
 
@@ -24,6 +24,18 @@
   overflow: hidden;
 }
 
+.case-study::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  border-bottom: 1px solid var(--color-border);
+  border-left: 1px solid var(--color-border);
+  transition: border-color var(--duration-base) var(--ease-out-expo);
+}
+
 .case-study::after {
   content: "";
   position: absolute;
@@ -31,20 +43,26 @@
   left: 0;
   right: 0;
   height: 2px;
-  background-color: var(--color-accent);
+  background: linear-gradient(to right, var(--color-accent), var(--color-accent-glow), transparent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--duration-slow) var(--ease-out-expo);
 }
 
 .case-study:hover {
-  transform: translateY(-8px);
+  transform: translateY(-10px);
   border-color: var(--color-border-lit);
-  box-shadow: var(--shadow-lg);
+  box-shadow:
+    var(--shadow-lg),
+    0 0 0 1px rgba(200, 169, 110, 0.08);
 }
 
 .case-study:hover::after {
   transform: scaleX(1);
+}
+
+.case-study:hover::before {
+  border-color: var(--color-accent-dim);
 }
 
 .case-study__industry {
@@ -53,21 +71,22 @@
 
 .case-study__challenge {
   font-family: var(--font-serif);
-  font-size: var(--text-lg);
+  font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
   line-height: var(--leading-snug);
-  color: var(--color-text-primary);
+  color: #FFFFFF;
   letter-spacing: var(--tracking-tight);
 }
 
 .case-study__metric {
   display: flex;
   align-items: baseline;
-  gap: 0;
+  padding-block: var(--space-4);
+  border-block: 1px solid var(--color-border);
 }
 
 .case-study__metric-value {
   font-family: var(--font-serif);
-  font-size: clamp(var(--text-3xl), 6vw, var(--text-4xl));
+  font-size: clamp(var(--text-3xl), 7vw, 5rem);
   font-weight: 400;
   color: var(--color-accent-glow);
   line-height: 1;
@@ -77,6 +96,7 @@
 .case-study__metric-unit {
   font-size: var(--text-xl);
   color: var(--color-accent);
+  margin-left: 2px;
 }
 
 .case-study__outcome {
@@ -84,6 +104,7 @@
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   line-height: var(--leading-loose);
+  max-width: none;
 }
 
 .case-study__tags {
@@ -91,6 +112,7 @@
   flex-wrap: wrap;
   gap: var(--space-2);
   margin-top: auto;
+  padding-top: var(--space-4);
 }
 
 @media (max-width: 1024px) {
