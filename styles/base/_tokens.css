@@ -1,53 +1,82 @@
 :root {
-  /* Colors */
-  --color-void: #0D0E11;
-  --color-surface-1: #13151A;
-  --color-surface-2: #1C1F28;
-  --color-surface-3: #252932;
-  --color-border: #2A2D38;
-  --color-border-lit: #3D4255;
-  --color-accent: #C8A96E;
-  --color-accent-dim: #8A7048;
-  --color-accent-glow: #E8C98A;
-  --color-text-primary: #F0EDE8;
-  --color-text-secondary: #9A9BA5;
-  --color-text-tertiary: #5C5E6B;
-  --color-text-inverse: #0D0E11;
-  --color-success: #4A8C6F;
-  --color-warning: #C8843A;
-  --color-error: #9C4040;
+  /* === Backgrounds === */
+  --color-bg:           #050810;
+  --color-bg-soft:      #080c18;
+  --color-navy:         #0f172a;
+  --color-navy-light:   #1e293b;
+  --color-surface:      rgba(15, 23, 42, 0.6);
+  --color-surface-strong: rgba(15, 23, 42, 0.85);
+  --color-glass:        rgba(255, 255, 255, 0.04);
+  --color-glass-border: rgba(255, 255, 255, 0.08);
 
-  /* Typography */
+  /* === Accent — Teal/Cyan === */
+  --color-teal-300:     #5eead4;
+  --color-teal-400:     #2dd4bf;
+  --color-teal-500:     #14b8a6;
+  --color-cyan-300:     #67e8f9;
+  --color-cyan-400:     #22d3ee;
+  --color-cyan-500:     #06b6d4;
+
+  /* === Accent — Purple === */
+  --color-purple-300:   #c4b5fd;
+  --color-purple-400:   #a78bfa;
+  --color-purple-500:   #8b5cf6;
+  --color-purple-600:   #7c3aed;
+
+  /* === Text === */
+  --color-text-primary:    #eae5ec;
+  --color-text-secondary:  rgba(234, 229, 236, 0.7);
+  --color-text-muted:      rgba(234, 229, 236, 0.4);
+  --color-text-ghost:      rgba(234, 229, 236, 0.2);
+  --color-white:           #ffffff;
+
+  /* === Borders === */
+  --color-border:          rgba(94, 234, 212, 0.12);
+  --color-border-hover:    rgba(94, 234, 212, 0.35);
+  --color-border-subtle:   rgba(255, 255, 255, 0.06);
+
+  /* === Semantic === */
+  --color-accent:       var(--color-teal-300);
+  --color-accent-alt:   var(--color-purple-400);
+
+  /* === Typography === */
+  --font-sans: 'Inter', 'DM Sans', system-ui, -apple-system, sans-serif;
   --font-serif: 'Instrument Serif', Georgia, serif;
-  --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
-  --text-xs: 0.694rem;
-  --text-sm: 0.833rem;
-  --text-base: 1rem;
-  --text-md: 1.200rem;
-  --text-lg: 1.333rem;
-  --text-xl: 1.777rem;
-  --text-2xl: 2.369rem;
-  --text-3xl: 3.157rem;
-  --text-4xl: 4.209rem;
-  --text-5xl: 5.610rem;
-  --leading-tight: 1.1;
-  --leading-snug: 1.25;
-  --leading-normal: 1.5;
-  --leading-loose: 1.75;
-  --tracking-tight: -0.03em;
-  --tracking-normal: -0.01em;
-  --tracking-wide: 0.06em;
-  --tracking-wider: 0.12em;
-  --tracking-caps: 0.15em;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
 
-  /* Spacing */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
+  --text-xs:   0.75rem;
+  --text-sm:   0.875rem;
+  --text-base: 1rem;
+  --text-md:   1.125rem;
+  --text-lg:   1.25rem;
+  --text-xl:   1.5rem;
+  --text-2xl:  2rem;
+  --text-3xl:  2.5rem;
+  --text-4xl:  3.5rem;
+  --text-5xl:  5rem;
+  --text-6xl:  7rem;
+  --text-7xl:  10rem;
+
+  --leading-tight:  1.05;
+  --leading-snug:   1.2;
+  --leading-normal: 1.6;
+  --leading-loose:  1.8;
+
+  --tracking-tightest: -0.04em;
+  --tracking-tight:    -0.03em;
+  --tracking-normal:   -0.01em;
+  --tracking-wide:     0.05em;
+  --tracking-wider:    0.1em;
+  --tracking-caps:     0.15em;
+
+  /* === Spacing === */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
   --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
@@ -58,45 +87,47 @@
   --space-48: 12rem;
   --space-64: 16rem;
 
-  /* Motion */
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-expo: cubic-bezier(0.7, 0, 0.84, 0);
-  --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --duration-fast: 150ms;
-  --duration-base: 250ms;
-  --duration-slow: 400ms;
-  --duration-xslow: 700ms;
+  /* === Motion === */
+  --ease-out-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint:  cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out:     cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring:     cubic-bezier(0.34, 1.56, 0.64, 1);
 
-  /* Borders */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
+  --duration-fast:   150ms;
+  --duration-base:   300ms;
+  --duration-slow:   500ms;
+  --duration-xslow:  800ms;
+
+  /* === Borders === */
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(13, 14, 17, 0.4);
-  --shadow-md: 0 4px 16px rgba(13, 14, 17, 0.6), 0 1px 3px rgba(13, 14, 17, 0.3);
-  --shadow-lg: 0 16px 48px rgba(13, 14, 17, 0.8), 0 4px 12px rgba(13, 14, 17, 0.4);
-  --shadow-accent: 0 0 32px rgba(200, 169, 110, 0.15);
+  /* === Shadows === */
+  --shadow-sm:     0 1px 3px rgba(0, 0, 0, 0.5);
+  --shadow-md:     0 8px 32px rgba(0, 0, 0, 0.4);
+  --shadow-lg:     0 24px 64px rgba(0, 0, 0, 0.5);
+  --shadow-xl:     0 40px 100px rgba(0, 0, 0, 0.6);
+  --shadow-teal:   0 0 40px rgba(94, 234, 212, 0.12);
+  --shadow-teal-lg:0 20px 80px rgba(94, 234, 212, 0.1);
+  --shadow-purple: 0 0 40px rgba(139, 92, 246, 0.15);
 
-  /* Layout */
-  --container-sm: 640px;
-  --container-md: 768px;
-  --container-lg: 1024px;
-  --container-xl: 1280px;
-  --container-2xl: 1440px;
+  /* === Layout === */
+  --container-max: 1400px;
+  --container-pad: clamp(1.5rem, 5vw, 6rem);
+  --nav-height:    72px;
 
-  /* Z-index */
-  --z-below: -1;
-  --z-base: 0;
-  --z-raised: 10;
+  /* === Z-index === */
+  --z-below:  -1;
+  --z-base:    0;
+  --z-raised:  10;
   --z-overlay: 20;
-  --z-dropdown: 30;
-  --z-sticky: 40;
-  --z-modal: 50;
-  --z-toast: 60;
-  --z-cursor: 9999;
+  --z-sticky:  40;
+  --z-modal:   50;
+  --z-cursor:  9999;
 
-  /* Scroll (updated by JS) */
+  /* === Scroll (JS-driven) === */
   --scroll-y: 0;
 }

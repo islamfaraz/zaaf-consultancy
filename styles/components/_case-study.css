@@ -1,3 +1,8 @@
+/* ==========================================================================
+   Case Study Cards — metric-forward glass cards with corner accent
+   ========================================================================== */
+
+/* ── Grid wrapper ─────────────────────────────────────────────────────────── */
 .work__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -5,109 +10,81 @@
   align-items: start;
 }
 
-.work__grid .grid-stagger__item:nth-child(2) {
-  margin-top: var(--space-16);
-}
-
-.case-study {
-  position: relative;
-  background-color: var(--color-surface-1);
-  border: 1px solid var(--color-border);
+/* ── Card base ────────────────────────────────────────────────────────────── */
+.case-card {
   padding: var(--space-8);
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
+  position: relative;
+  overflow: hidden;
   transition:
     transform var(--duration-base) var(--ease-out-expo),
     border-color var(--duration-base) var(--ease-out-expo),
     box-shadow var(--duration-base) var(--ease-out-expo);
-  overflow: hidden;
 }
 
-.case-study::before {
+/* Corner bracket accent — top-right */
+.case-card::before {
   content: "";
   position: absolute;
   top: 0;
   right: 0;
-  width: 60px;
-  height: 60px;
-  border-bottom: 1px solid var(--color-border);
-  border-left: 1px solid var(--color-border);
+  width: 48px;
+  height: 48px;
+  border-bottom: 1px solid rgba(94, 234, 212, 0.15);
+  border-left: 1px solid rgba(94, 234, 212, 0.15);
   transition: border-color var(--duration-base) var(--ease-out-expo);
+  pointer-events: none;
 }
 
-.case-study::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 2px;
-  background: linear-gradient(to right, var(--color-accent), var(--color-accent-glow), transparent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform var(--duration-slow) var(--ease-out-expo);
+.case-card:hover::before {
+  border-color: rgba(94, 234, 212, 0.4);
 }
 
-.case-study:hover {
-  transform: translateY(-10px);
-  border-color: var(--color-border-lit);
-  box-shadow:
-    var(--shadow-lg),
-    0 0 0 1px rgba(200, 169, 110, 0.08);
-}
-
-.case-study:hover::after {
-  transform: scaleX(1);
-}
-
-.case-study:hover::before {
-  border-color: var(--color-accent-dim);
-}
-
-.case-study__industry {
+/* ── Card elements ────────────────────────────────────────────────────────── */
+.case-card__industry {
   align-self: flex-start;
 }
 
-.case-study__challenge {
+.case-card__challenge {
   font-family: var(--font-serif);
-  font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
-  line-height: var(--leading-snug);
-  color: #FFFFFF;
-  letter-spacing: var(--tracking-tight);
-}
-
-.case-study__metric {
-  display: flex;
-  align-items: baseline;
-  padding-block: var(--space-4);
-  border-block: 1px solid var(--color-border);
-}
-
-.case-study__metric-value {
-  font-family: var(--font-serif);
-  font-size: clamp(var(--text-3xl), 7vw, 5rem);
+  font-size: clamp(var(--text-lg), 2.5vw, var(--text-xl));
   font-weight: 400;
-  color: var(--color-accent-glow);
-  line-height: 1;
-  letter-spacing: var(--tracking-tight);
+  line-height: 1.25;
+  color: var(--color-white);
+  letter-spacing: -0.02em;
 }
 
-.case-study__metric-unit {
-  font-size: var(--text-xl);
-  color: var(--color-accent);
-  margin-left: 2px;
-}
-
-.case-study__outcome {
+/* ── Metric block (HTML: plain <p> tag with gradient text class) ─────────── */
+.case-card__metric {
   font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  color: var(--color-text-secondary);
-  line-height: var(--leading-loose);
+  font-size: clamp(var(--text-3xl), 8vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  padding-block: var(--space-5);
+  border-block: 1px solid var(--color-border-subtle);
   max-width: none;
 }
 
-.case-study__tags {
+.case-card__metric-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  letter-spacing: 0.03em;
+  max-width: none;
+}
+
+.case-card__outcome {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+  max-width: none;
+}
+
+.case-card__tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
@@ -115,13 +92,10 @@
   padding-top: var(--space-4);
 }
 
+/* ── Responsive ───────────────────────────────────────────────────────────── */
 @media (max-width: 1024px) {
   .work__grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-
-  .work__grid .grid-stagger__item:nth-child(2) {
-    margin-top: 0;
   }
 }
 

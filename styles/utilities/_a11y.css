@@ -1,15 +1,21 @@
+/* ==========================================================================
+   Accessibility utilities — skip link, screen-reader helpers
+   ========================================================================== */
+
+/* ── Skip to main content link ────────────────────────────────────────────── */
 .skip-link {
   position: absolute;
   top: -100%;
   left: var(--space-4);
-  background-color: var(--color-accent);
-  color: var(--color-text-inverse);
+  background-color: var(--color-teal-300);
+  color: #050810;
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  font-weight: 600;
+  font-weight: 700;
   padding: var(--space-3) var(--space-6);
   text-decoration: none;
   z-index: var(--z-cursor);
+  border-radius: var(--radius-md);
   transition: top var(--duration-fast);
 }
 
@@ -17,6 +23,7 @@
   top: var(--space-4);
 }
 
+/* ── Screen-reader only ───────────────────────────────────────────────────── */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -27,15 +34,4 @@
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
-}
-
-.sr-only-focusable:focus {
-  position: static;
-  width: auto;
-  height: auto;
-  padding: 0;
-  margin: 0;
-  overflow: visible;
-  clip: auto;
-  white-space: normal;
 }

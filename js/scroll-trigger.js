@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const observer = new IntersectionObserver(
+  var observer = new IntersectionObserver(
     function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
@@ -11,14 +11,13 @@
       });
     },
     {
-      threshold: 0.15,
-      rootMargin: '0px 0px -60px 0px'
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
     }
   );
 
   function init() {
-    const revealElements = document.querySelectorAll('[data-reveal]');
-    revealElements.forEach(function (el) {
+    document.querySelectorAll('[data-reveal]').forEach(function (el) {
       observer.observe(el);
     });
   }

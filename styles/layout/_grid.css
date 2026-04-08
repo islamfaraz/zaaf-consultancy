@@ -1,15 +1,23 @@
+/* ==========================================================================
+   Grid & Container System — ZAAF Consultancy
+   Container, standard grids, asymmetric, services, stagger, responsive
+   ========================================================================== */
+
+/* --- Root container --- */
 .container {
   width: 100%;
-  max-width: var(--container-2xl);
+  max-width: var(--container-max);
   margin-inline: auto;
-  padding-inline: var(--space-6);
+  padding-inline: var(--container-pad);
 }
 
-.container--sm { max-width: var(--container-sm); }
-.container--md { max-width: var(--container-md); }
-.container--lg { max-width: var(--container-lg); }
-.container--xl { max-width: var(--container-xl); }
+/* Container size variants */
+.container--sm  { max-width: 640px; }
+.container--md  { max-width: 768px; }
+.container--lg  { max-width: 1024px; }
+.container--xl  { max-width: 1280px; }
 
+/* --- Standard equal-column grids --- */
 .grid-2 {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -19,51 +27,112 @@
 .grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
 .grid-4 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-8);
+  gap: var(--space-6);
 }
 
+/* --- Asymmetric 40/60 split (2fr / 3fr) --- */
 .grid-asymmetric {
   display: grid;
-  grid-template-columns: 35fr 65fr;
-  gap: var(--space-16);
+  grid-template-columns: 2fr 3fr;
+  gap: clamp(var(--space-10), 8vw, var(--space-24));
   align-items: start;
 }
 
+/* --- Auto-fill services grid — min 280px columns --- */
+.grid-services {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-5);
+}
+
+/* --- 3-column case studies grid --- */
+.grid-cases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+/* --- Staggered 3-column grid: middle item offset downward --- */
+.grid-stagger {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  align-items: start;
+}
+
+/* Offset second child to create visual stagger rhythm */
+.grid-stagger .grid-stagger__item:nth-child(2) {
+  margin-top: var(--space-12);
+}
+
+/* --- General equal auto-fill grid (utility) --- */
 .grid-equal {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: var(--space-8);
 }
 
-.grid-stagger {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-8);
-  align-items: start;
-}
-
-.grid-stagger__item--offset {
-  margin-top: var(--space-16);
-}
+/* ==========================================================================
+   Responsive collapses
+   ========================================================================== */
 
 @media (max-width: 1024px) {
-  .grid-3 { grid-template-columns: repeat(2, 1fr); }
-  .grid-4 { grid-template-columns: repeat(2, 1fr); }
-  .grid-stagger { grid-template-columns: repeat(2, 1fr); }
-  .grid-stagger__item--offset { margin-top: 0; }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-cases {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid-stagger {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Kill stagger offset at tablet — layout looks broken with only 2 cols */
+  .grid-stagger .grid-stagger__item:nth-child(2) {
+    margin-top: 0;
+  }
 }
 
 @media (max-width: 768px) {
-  .grid-2 { grid-template-columns: 1fr; }
-  .grid-3 { grid-template-columns: 1fr; }
-  .grid-4 { grid-template-columns: 1fr; }
-  .grid-asymmetric { grid-template-columns: 1fr; gap: var(--space-10); }
-  .grid-stagger { grid-template-columns: 1fr; }
-  .grid-stagger__item--offset { margin-top: 0; }
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-asymmetric {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+  }
+
+  .grid-cases {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-stagger {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-stagger .grid-stagger__item:nth-child(2) {
+    margin-top: 0;
+  }
 }

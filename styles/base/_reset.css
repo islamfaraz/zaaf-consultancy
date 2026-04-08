@@ -9,19 +9,35 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
-  hanging-punctuation: first last;
+  color-scheme: dark;
 }
 
 body {
   min-height: 100vh;
-  line-height: var(--leading-normal, 1.5);
+  background-color: var(--color-bg);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top: 72px;
+  overflow-x: hidden;
 }
 
-#hero {
-  margin-top: -72px;
+/* Thin teal scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(94, 234, 212, 0.3);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(94, 234, 212, 0.5);
 }
 
 img, picture, video, canvas, svg {
@@ -49,7 +65,7 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--color-accent, #C8A96E);
+  outline: 2px solid var(--color-teal-300);
   outline-offset: 4px;
 }
 

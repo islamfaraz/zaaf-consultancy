@@ -1,3 +1,7 @@
+/* ==========================================================================
+   Motion — reduced-motion media query overrides for all animated elements
+   ========================================================================== */
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -8,18 +12,21 @@
     scroll-behavior: auto !important;
   }
 
+  /* Reveal animations reset to visible state immediately */
   [data-reveal] {
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
   }
 
-  .hero__grid-plane::before {
-    transform: rotateX(55deg);
+  /* Ambient glow orbs */
+  .glow-circle {
+    animation: none;
   }
 
-  .process__line {
-    stroke-dashoffset: 0;
+  /* Process timeline node pulse */
+  .process-step__node {
     animation: none;
   }
 }

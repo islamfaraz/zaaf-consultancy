@@ -3,662 +3,935 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ZAAF Consultancy — IT consultancy specialising in DevOps, Infrastructure as Code, Cloud Architecture, and Digital Transformation.">
-  <title>ZAAF Consultancy — Engineering the infrastructure others inherit</title>
+  <meta name="description" content="ZAAF Consultancy — IT consultancy specialising in DevOps, Infrastructure as Code, Cloud Architecture, and Digital Transformation. We build the infrastructure that scales.">
+  <title>ZAAF Consultancy — We build the infrastructure that scales.</title>
+
+  <!-- Preconnect for fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap">
+
+  <!-- Google Fonts: Inter + Instrument Serif + JetBrains Mono -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap">
+
+  <!-- Main stylesheet -->
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <!-- Skip navigation -->
+
+  <!-- Skip navigation (first in DOM for accessibility) -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- Navigation -->
+  <!-- Fixed background: ambient glow circles -->
+  <div class="glow-circles" aria-hidden="true">
+    <div class="glow-circle"></div>
+    <div class="glow-circle"></div>
+    <div class="glow-circle"></div>
+  </div>
+
+  <!-- Fixed background: CSS grid pattern -->
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <!-- ============================================================
+       NAVIGATION
+  ============================================================ -->
   <nav class="site-nav" role="navigation" aria-label="Main navigation">
-    <div class="site-nav__inner container">
-      <a href="#hero" class="site-nav__logo" aria-label="ZAAF Consultancy — home">ZAAF</a>
+    <div class="site-nav__inner">
+      <a href="#hero" class="site-nav__logo" aria-label="ZAAF Consultancy — home">
+        <svg class="site-nav__logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28" fill="none" aria-hidden="true" focusable="false">
+          <!-- Horizontal top bar -->
+          <line x1="4" y1="5" x2="18" y2="5" stroke="#5eead4" stroke-width="2" stroke-linecap="round"/>
+          <!-- Diagonal slash from top-right to bottom-left -->
+          <line x1="18" y1="5" x2="10" y2="23" stroke="#5eead4" stroke-width="2" stroke-linecap="round"/>
+          <!-- Horizontal bottom bar -->
+          <line x1="10" y1="23" x2="24" y2="23" stroke="#5eead4" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span class="site-nav__logo-text">ZAAF</span>
+      </a>
+
       <ul class="site-nav__links" role="list">
-        <li class="site-nav__item"><a href="#about" class="site-nav__link">About</a></li>
-        <li class="site-nav__item"><a href="#services" class="site-nav__link">Services</a></li>
+        <li class="site-nav__item"><a href="#about"     class="site-nav__link">About</a></li>
+        <li class="site-nav__item"><a href="#services"  class="site-nav__link">Services</a></li>
         <li class="site-nav__item"><a href="#expertise" class="site-nav__link">Expertise</a></li>
-        <li class="site-nav__item"><a href="#process" class="site-nav__link">Process</a></li>
-        <li class="site-nav__item"><a href="#work" class="site-nav__link">Work</a></li>
+        <li class="site-nav__item"><a href="#process"   class="site-nav__link">Process</a></li>
+        <li class="site-nav__item"><a href="#work"      class="site-nav__link">Work</a></li>
       </ul>
-      <a href="#contact" class="site-nav__cta">Let's talk →</a>
-      <button class="site-nav__mobile-toggle" aria-expanded="false" aria-controls="mobile-overlay" aria-label="Open navigation menu">
+
+      <a href="#contact" class="site-nav__cta btn btn--primary">Let's talk</a>
+
+      <button
+        class="site-nav__mobile-toggle"
+        aria-expanded="false"
+        aria-controls="mobile-overlay"
+        aria-label="Open navigation menu"
+      >
         <span class="site-nav__toggle-line" aria-hidden="true"></span>
         <span class="site-nav__toggle-line" aria-hidden="true"></span>
       </button>
     </div>
-    <div class="site-nav__mobile-overlay" id="mobile-overlay" role="dialog" aria-label="Navigation menu" aria-modal="true" hidden>
+
+    <!-- Mobile full-screen overlay -->
+    <div
+      class="site-nav__mobile-overlay"
+      id="mobile-overlay"
+      role="dialog"
+      aria-label="Navigation menu"
+      aria-modal="true"
+      hidden
+    >
       <ul class="site-nav__mobile-links" role="list">
-        <li><a href="#about" class="site-nav__mobile-link">About</a></li>
-        <li><a href="#services" class="site-nav__mobile-link">Services</a></li>
+        <li><a href="#about"     class="site-nav__mobile-link">About</a></li>
+        <li><a href="#services"  class="site-nav__mobile-link">Services</a></li>
         <li><a href="#expertise" class="site-nav__mobile-link">Expertise</a></li>
-        <li><a href="#process" class="site-nav__mobile-link">Process</a></li>
-        <li><a href="#work" class="site-nav__mobile-link">Work</a></li>
-        <li><a href="#contact" class="site-nav__mobile-link site-nav__mobile-link--cta">Let's talk →</a></li>
+        <li><a href="#process"   class="site-nav__mobile-link">Process</a></li>
+        <li><a href="#work"      class="site-nav__mobile-link">Work</a></li>
+        <li><a href="#contact"   class="site-nav__mobile-link site-nav__mobile-link--cta">Let's talk →</a></li>
       </ul>
     </div>
   </nav>
 
+  <!-- ============================================================
+       MAIN CONTENT
+  ============================================================ -->
   <main id="main-content">
 
-    <!-- Section 01: Hero -->
+    <!-- =========================================================
+         SECTION 00 — HERO
+    ========================================================= -->
     <section id="hero" class="hero" aria-labelledby="hero-headline">
-      <div class="hero__grid-plane" aria-hidden="true"></div>
-      <div class="hero__glow hero__glow--left" aria-hidden="true"></div>
-      <div class="hero__glow hero__glow--right" aria-hidden="true"></div>
-      <div class="hero__rule hero__rule--top" aria-hidden="true"></div>
-      <div class="hero__rule hero__rule--bottom" aria-hidden="true"></div>
-      <div class="hero__corner" aria-hidden="true"></div>
-      <div class="hero__corner hero__corner--bottom-left" aria-hidden="true"></div>
-      <div class="hero__content">
-        <span class="section-label hero__label">ZAAF Consultancy — Est. 2024</span>
-        <h1 id="hero-headline" class="hero__headline">
-          Engineering the<br>infrastructure
-          <em>that others inherit.</em>
-        </h1>
-        <p class="hero__subtext">We architect, automate, and secure digital infrastructure for organisations that cannot afford to stand still.</p>
-        <a href="#services" class="hero__cta">Explore our capabilities <span aria-hidden="true">→</span></a>
+
+      <!-- Decorative background layers -->
+      <div class="hero__grid-bg" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--a" aria-hidden="true"></div>
+      <div class="hero__glow hero__glow--b" aria-hidden="true"></div>
+
+      <!-- Decorative bracket corner, top-right -->
+      <div class="hero__bracket" aria-hidden="true">
+        <span class="hero__bracket-line hero__bracket-line--h"></span>
+        <span class="hero__bracket-line hero__bracket-line--v"></span>
       </div>
-      <div class="hero__stats" aria-hidden="true">
-        <div class="hero__stat">
-          <span class="hero__stat-value">94%</span>
-          <span class="hero__stat-label">Deployment reduction</span>
+
+      <!-- Bottom-left anchored content -->
+      <div class="hero__content">
+        <p class="hero__mono-label" aria-hidden="true">// it-consultancy-services</p>
+
+        <h1 id="hero-headline" class="hero__headline" data-reveal>
+          We build the<br>
+          <span class="text-gradient">infrastructure</span><br>
+          that scales.
+        </h1>
+
+        <p class="hero__subtext" data-reveal data-reveal-delay="1">
+          ZAAF Consultancy designs, automates, and secures cloud infrastructure
+          for organisations that move fast and cannot afford to fail.
+        </p>
+
+        <div class="hero__ctas" data-reveal data-reveal-delay="2">
+          <a href="#contact" class="btn btn--primary">Start a project →</a>
+          <a href="#work"    class="btn btn--ghost">View our work</a>
         </div>
-        <div class="hero__stat">
-          <span class="hero__stat-value">100%</span>
+      </div>
+
+      <!-- Right-aligned stat stack -->
+      <aside class="hero__stats" aria-label="Key results">
+        <div class="hero__stat" data-reveal data-reveal-delay="3">
+          <span class="hero__stat-value text-gradient-teal">94%</span>
+          <span class="hero__stat-label">Deployment time reduced</span>
+        </div>
+        <div class="hero__stat" data-reveal data-reveal-delay="4">
+          <span class="hero__stat-value text-gradient-teal">100%</span>
           <span class="hero__stat-label">IaC coverage achieved</span>
         </div>
-        <div class="hero__stat">
-          <span class="hero__stat-value">6mo</span>
-          <span class="hero__stat-label">ISO 27001 to certified</span>
+        <div class="hero__stat" data-reveal data-reveal-delay="5">
+          <span class="hero__stat-value text-gradient-teal">6 mo</span>
+          <span class="hero__stat-label">ISO 27001 certified</span>
         </div>
+      </aside>
+
+      <!-- Scroll indicator -->
+      <div class="hero__scroll-indicator" aria-hidden="true">
+        <span>Scroll</span>
       </div>
-      <div class="hero__scroll-indicator" aria-hidden="true"><span>Scroll</span></div>
+
     </section>
 
-    <!-- Section 02: About -->
-    <section id="about" class="section about" aria-labelledby="about-heading">
-      <div class="container">
-        <span class="section-label" aria-hidden="true">About</span>
-        <div class="about__grid grid-asymmetric">
-          <div class="about__pull-quote" data-reveal>
-            <span class="section-number" aria-hidden="true">01</span>
-            <blockquote class="about__quote">
-              <p>"We document the decisions that most consultancies quietly avoid."</p>
-            </blockquote>
-          </div>
-          <div class="about__body" data-reveal data-reveal-delay="2">
-            <h2 id="about-heading" class="about__heading">Philosophy</h2>
-            <p>Most IT consultancies sell effort. We sell outcomes with defined exit criteria. Our engagements are scoped, time-boxed, and designed to leave your team more capable than when we arrived.</p>
-            <p>ZAAF was built in response to a pattern we kept seeing: organisations paying for years of consultancy dependency while their internal capability quietly atrophied. We break that cycle.</p>
-            <p>We work with engineering teams inside growth-stage companies, public sector organisations, and enterprises undergoing infrastructure modernisation. If you can articulate the problem, we can engineer the solution.</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- Section 03: Services Matrix -->
-    <section id="services" class="section services" aria-labelledby="services-heading">
-      <div class="container">
-        <div class="section__header" data-reveal>
-          <span class="section-label">Services</span>
-          <h2 id="services-heading" class="section__title">What we do</h2>
-        </div>
-        <div class="services__matrix" role="list">
+    <!-- =========================================================
+         SECTION 01 — ABOUT
+    ========================================================= -->
+    <section id="about" class="about section section--alt section--has-rule" aria-labelledby="about-heading">
+      <div class="section__inner">
 
-          <div class="service-row" role="listitem" data-reveal data-reveal-delay="1">
-            <details class="service-row__details">
-              <summary class="service-row__summary">
-                <span class="service-row__index" aria-hidden="true">01</span>
-                <span class="service-row__name">DevOps &amp; CI/CD Pipeline Engineering</span>
-                <span class="service-row__descriptor">Automate build, test, and deploy pipelines.</span>
-                <span class="service-row__tags" aria-label="Technologies">
-                  <span class="tag">GitHub Actions</span>
-                  <span class="tag">ArgoCD</span>
-                  <span class="tag">Jenkins</span>
-                </span>
-                <span class="service-row__arrow" aria-hidden="true">→</span>
-              </summary>
-              <div class="service-row__detail">
-                <div class="service-detail__grid">
-                  <div class="service-detail__col">
-                    <h3>What we do</h3>
-                    <p>We design and implement end-to-end CI/CD pipelines that reduce deployment risk and increase release frequency. From pipeline architecture to GitOps workflows, we build the automation backbone your engineering team needs.</p>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Key deliverables</h3>
-                    <ul>
-                      <li>Automated test and build pipelines</li>
-                      <li>GitOps deployment workflows</li>
-                      <li>Pipeline observability and alerting</li>
-                      <li>Developer workflow documentation</li>
-                    </ul>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Typical engagement</h3>
-                    <p>4–8 weeks for initial pipeline buildout. 2-week retainer sprint for ongoing optimisation.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
-          </div>
+        <p class="section-label" data-reveal>// 01 — about</p>
 
-          <div class="service-row" role="listitem" data-reveal data-reveal-delay="2">
-            <details class="service-row__details">
-              <summary class="service-row__summary">
-                <span class="service-row__index" aria-hidden="true">02</span>
-                <span class="service-row__name">Infrastructure as Code</span>
-                <span class="service-row__descriptor">Define and provision infrastructure through code.</span>
-                <span class="service-row__tags" aria-label="Technologies">
-                  <span class="tag">Terraform</span>
-                  <span class="tag">Ansible</span>
-                  <span class="tag">Pulumi</span>
-                </span>
-                <span class="service-row__arrow" aria-hidden="true">→</span>
-              </summary>
-              <div class="service-row__detail">
-                <div class="service-detail__grid">
-                  <div class="service-detail__col">
-                    <h3>What we do</h3>
-                    <p>We convert manually provisioned infrastructure into version-controlled, reproducible IaC. Every resource defined, every change tracked, every environment consistent.</p>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Key deliverables</h3>
-                    <ul>
-                      <li>Full IaC coverage of existing infrastructure</li>
-                      <li>State management and remote backends</li>
-                      <li>Module library for reuse</li>
-                      <li>Policy-as-code guardrails</li>
-                    </ul>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Typical engagement</h3>
-                    <p>6–12 weeks depending on infrastructure complexity. Delivered alongside existing operations.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
-          </div>
+        <h2 id="about-heading" class="section-heading" data-reveal data-reveal-delay="1">
+          We don't sell effort.<br>We sell outcomes.
+        </h2>
 
-          <div class="service-row" role="listitem" data-reveal data-reveal-delay="3">
-            <details class="service-row__details">
-              <summary class="service-row__summary">
-                <span class="service-row__index" aria-hidden="true">03</span>
-                <span class="service-row__name">Cloud Architecture &amp; Migration</span>
-                <span class="service-row__descriptor">Design resilient multi-cloud environments.</span>
-                <span class="service-row__tags" aria-label="Technologies">
-                  <span class="tag">AWS</span>
-                  <span class="tag">Azure</span>
-                  <span class="tag">GCP</span>
-                </span>
-                <span class="service-row__arrow" aria-hidden="true">→</span>
-              </summary>
-              <div class="service-row__detail">
-                <div class="service-detail__grid">
-                  <div class="service-detail__col">
-                    <h3>What we do</h3>
-                    <p>We architect cloud environments designed for your actual load patterns, compliance requirements, and cost targets — not generic well-architected templates.</p>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Key deliverables</h3>
-                    <ul>
-                      <li>Cloud architecture documentation</li>
-                      <li>Migration runbooks and rollback plans</li>
-                      <li>Cost optimisation recommendations</li>
-                      <li>Landing zone and account structure</li>
-                    </ul>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Typical engagement</h3>
-                    <p>Assessment: 2 weeks. Migration: 8–20 weeks depending on workload count.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
-          </div>
+        <div class="about__grid">
 
-          <div class="service-row" role="listitem" data-reveal data-reveal-delay="1">
-            <details class="service-row__details">
-              <summary class="service-row__summary">
-                <span class="service-row__index" aria-hidden="true">04</span>
-                <span class="service-row__name">Managed IT Services</span>
-                <span class="service-row__descriptor">End-to-end support for your technology estate.</span>
-                <span class="service-row__tags" aria-label="Technologies">
-                  <span class="tag">ITIL</span>
-                  <span class="tag">SLA-driven</span>
-                  <span class="tag">24/7</span>
-                </span>
-                <span class="service-row__arrow" aria-hidden="true">→</span>
-              </summary>
-              <div class="service-row__detail">
-                <div class="service-detail__grid">
-                  <div class="service-detail__col">
-                    <h3>What we do</h3>
-                    <p>Ongoing management of your IT estate with defined SLAs, transparent reporting, and a direct line to engineers — not a ticket queue.</p>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Key deliverables</h3>
-                    <ul>
-                      <li>Monthly service health reporting</li>
-                      <li>Incident response with defined RTO/RPO</li>
-                      <li>Change management process</li>
-                      <li>Quarterly review meetings</li>
-                    </ul>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Typical engagement</h3>
-                    <p>Ongoing monthly retainer. Minimum 3-month initial term.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
-          </div>
+          <!-- Left: large pull-quote -->
+          <blockquote class="about__quote" data-reveal data-reveal-delay="2">
+            <p>"We document the decisions that most consultancies quietly avoid."</p>
+          </blockquote>
 
-          <div class="service-row" role="listitem" data-reveal data-reveal-delay="2">
-            <details class="service-row__details">
-              <summary class="service-row__summary">
-                <span class="service-row__index" aria-hidden="true">05</span>
-                <span class="service-row__name">Web &amp; Application Development</span>
-                <span class="service-row__descriptor">Custom digital products built to enterprise standards.</span>
-                <span class="service-row__tags" aria-label="Technologies">
-                  <span class="tag">React</span>
-                  <span class="tag">Node.js</span>
-                  <span class="tag">TypeScript</span>
-                </span>
-                <span class="service-row__arrow" aria-hidden="true">→</span>
-              </summary>
-              <div class="service-row__detail">
-                <div class="service-detail__grid">
-                  <div class="service-detail__col">
-                    <h3>What we do</h3>
-                    <p>We build web applications and internal tools with the same rigour we apply to infrastructure — accessible, performant, and maintainable by your team after we leave.</p>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Key deliverables</h3>
-                    <ul>
-                      <li>Full-stack web applications</li>
-                      <li>Internal tooling and dashboards</li>
-                      <li>API design and integration</li>
-                      <li>Documentation and handover</li>
-                    </ul>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Typical engagement</h3>
-                    <p>Scoped per project. Fixed-price or time-and-materials available.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
-          </div>
+          <!-- Right: editorial paragraphs -->
+          <div class="about__body" data-reveal data-reveal-delay="3">
+            <p>
+              ZAAF Consultancy was founded on a single conviction: that most technology
+              projects fail not because of poor tooling, but because of poor decisions made
+              early and never revisited. We exist to make those decisions explicit, documented,
+              and defensible — so the organisations we work with can move forward with confidence
+              rather than hope.
+            </p>
+            <p>
+              Every engagement we take on ends with a handover that is genuinely usable.
+              No black-box systems. No tribal knowledge. No dependency on us to keep the lights
+              on. We build things that your own engineers can own, extend, and improve the day
+              we leave.
+            </p>
+            <p>
+              Our team operates at the intersection of infrastructure engineering, security, and
+              product delivery. We have worked across logistics, fintech, healthcare, and the
+              public sector. The problems change; the discipline does not.
+            </p>
 
-          <div class="service-row" role="listitem" data-reveal data-reveal-delay="3">
-            <details class="service-row__details">
-              <summary class="service-row__summary">
-                <span class="service-row__index" aria-hidden="true">06</span>
-                <span class="service-row__name">Cybersecurity &amp; Compliance</span>
-                <span class="service-row__descriptor">Reduce attack surface and meet regulatory requirements.</span>
-                <span class="service-row__tags" aria-label="Technologies">
-                  <span class="tag">ISO 27001</span>
-                  <span class="tag">SOC 2</span>
-                  <span class="tag">Pen Testing</span>
-                </span>
-                <span class="service-row__arrow" aria-hidden="true">→</span>
-              </summary>
-              <div class="service-row__detail">
-                <div class="service-detail__grid">
-                  <div class="service-detail__col">
-                    <h3>What we do</h3>
-                    <p>Security assessments, compliance readiness, and remediation. We work through the gap between where you are and where your certification requires you to be.</p>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Key deliverables</h3>
-                    <ul>
-                      <li>Risk assessment and gap analysis</li>
-                      <li>Remediation roadmap</li>
-                      <li>Penetration testing reports</li>
-                      <li>Certification readiness review</li>
-                    </ul>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Typical engagement</h3>
-                    <p>Gap analysis: 2–3 weeks. Full certification support: 3–6 months.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
-          </div>
-
-          <div class="service-row" role="listitem" data-reveal data-reveal-delay="1">
-            <details class="service-row__details">
-              <summary class="service-row__summary">
-                <span class="service-row__index" aria-hidden="true">07</span>
-                <span class="service-row__name">IT Strategy &amp; Digital Transformation</span>
-                <span class="service-row__descriptor">Align technology investment with business outcomes.</span>
-                <span class="service-row__tags" aria-label="Technologies">
-                  <span class="tag">CTO Advisory</span>
-                  <span class="tag">Roadmapping</span>
-                  <span class="tag">OKRs</span>
-                </span>
-                <span class="service-row__arrow" aria-hidden="true">→</span>
-              </summary>
-              <div class="service-row__detail">
-                <div class="service-detail__grid">
-                  <div class="service-detail__col">
-                    <h3>What we do</h3>
-                    <p>Technology strategy for leadership teams that need clarity on direction, investment priorities, and organisational capability. We produce actionable roadmaps, not slide decks.</p>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Key deliverables</h3>
-                    <ul>
-                      <li>Technology audit and current-state assessment</li>
-                      <li>3-year strategic roadmap</li>
-                      <li>Build/buy/partner recommendations</li>
-                      <li>Team structure and hiring plan</li>
-                    </ul>
-                  </div>
-                  <div class="service-detail__col">
-                    <h3>Typical engagement</h3>
-                    <p>4-week intensive advisory. Ongoing fractional CTO available.</p>
-                  </div>
-                </div>
-              </div>
-            </details>
+            <!-- Stat pills -->
+            <ul class="about__pills" role="list" aria-label="Company figures">
+              <li class="about__pill">50+ Projects</li>
+              <li class="about__pill">4 Years</li>
+              <li class="about__pill">3 Countries</li>
+            </ul>
           </div>
 
         </div>
       </div>
     </section>
 
-    <!-- Section 04: Deep Expertise -->
-    <section id="expertise" class="section expertise" aria-labelledby="expertise-heading">
-      <div class="container">
-        <div class="section__header" data-reveal>
-          <span class="section-label">Expertise</span>
-          <h2 id="expertise-heading" class="section__title">Deep capability areas</h2>
-        </div>
-        <div class="expertise__layout">
-          <div class="expertise__tabs" role="tablist" aria-label="Expertise areas">
-            <button role="tab" aria-selected="true" aria-controls="tab-devops" id="tab-btn-devops" class="expertise__tab is-active">DevOps</button>
-            <button role="tab" aria-selected="false" aria-controls="tab-iac" id="tab-btn-iac" class="expertise__tab">IaC</button>
-            <button role="tab" aria-selected="false" aria-controls="tab-cloud" id="tab-btn-cloud" class="expertise__tab">Cloud</button>
-            <button role="tab" aria-selected="false" aria-controls="tab-security" id="tab-btn-security" class="expertise__tab">Security</button>
-            <button role="tab" aria-selected="false" aria-controls="tab-dev" id="tab-btn-dev" class="expertise__tab">Development</button>
-            <button role="tab" aria-selected="false" aria-controls="tab-managed" id="tab-btn-managed" class="expertise__tab">Managed Services</button>
-            <button role="tab" aria-selected="false" aria-controls="tab-strategy" id="tab-btn-strategy" class="expertise__tab">Strategy</button>
+
+    <!-- =========================================================
+         SECTION 02 — SERVICES
+    ========================================================= -->
+    <section id="services" class="services section section--has-rule" aria-labelledby="services-heading">
+      <div class="section__inner">
+
+        <p class="section-label" data-reveal>// 02 — services</p>
+        <h2 id="services-heading" class="section-heading" data-reveal data-reveal-delay="1">
+          What we deliver
+        </h2>
+        <p class="section-subheading" data-reveal data-reveal-delay="2">
+          Seven focused capability areas. Each delivered as a defined engagement with clear scope,
+          measurable outcomes, and a proper handover.
+        </p>
+
+        <ul class="services__grid" role="list">
+
+          <!-- 01 DevOps & CI/CD -->
+          <li class="service-card glass-card" data-reveal data-reveal-delay="1">
+            <span class="service-card__index" aria-hidden="true">01</span>
+            <h3 class="service-card__title">DevOps &amp; CI/CD</h3>
+            <p class="service-card__desc">
+              End-to-end pipeline automation from commit to production. We eliminate manual
+              steps, reduce deployment risk, and give your team full visibility of every release.
+            </p>
+            <ul class="service-card__tags" role="list" aria-label="Technologies">
+              <li class="tag">GitHub Actions</li>
+              <li class="tag">ArgoCD</li>
+              <li class="tag">Jenkins</li>
+            </ul>
+          </li>
+
+          <!-- 02 Infrastructure as Code -->
+          <li class="service-card glass-card" data-reveal data-reveal-delay="2">
+            <span class="service-card__index" aria-hidden="true">02</span>
+            <h3 class="service-card__title">Infrastructure as Code</h3>
+            <p class="service-card__desc">
+              Every resource defined, versioned, and reproducible. We migrate teams away from
+              click-ops to auditable, drift-free infrastructure that survives personnel changes.
+            </p>
+            <ul class="service-card__tags" role="list" aria-label="Technologies">
+              <li class="tag">Terraform</li>
+              <li class="tag">Ansible</li>
+              <li class="tag">Pulumi</li>
+            </ul>
+          </li>
+
+          <!-- 03 Cloud Architecture -->
+          <li class="service-card glass-card" data-reveal data-reveal-delay="3">
+            <span class="service-card__index" aria-hidden="true">03</span>
+            <h3 class="service-card__title">Cloud Architecture</h3>
+            <p class="service-card__desc">
+              Multi-cloud environments built for your actual workloads — not a vendor's preferred
+              topology. We design for cost efficiency, resilience, and team operability.
+            </p>
+            <ul class="service-card__tags" role="list" aria-label="Technologies">
+              <li class="tag">AWS</li>
+              <li class="tag">Azure</li>
+              <li class="tag">GCP</li>
+            </ul>
+          </li>
+
+          <!-- 04 Managed IT Services -->
+          <li class="service-card glass-card" data-reveal data-reveal-delay="1">
+            <span class="service-card__index" aria-hidden="true">04</span>
+            <h3 class="service-card__title">Managed IT Services</h3>
+            <p class="service-card__desc">
+              Proactive support with defined SLAs and direct engineer access. No ticket queues
+              hiding behind account managers. You speak to the person who knows your system.
+            </p>
+            <ul class="service-card__tags" role="list" aria-label="Technologies">
+              <li class="tag">ITIL</li>
+              <li class="tag">SLA</li>
+              <li class="tag">24/7</li>
+            </ul>
+          </li>
+
+          <!-- 05 Web & App Development -->
+          <li class="service-card glass-card" data-reveal data-reveal-delay="2">
+            <span class="service-card__index" aria-hidden="true">05</span>
+            <h3 class="service-card__title">Web &amp; App Development</h3>
+            <p class="service-card__desc">
+              Custom digital products maintained by your team after we leave. We build with
+              straightforward technology choices and document everything as we go.
+            </p>
+            <ul class="service-card__tags" role="list" aria-label="Technologies">
+              <li class="tag">React</li>
+              <li class="tag">Node.js</li>
+              <li class="tag">TypeScript</li>
+            </ul>
+          </li>
+
+          <!-- 06 Cybersecurity & Compliance -->
+          <li class="service-card glass-card" data-reveal data-reveal-delay="3">
+            <span class="service-card__index" aria-hidden="true">06</span>
+            <h3 class="service-card__title">Cybersecurity &amp; Compliance</h3>
+            <p class="service-card__desc">
+              From attack surface to certification-ready in defined sprints. We run structured
+              security programmes, not rolling advisory retainers with no visible end state.
+            </p>
+            <ul class="service-card__tags" role="list" aria-label="Technologies">
+              <li class="tag">ISO 27001</li>
+              <li class="tag">SOC 2</li>
+              <li class="tag">Pen Testing</li>
+            </ul>
+          </li>
+
+          <!-- 07 IT Strategy (centred, last card) -->
+          <li class="service-card service-card--featured glass-card" data-reveal data-reveal-delay="1">
+            <span class="service-card__index" aria-hidden="true">07</span>
+            <h3 class="service-card__title">IT Strategy</h3>
+            <p class="service-card__desc">
+              Technology roadmaps deliverable by the team and budget that actually exist.
+              We work from your constraints, not an ideal-world assumption of resources.
+            </p>
+            <ul class="service-card__tags" role="list" aria-label="Technologies">
+              <li class="tag">CTO Advisory</li>
+              <li class="tag">OKRs</li>
+              <li class="tag">Roadmapping</li>
+            </ul>
+          </li>
+
+        </ul>
+      </div>
+    </section>
+
+
+    <!-- =========================================================
+         SECTION 03 — EXPERTISE (Tabs)
+    ========================================================= -->
+    <section id="expertise" class="expertise section section--has-rule" aria-labelledby="expertise-heading">
+      <div class="section__inner">
+
+        <p class="section-label" data-reveal>// 03 — expertise</p>
+        <h2 id="expertise-heading" class="section-heading" data-reveal data-reveal-delay="1">
+          Deep capability areas
+        </h2>
+        <p class="section-subheading" data-reveal data-reveal-delay="2">
+          Beyond service delivery — the accumulated knowledge that shapes how we approach
+          each engagement.
+        </p>
+
+        <div class="expertise__layout" data-reveal data-reveal-delay="3">
+
+          <!-- Tab list (vertical desktop / horizontal scroll mobile) -->
+          <div
+            class="expertise__tablist-wrap"
+            role="tablist"
+            aria-label="Capability areas"
+            aria-orientation="vertical"
+          >
+            <button class="expertise__tab" role="tab" aria-selected="true"  aria-controls="tab-panel-devops"    id="tab-devops"    tabindex="0">DevOps &amp; CI/CD</button>
+            <button class="expertise__tab" role="tab" aria-selected="false" aria-controls="tab-panel-iac"       id="tab-iac"       tabindex="-1">Infrastructure as Code</button>
+            <button class="expertise__tab" role="tab" aria-selected="false" aria-controls="tab-panel-cloud"     id="tab-cloud"     tabindex="-1">Cloud Architecture</button>
+            <button class="expertise__tab" role="tab" aria-selected="false" aria-controls="tab-panel-managed"   id="tab-managed"   tabindex="-1">Managed IT</button>
+            <button class="expertise__tab" role="tab" aria-selected="false" aria-controls="tab-panel-web"       id="tab-web"       tabindex="-1">Web &amp; App Dev</button>
+            <button class="expertise__tab" role="tab" aria-selected="false" aria-controls="tab-panel-security"  id="tab-security"  tabindex="-1">Cybersecurity</button>
+            <button class="expertise__tab" role="tab" aria-selected="false" aria-controls="tab-panel-strategy"  id="tab-strategy"  tabindex="-1">IT Strategy</button>
           </div>
+
+          <!-- Tab panels -->
           <div class="expertise__panels">
-            <div role="tabpanel" id="tab-devops" aria-labelledby="tab-btn-devops" class="expertise__panel is-active">
-              <h3>The real challenge isn't automation — it's culture.</h3>
-              <p>Most teams have the tools. They're running Jenkins or GitHub Actions. But deployments still feel risky, releases still cause anxiety, and the on-call rotation still dreads Fridays. The problem is rarely the pipeline. It's the absence of shared standards, visibility, and confidence.</p>
-              <ul class="expertise__capabilities">
-                <li>Pipeline design from first principles — not copying templates</li>
-                <li>Progressive delivery strategies: feature flags, canary, blue-green</li>
-                <li>Observability integration: metrics, logs, and traces in the pipeline</li>
+
+            <!-- Panel 1: DevOps -->
+            <div
+              class="expertise__panel glass-card"
+              role="tabpanel"
+              id="tab-panel-devops"
+              aria-labelledby="tab-devops"
+              tabindex="0"
+            >
+              <h3 class="expertise__panel-title">
+                <em>The real challenge isn't automation — it's culture.</em>
+              </h3>
+              <p>
+                Most teams already know they need CI/CD. The blocker is not tooling — it is the
+                absence of agreed standards, ownership, and a pipeline that engineers actually trust.
+                We build pipelines that teams adopt willingly, not ones that get bypassed the moment
+                something goes wrong.
+              </p>
+              <ul class="expertise__capabilities" role="list">
+                <li>Pipeline design, implementation, and migration across GitHub Actions, GitLab CI, Jenkins, and ArgoCD</li>
+                <li>GitOps workflows with policy-as-code gates and automated rollback strategies</li>
+                <li>DORA metric baselines, deployment frequency tracking, and team enablement programmes</li>
               </ul>
-              <div class="expertise__case">
-                <span class="tag">Global Logistics Provider</span>
-                <p>Transformed a 3-week manual release process into a fully automated 4-hour pipeline with zero production incidents in the first quarter post-launch.</p>
-              </div>
+              <aside class="expertise__case-callout">
+                <p class="expertise__case-label">Case study</p>
+                <p>
+                  A global logistics provider reduced their mean deployment time from 4 hours to
+                  14 minutes after we rebuilt their pipeline architecture and introduced progressive
+                  delivery. Zero rollbacks in the following six months.
+                </p>
+              </aside>
             </div>
-            <div role="tabpanel" id="tab-iac" aria-labelledby="tab-btn-iac" class="expertise__panel" hidden>
-              <h3>Your infrastructure should survive a team change.</h3>
-              <p>When the engineer who built your cloud environment leaves, can anyone else understand it? IaC isn't about saving time on provisioning — it's about institutional knowledge that lives in code, not in someone's head.</p>
-              <ul class="expertise__capabilities">
-                <li>Greenfield IaC design and brownfield migration from click-ops</li>
-                <li>Multi-environment management with workspace and module strategies</li>
-                <li>Drift detection, policy gates, and compliance automation</li>
+
+            <!-- Panel 2: IaC -->
+            <div
+              class="expertise__panel glass-card"
+              role="tabpanel"
+              id="tab-panel-iac"
+              aria-labelledby="tab-iac"
+              tabindex="0"
+              hidden
+            >
+              <h3 class="expertise__panel-title">
+                <em>Click-ops is a liability, not a workflow.</em>
+              </h3>
+              <p>
+                Manually provisioned infrastructure is unauditable, unrepeatable, and expensive to
+                maintain. We migrate teams to fully codified infrastructure — Terraform, Pulumi, or
+                Ansible, depending on your stack and team — with state management, module libraries,
+                and automated drift detection from day one.
+              </p>
+              <ul class="expertise__capabilities" role="list">
+                <li>Full infrastructure migration from console-managed to IaC-managed environments</li>
+                <li>Custom Terraform module libraries, state backend configuration, and team governance patterns</li>
+                <li>CI-integrated drift detection and policy enforcement with Checkov and OPA</li>
               </ul>
-              <div class="expertise__case">
-                <span class="tag">FinTech Series B</span>
-                <p>Migrated 100% of AWS infrastructure from manually provisioned resources to Terraform in 8 weeks, with zero downtime and full state import coverage.</p>
-              </div>
+              <aside class="expertise__case-callout">
+                <p class="expertise__case-label">Case study</p>
+                <p>
+                  A FinTech Series B company achieved 100% IaC coverage across three AWS accounts
+                  in twelve weeks. Their next environment stood up in under two hours without
+                  ZAAF involvement.
+                </p>
+              </aside>
             </div>
-            <div role="tabpanel" id="tab-cloud" aria-labelledby="tab-btn-cloud" class="expertise__panel" hidden>
-              <h3>Cloud bills don't lie. Architecture choices do.</h3>
-              <p>We see organisations paying three times what they should because their cloud architecture was designed for velocity, not sustainability. We right-size environments, restructure landing zones, and design for the workloads that actually exist — not the theoretical ones.</p>
-              <ul class="expertise__capabilities">
-                <li>Well-architected reviews with actionable output</li>
-                <li>Landing zone design: account structure, networking, identity</li>
-                <li>FinOps: cost allocation, savings plans, reserved capacity strategy</li>
+
+            <!-- Panel 3: Cloud Architecture -->
+            <div
+              class="expertise__panel glass-card"
+              role="tabpanel"
+              id="tab-panel-cloud"
+              aria-labelledby="tab-cloud"
+              tabindex="0"
+              hidden
+            >
+              <h3 class="expertise__panel-title">
+                <em>Cloud is not a destination — it's an operating model.</em>
+              </h3>
+              <p>
+                Lifting and shifting on-premise workloads to the cloud rarely solves the underlying
+                problem. We design cloud environments around your actual usage patterns, team
+                capabilities, and cost tolerance — not around a vendor's reference architecture or
+                a consultant's comfort zone.
+              </p>
+              <ul class="expertise__capabilities" role="list">
+                <li>Multi-cloud and hybrid cloud architecture design across AWS, Azure, and GCP</li>
+                <li>Cost optimisation, reserved capacity planning, and FinOps dashboards</li>
+                <li>Landing zone design, account vending, and network segmentation for regulated industries</li>
               </ul>
-              <div class="expertise__case">
-                <span class="tag">Enterprise Retail Client</span>
-                <p>Reduced monthly AWS spend by 42% through right-sizing, reserved instances, and architectural changes — without any degradation to performance SLAs.</p>
-              </div>
+              <aside class="expertise__case-callout">
+                <p class="expertise__case-label">Case study</p>
+                <p>
+                  An NHS Trust reduced cloud spend by 38% within 90 days following a structured
+                  FinOps review and workload right-sizing exercise. No service degradation.
+                </p>
+              </aside>
             </div>
-            <div role="tabpanel" id="tab-security" aria-labelledby="tab-btn-security" class="expertise__panel" hidden>
-              <h3>Compliance is a floor, not a ceiling.</h3>
-              <p>Certification tells customers you met a minimum bar. It doesn't mean your attack surface is small, your response plan is tested, or your team knows what to do when something goes wrong. We build security that actually functions, not security that auditors approve.</p>
-              <ul class="expertise__capabilities">
-                <li>ISO 27001 and SOC 2 readiness assessment and remediation</li>
-                <li>Threat modelling for cloud architectures and applications</li>
-                <li>Penetration testing and red team exercise planning</li>
+
+            <!-- Panel 4: Managed IT -->
+            <div
+              class="expertise__panel glass-card"
+              role="tabpanel"
+              id="tab-panel-managed"
+              aria-labelledby="tab-managed"
+              tabindex="0"
+              hidden
+            >
+              <h3 class="expertise__panel-title">
+                <em>Support should be proactive, not reactive.</em>
+              </h3>
+              <p>
+                Generic managed service providers respond to tickets. We monitor infrastructure
+                proactively, identify degradation before it becomes an incident, and maintain a
+                working knowledge of your system's history. You get a named engineer, not a rota.
+              </p>
+              <ul class="expertise__capabilities" role="list">
+                <li>Defined SLA tiers with transparent escalation paths and engineer-to-client ratios</li>
+                <li>Observability stack implementation: Prometheus, Grafana, PagerDuty, and custom alerting logic</li>
+                <li>Monthly service reviews with written findings, not just uptime dashboards</li>
               </ul>
-              <div class="expertise__case">
-                <span class="tag">NHS Trust (UK)</span>
-                <p>Achieved ISO 27001 certification in 6 months, reducing critical vulnerability count by 68% and implementing a security operations process from scratch.</p>
-              </div>
+              <aside class="expertise__case-callout">
+                <p class="expertise__case-label">Case study</p>
+                <p>
+                  A B2B SaaS company moved from a break-fix MSP to ZAAF retained support.
+                  In year one, incident volume dropped by 61% and average resolution time
+                  fell from 6 hours to 47 minutes.
+                </p>
+              </aside>
             </div>
-            <div role="tabpanel" id="tab-dev" aria-labelledby="tab-btn-dev" class="expertise__panel" hidden>
-              <h3>Software your team can maintain after we leave.</h3>
-              <p>We write code with the next engineer in mind. That means consistent patterns, tests that describe intent, and documentation that covers the decisions — not just the syntax. We don't build dependency, we build capability.</p>
-              <ul class="expertise__capabilities">
-                <li>Full-stack web applications and APIs with TypeScript and Node.js</li>
-                <li>Internal tooling, admin interfaces, and workflow automation</li>
-                <li>Accessibility-first front-end with WCAG 2.2 compliance</li>
+
+            <!-- Panel 5: Web & App Dev -->
+            <div
+              class="expertise__panel glass-card"
+              role="tabpanel"
+              id="tab-panel-web"
+              aria-labelledby="tab-web"
+              tabindex="0"
+              hidden
+            >
+              <h3 class="expertise__panel-title">
+                <em>The best handover is one your team doesn't need us for.</em>
+              </h3>
+              <p>
+                We build digital products with technology your engineers can maintain. We make
+                deliberate choices about stack complexity, document architectural decisions as
+                we go, and treat the handover as a deliverable in its own right — not an
+                afterthought.
+              </p>
+              <ul class="expertise__capabilities" role="list">
+                <li>React and Next.js front-ends, Node.js and Python back-ends, TypeScript throughout</li>
+                <li>API design, integration architecture, and developer documentation as standard deliverables</li>
+                <li>Performance budgets, Core Web Vitals monitoring, and accessibility auditing baked into delivery</li>
               </ul>
-              <div class="expertise__case">
-                <span class="tag">Professional Services Firm</span>
-                <p>Built an internal resource management platform that replaced four disconnected spreadsheet workflows, saving 6 hours of manual reporting per week per team lead.</p>
-              </div>
+              <aside class="expertise__case-callout">
+                <p class="expertise__case-label">Case study</p>
+                <p>
+                  A digital health startup launched their patient portal on time and on budget.
+                  Their internal team shipped three new features independently within the first
+                  month of handover — without a ZAAF engineer in the room.
+                </p>
+              </aside>
             </div>
-            <div role="tabpanel" id="tab-managed" aria-labelledby="tab-btn-managed" class="expertise__panel" hidden>
-              <h3>Your IT estate managed without the abstraction layer.</h3>
-              <p>Managed services shouldn't mean talking to a ticket system. Our clients speak directly to the engineers managing their environments. We keep the feedback loop short and the reporting honest.</p>
-              <ul class="expertise__capabilities">
-                <li>Proactive monitoring with defined alert thresholds and response runbooks</li>
-                <li>Monthly service reviews with quantified SLA performance</li>
-                <li>On-call engineering cover for critical environments</li>
+
+            <!-- Panel 6: Cybersecurity -->
+            <div
+              class="expertise__panel glass-card"
+              role="tabpanel"
+              id="tab-panel-security"
+              aria-labelledby="tab-security"
+              tabindex="0"
+              hidden
+            >
+              <h3 class="expertise__panel-title">
+                <em>Compliance without security is theatre.</em>
+              </h3>
+              <p>
+                We run security programmes that produce real security posture improvements, not
+                just frameworks of documentation. ISO 27001, SOC 2, Cyber Essentials Plus — we
+                know what auditors actually look for, and we build evidence trails that reflect
+                genuine practice rather than policy-level assertions.
+              </p>
+              <ul class="expertise__capabilities" role="list">
+                <li>Attack surface assessments, penetration testing coordination, and remediation roadmaps</li>
+                <li>ISO 27001 and SOC 2 implementation programmes with defined sprint schedules</li>
+                <li>Security-by-design integration into CI/CD pipelines: SAST, DAST, secret scanning, SBOM generation</li>
               </ul>
-              <div class="expertise__case">
-                <span class="tag">Legal Technology Company</span>
-                <p>Maintained 99.97% uptime across a multi-region environment over 18 months, with a mean time to resolution of 23 minutes for P1 incidents.</p>
-              </div>
+              <aside class="expertise__case-callout">
+                <p class="expertise__case-label">Case study</p>
+                <p>
+                  A payments platform achieved ISO 27001 certification in six months — half the
+                  industry average. Zero major non-conformities raised during the Stage 2 audit.
+                </p>
+              </aside>
             </div>
-            <div role="tabpanel" id="tab-strategy" aria-labelledby="tab-btn-strategy" class="expertise__panel" hidden>
-              <h3>A technology roadmap that survives contact with the organisation.</h3>
-              <p>Strategy work that doesn't account for budget cycles, team structure, and organisational politics isn't strategy — it's aspiration. We produce roadmaps that are deliverable by the team that exists, funded by the budget that's available.</p>
-              <ul class="expertise__capabilities">
-                <li>CTO advisory for leadership teams without a full-time technical executive</li>
-                <li>Technology due diligence for investment decisions and acquisitions</li>
-                <li>Engineering team structure design and hiring plan development</li>
+
+            <!-- Panel 7: IT Strategy -->
+            <div
+              class="expertise__panel glass-card"
+              role="tabpanel"
+              id="tab-panel-strategy"
+              aria-labelledby="tab-strategy"
+              tabindex="0"
+              hidden
+            >
+              <h3 class="expertise__panel-title">
+                <em>Strategy without delivery is just a slide deck.</em>
+              </h3>
+              <p>
+                We produce technology roadmaps that are grounded in what your team can actually
+                execute, funded by the budget that exists, and reviewed quarterly rather than
+                filed away. We work alongside leadership to make technology decisions that remain
+                coherent as the business changes.
+              </p>
+              <ul class="expertise__capabilities" role="list">
+                <li>Technology audits, current-state assessments, and prioritised improvement backlogs</li>
+                <li>OKR alignment, quarterly roadmap reviews, and board-level technology reporting</li>
+                <li>Fractional CTO and interim engineering leadership for scale-ups and turnarounds</li>
               </ul>
-              <div class="expertise__case">
-                <span class="tag">Series A SaaS Company</span>
-                <p>Developed a 3-year technology roadmap ahead of Series B fundraise, providing the investment committee with an actionable capability plan and realistic delivery timeline.</p>
-              </div>
+              <aside class="expertise__case-callout">
+                <p class="expertise__case-label">Case study</p>
+                <p>
+                  A Series A scale-up replaced three competing technology strategies with a single
+                  coherent roadmap. Engineering velocity increased by 40% in the following quarter,
+                  measured by shipped OKRs.
+                </p>
+              </aside>
             </div>
-          </div>
-        </div>
+
+          </div><!-- /.expertise__panels -->
+        </div><!-- /.expertise__layout -->
       </div>
     </section>
 
-    <!-- Section 05: Engagement Process -->
-    <section id="process" class="section process" aria-labelledby="process-heading">
-      <div class="container">
-        <div class="section__header" data-reveal>
-          <span class="section-label">Process</span>
-          <h2 id="process-heading" class="section__title">How we engage</h2>
-        </div>
-        <div class="process__timeline">
-          <svg class="process__connector" aria-hidden="true" preserveAspectRatio="none">
-            <line class="process__line" x1="0" y1="50%" x2="100%" y2="50%"/>
-          </svg>
-          <ol class="process__steps" role="list">
-            <li class="process-step" data-reveal data-reveal-delay="1">
-              <div class="process-step__node" aria-hidden="true">01</div>
-              <div class="process-step__content">
-                <h3 class="process-step__title">Discovery</h3>
-                <p class="process-step__desc">Structured 5-day assessment. No NDA required.</p>
-                <p class="process-step__anti" aria-label="What we do not do">We do not start building before understanding.</p>
-              </div>
-            </li>
-            <li class="process-step" data-reveal data-reveal-delay="2">
-              <div class="process-step__node" aria-hidden="true">02</div>
-              <div class="process-step__content">
-                <h3 class="process-step__title">Architecture</h3>
-                <p class="process-step__desc">Documented system design with decision log.</p>
-                <p class="process-step__anti">We do not hand you a diagram and disappear.</p>
-              </div>
-            </li>
-            <li class="process-step" data-reveal data-reveal-delay="3">
-              <div class="process-step__node" aria-hidden="true">03</div>
-              <div class="process-step__content">
-                <h3 class="process-step__title">Delivery</h3>
-                <p class="process-step__desc">Iterative, with weekly client-visible progress.</p>
-                <p class="process-step__anti">We do not go dark for weeks.</p>
-              </div>
-            </li>
-            <li class="process-step" data-reveal data-reveal-delay="4">
-              <div class="process-step__node" aria-hidden="true">04</div>
-              <div class="process-step__content">
-                <h3 class="process-step__title">Handover</h3>
-                <p class="process-step__desc">All work documented. Your team is trained.</p>
-                <p class="process-step__anti">We do not create dependency on our continued presence.</p>
-              </div>
-            </li>
-            <li class="process-step" data-reveal data-reveal-delay="5">
-              <div class="process-step__node" aria-hidden="true">05</div>
-              <div class="process-step__content">
-                <h3 class="process-step__title">Retained <span class="process-step__optional">(Optional)</span></h3>
-                <p class="process-step__desc">Post-engagement retainer if needed.</p>
-                <p class="process-step__anti">We do not lock you into unnecessary retainers.</p>
-              </div>
-            </li>
-          </ol>
-        </div>
+
+    <!-- =========================================================
+         SECTION 04 — PROCESS
+    ========================================================= -->
+    <section id="process" class="process section section--has-rule" aria-labelledby="process-heading">
+      <div class="section__inner">
+
+        <p class="section-label" data-reveal>// 04 — process</p>
+        <h2 id="process-heading" class="section-heading" data-reveal data-reveal-delay="1">
+          How every engagement runs
+        </h2>
+        <p class="section-subheading" data-reveal data-reveal-delay="2">
+          The same five phases, every time. The scope changes; the discipline does not.
+        </p>
+
+        <ol class="process__timeline" role="list" data-reveal data-reveal-delay="3">
+
+          <li class="process__step">
+            <div class="process__node" aria-hidden="true">
+              <span class="process__node-num">01</span>
+            </div>
+            <div class="process__connector" aria-hidden="true"></div>
+            <div class="process__content">
+              <h3 class="process__step-title">Discovery</h3>
+              <p class="process__step-desc">
+                We spend the first week listening, not presenting. Structured interviews across
+                engineering, operations, and leadership to map the actual problem — not the
+                assumed one.
+              </p>
+              <p class="process__anti-pattern">
+                <em>Anti-pattern avoided: skipping discovery to "save time" and scoping the wrong problem at pace.</em>
+              </p>
+            </div>
+          </li>
+
+          <li class="process__step">
+            <div class="process__node" aria-hidden="true">
+              <span class="process__node-num">02</span>
+            </div>
+            <div class="process__connector" aria-hidden="true"></div>
+            <div class="process__content">
+              <h3 class="process__step-title">Architecture</h3>
+              <p class="process__step-desc">
+                A written architecture document, shared before any code is written. Decisions
+                documented, alternatives considered, trade-offs explicit. You review it; we
+                revise it; then we build it.
+              </p>
+              <p class="process__anti-pattern">
+                <em>Anti-pattern avoided: building first and documenting never, leaving tribal knowledge as the only map.</em>
+              </p>
+            </div>
+          </li>
+
+          <li class="process__step">
+            <div class="process__node" aria-hidden="true">
+              <span class="process__node-num">03</span>
+            </div>
+            <div class="process__connector" aria-hidden="true"></div>
+            <div class="process__content">
+              <h3 class="process__step-title">Delivery</h3>
+              <p class="process__step-desc">
+                Two-week sprints with visible progress, written updates, and no surprises.
+                Your engineers are involved throughout — pair programming, review sessions,
+                and knowledge transfer are part of every sprint, not an add-on at the end.
+              </p>
+              <p class="process__anti-pattern">
+                <em>Anti-pattern avoided: disappearing for six weeks and returning with something that misses the brief.</em>
+              </p>
+            </div>
+          </li>
+
+          <li class="process__step">
+            <div class="process__node" aria-hidden="true">
+              <span class="process__node-num">04</span>
+            </div>
+            <div class="process__connector" aria-hidden="true"></div>
+            <div class="process__content">
+              <h3 class="process__step-title">Handover</h3>
+              <p class="process__step-desc">
+                A formal handover sprint. Full documentation, runbooks, architecture diagrams,
+                and a structured knowledge transfer programme. We measure success by whether your
+                team can operate the system without us.
+              </p>
+              <p class="process__anti-pattern">
+                <em>Anti-pattern avoided: handover as a single 90-minute call with a shared drive link and a goodbye email.</em>
+              </p>
+            </div>
+          </li>
+
+          <li class="process__step process__step--last">
+            <div class="process__node" aria-hidden="true">
+              <span class="process__node-num">05</span>
+            </div>
+            <div class="process__content">
+              <h3 class="process__step-title">Retained <span class="process__step-optional">(Optional)</span></h3>
+              <p class="process__step-desc">
+                For organisations that want ongoing engineering support, we offer a retained
+                arrangement: a named engineer, defined capacity per month, monthly service
+                review, and a direct line — not a ticket portal.
+              </p>
+              <p class="process__anti-pattern">
+                <em>Anti-pattern avoided: open-ended retained contracts with no defined scope and no exit criteria.</em>
+              </p>
+            </div>
+          </li>
+
+        </ol>
       </div>
     </section>
 
-    <!-- Section 06: Case Studies -->
-    <section id="work" class="section work" aria-labelledby="work-heading">
-      <div class="container">
-        <div class="section__header" data-reveal>
-          <span class="section-label">Work</span>
-          <h2 id="work-heading" class="section__title">Selected engagements</h2>
-        </div>
-        <div class="work__grid grid-stagger">
-          <article class="case-study grid-stagger__item" data-reveal data-reveal-delay="1">
-            <span class="case-study__industry tag">Global Logistics</span>
-            <h3 class="case-study__challenge">From three weeks to four hours — a deployment transformation.</h3>
-            <div class="case-study__metric" aria-label="94 percent improvement">
-              <span class="case-study__metric-value">94<span class="case-study__metric-unit">%</span></span>
-            </div>
-            <p class="case-study__outcome">Reduction in deployment lead time. Zero production incidents in the first quarter following go-live.</p>
-            <div class="case-study__tags">
-              <span class="tag">DevOps</span>
-              <span class="tag">GitHub Actions</span>
-              <span class="tag">ArgoCD</span>
-            </div>
-          </article>
-          <article class="case-study grid-stagger__item grid-stagger__item--offset" data-reveal data-reveal-delay="2">
-            <span class="case-study__industry tag">FinTech (Series B)</span>
-            <h3 class="case-study__challenge">Zero-downtime cloud migration with full infrastructure coverage.</h3>
-            <div class="case-study__metric" aria-label="100 percent IaC coverage">
-              <span class="case-study__metric-value">100<span class="case-study__metric-unit">%</span></span>
-            </div>
-            <p class="case-study__outcome">IaC coverage achieved across all AWS resources. Full Terraform state imported. Zero downtime during migration.</p>
-            <div class="case-study__tags">
-              <span class="tag">Terraform</span>
-              <span class="tag">AWS</span>
-              <span class="tag">IaC</span>
-            </div>
-          </article>
-          <article class="case-study grid-stagger__item" data-reveal data-reveal-delay="3">
-            <span class="case-study__industry tag">NHS Trust (UK)</span>
-            <h3 class="case-study__challenge">ISO 27001 certification in six months from baseline zero.</h3>
-            <div class="case-study__metric" aria-label="68 percent vulnerability reduction">
-              <span class="case-study__metric-value">68<span class="case-study__metric-unit">%</span></span>
-            </div>
-            <p class="case-study__outcome">Reduction in critical vulnerabilities prior to certification. Security operations process built from scratch.</p>
-            <div class="case-study__tags">
-              <span class="tag">ISO 27001</span>
-              <span class="tag">Cybersecurity</span>
-              <span class="tag">Compliance</span>
-            </div>
-          </article>
-        </div>
+
+    <!-- =========================================================
+         SECTION 05 — WORK (Case Studies)
+    ========================================================= -->
+    <section id="work" class="work section section--alt section--has-rule" aria-labelledby="work-heading">
+      <div class="section__inner">
+
+        <p class="section-label" data-reveal>// 05 — work</p>
+        <h2 id="work-heading" class="section-heading" data-reveal data-reveal-delay="1">
+          Selected engagements
+        </h2>
+        <p class="section-subheading" data-reveal data-reveal-delay="2">
+          Real projects. Real constraints. Real outcomes.
+        </p>
+
+        <ul class="work__grid" role="list">
+
+          <!-- Case 1: Global Logistics -->
+          <li class="case-card glass-card" data-reveal data-reveal-delay="1">
+            <p class="case-card__industry">Global Logistics</p>
+            <h3 class="case-card__challenge">
+              Fragile manual deployments across 12 regional environments causing frequent
+              production incidents.
+            </h3>
+            <p class="case-card__metric text-gradient-teal" aria-label="94 percent">94%</p>
+            <p class="case-card__metric-label">reduction in deployment time</p>
+            <p class="case-card__outcome">
+              Rebuilt CI/CD pipeline architecture with progressive delivery, automated rollbacks,
+              and full observability. Deployment frequency increased by 8× with zero rollbacks in
+              the following six months.
+            </p>
+            <ul class="case-card__tags" role="list" aria-label="Technologies used">
+              <li class="tag">GitHub Actions</li>
+              <li class="tag">ArgoCD</li>
+              <li class="tag">Kubernetes</li>
+              <li class="tag">Terraform</li>
+            </ul>
+          </li>
+
+          <!-- Case 2: FinTech Series B -->
+          <li class="case-card glass-card" data-reveal data-reveal-delay="2">
+            <p class="case-card__industry">FinTech Series B</p>
+            <h3 class="case-card__challenge">
+              Console-managed AWS infrastructure with no audit trail and no repeatable
+              environment provisioning process.
+            </h3>
+            <p class="case-card__metric text-gradient-teal" aria-label="100 percent">100%</p>
+            <p class="case-card__metric-label">IaC coverage achieved in 12 weeks</p>
+            <p class="case-card__outcome">
+              Migrated three AWS accounts to fully codified Terraform with state management,
+              module libraries, and CI-integrated drift detection. Next environment provisioned
+              in under two hours by the internal team.
+            </p>
+            <ul class="case-card__tags" role="list" aria-label="Technologies used">
+              <li class="tag">Terraform</li>
+              <li class="tag">AWS</li>
+              <li class="tag">OPA</li>
+              <li class="tag">Checkov</li>
+            </ul>
+          </li>
+
+          <!-- Case 3: NHS Trust -->
+          <li class="case-card glass-card" data-reveal data-reveal-delay="3">
+            <p class="case-card__industry">NHS Trust</p>
+            <h3 class="case-card__challenge">
+              Rapidly escalating cloud costs following an unplanned migration, with no visibility
+              into spend drivers or optimisation levers.
+            </h3>
+            <p class="case-card__metric text-gradient-teal" aria-label="68 percent">68%</p>
+            <p class="case-card__metric-label">reduction in wasted cloud spend</p>
+            <p class="case-card__outcome">
+              Delivered a FinOps programme covering cost attribution, workload right-sizing, and
+              reserved capacity planning. Overall cloud spend reduced by 38% within 90 days with
+              no service degradation. Waste reduced by 68%.
+            </p>
+            <ul class="case-card__tags" role="list" aria-label="Technologies used">
+              <li class="tag">Azure</li>
+              <li class="tag">FinOps</li>
+              <li class="tag">Grafana</li>
+              <li class="tag">Prometheus</li>
+            </ul>
+          </li>
+
+        </ul>
       </div>
     </section>
 
-    <!-- Section 07: Contact -->
-    <section id="contact" class="section contact" aria-labelledby="contact-heading">
-      <div class="container">
-        <div class="contact__grid grid-asymmetric">
-          <div class="contact__editorial" data-reveal>
-            <span class="section-label">Contact</span>
-            <h2 id="contact-heading" class="contact__heading">Start a conversation.</h2>
-            <p class="lead-text">We don't do discovery calls. We do structured engagements. Tell us what you're working on and we'll tell you honestly whether we can help.</p>
-            <div class="contact__details">
-              <p class="contact__detail">
-                <span class="contact__detail-label">Email</span>
-                <a href="mailto:hello@zaaf.co.uk" class="contact__link">hello@zaaf.co.uk</a>
-              </p>
-              <p class="contact__detail">
-                <span class="contact__detail-label">LinkedIn</span>
-                <a href="https://linkedin.com/company/zaaf-consultancy" class="contact__link" target="_blank" rel="noopener noreferrer">ZAAF Consultancy</a>
-              </p>
-              <p class="contact__detail">
-                <span class="contact__detail-label">Location</span>
-                <span>London, United Kingdom</span>
-              </p>
+
+    <!-- =========================================================
+         SECTION 06 — CONTACT
+    ========================================================= -->
+    <section id="contact" class="contact section section--alt section--has-rule" aria-labelledby="contact-heading">
+      <div class="section__inner">
+
+        <p class="section-label" data-reveal>// 06 — contact</p>
+
+        <h2 id="contact-heading" class="contact__statement section-heading" data-reveal data-reveal-delay="1">
+          Ready to build something<br>
+          that <span class="text-gradient">lasts</span>?
+        </h2>
+
+        <p class="contact__subtext section-subheading" data-reveal data-reveal-delay="2">
+          Tell us what you're working on. We'll respond within one business day with a direct
+          answer, not a brochure.
+        </p>
+
+        <div class="contact__grid" data-reveal data-reveal-delay="3">
+
+          <!-- Contact form -->
+          <form
+            class="contact__form glass-card"
+            name="contact"
+            method="POST"
+            action="https://formspree.io/f/xpwzgojl"
+            novalidate
+            aria-label="Contact form"
+          >
+            <input type="hidden" name="_subject" value="New enquiry from ZAAF Consultancy website">
+            <div class="form-field">
+              <label class="form-label" for="field-name">Name <span class="form-required" aria-hidden="true">*</span></label>
+              <input
+                class="form-input"
+                type="text"
+                id="field-name"
+                name="name"
+                autocomplete="name"
+                required
+                aria-required="true"
+                placeholder="Your full name"
+              >
             </div>
+
+            <div class="form-field">
+              <label class="form-label" for="field-org">Organisation <span class="form-required" aria-hidden="true">*</span></label>
+              <input
+                class="form-input"
+                type="text"
+                id="field-org"
+                name="organisation"
+                autocomplete="organization"
+                required
+                aria-required="true"
+                placeholder="Company or organisation name"
+              >
+            </div>
+
+            <div class="form-field">
+              <label class="form-label" for="field-email">Email <span class="form-required" aria-hidden="true">*</span></label>
+              <input
+                class="form-input"
+                type="email"
+                id="field-email"
+                name="email"
+                autocomplete="email"
+                required
+                aria-required="true"
+                placeholder="your@email.com"
+              >
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="form-label" for="field-message">What are you working on? <span class="form-required" aria-hidden="true">*</span></label>
+              <textarea
+                class="form-input form-input--textarea"
+                id="field-message"
+                name="message"
+                rows="5"
+                required
+                aria-required="true"
+                placeholder="Describe the project, challenge, or question. The more context, the better our first response."
+              ></textarea>
+            </div>
+
+            <div class="form-field form-field--full">
+              <button type="submit" class="btn btn--primary btn--full">
+                Send message →
+              </button>
+            </div>
+          </form>
+
+          <div class="form-success" id="form-success" hidden aria-live="polite">
+            <p>Thank you. We'll be in touch within one business day.</p>
           </div>
-          <div class="contact__form-wrapper" data-reveal data-reveal-delay="2">
-            <form class="contact-form" id="contact-form" action="#" method="post" novalidate>
-              <div class="contact-form__field">
-                <label class="contact-form__label" for="name">Name</label>
-                <input class="contact-form__input" type="text" id="name" name="name" autocomplete="name" required>
-              </div>
-              <div class="contact-form__field">
-                <label class="contact-form__label" for="organisation">Organisation</label>
-                <input class="contact-form__input" type="text" id="organisation" name="organisation" autocomplete="organization">
-              </div>
-              <div class="contact-form__field">
-                <label class="contact-form__label" for="email">Email</label>
-                <input class="contact-form__input" type="email" id="email" name="email" autocomplete="email" required>
-              </div>
-              <div class="contact-form__field">
-                <label class="contact-form__label" for="message">What are you working on?</label>
-                <textarea class="contact-form__textarea" id="message" name="message" rows="5" required></textarea>
-              </div>
-              <button class="btn btn--primary contact-form__submit" type="submit">Send message</button>
-              <p class="contact-form__privacy">Your information is used only to respond to your enquiry. We do not share data with third parties.</p>
-            </form>
-          </div>
+
         </div>
       </div>
     </section>
 
   </main>
 
+
+  <!-- ============================================================
+       FOOTER
+  ============================================================ -->
   <footer class="site-footer" role="contentinfo">
     <div class="site-footer__inner container">
-      <p class="site-footer__copy">&copy; 2024 ZAAF Consultancy Ltd. All rights reserved.</p>
+      <p class="site-footer__copy">© 2024 ZAAF Consultancy Ltd. All rights reserved.</p>
       <nav class="site-footer__nav" aria-label="Footer navigation">
-        <a href="/privacy" class="site-footer__link">Privacy Policy</a>
-        <a href="https://linkedin.com/company/zaaf-consultancy" class="site-footer__link" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <ul role="list">
+          <li><a href="#about"     class="site-footer__link">About</a></li>
+          <li><a href="#services"  class="site-footer__link">Services</a></li>
+          <li><a href="#expertise" class="site-footer__link">Expertise</a></li>
+          <li><a href="#process"   class="site-footer__link">Process</a></li>
+          <li><a href="#work"      class="site-footer__link">Work</a></li>
+          <li><a href="#contact"   class="site-footer__link">Contact</a></li>
+        </ul>
       </nav>
     </div>
   </footer>
 
+
+  <!-- ============================================================
+       SCRIPTS (all deferred)
+  ============================================================ -->
   <script src="js/scroll-trigger.js" defer></script>
-  <script src="js/parallax.js" defer></script>
-  <script src="js/nav.js" defer></script>
-  <script src="js/tabs.js" defer></script>
+  <script src="js/parallax.js"       defer></script>
+  <script src="js/nav.js"            defer></script>
+  <script src="js/tabs.js"           defer></script>
+  <script src="js/form.js"           defer></script>
+
 </body>
 </html>
