@@ -220,7 +220,7 @@
 .form-success {
   text-align: center;
   padding: var(--space-12);
-  background-color: rgba(94, 234, 212, 0.06);
+  background-color: rgba(0, 229, 200, 0.06);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
 }

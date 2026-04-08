@@ -17,8 +17,8 @@
   inset: 0;
   z-index: 0;
   background-image:
-    linear-gradient(rgba(94, 234, 212, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(94, 234, 212, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(0, 229, 200, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 200, 0.025) 1px, transparent 1px);
   background-size: 60px 60px;
   pointer-events: none;
   /* Fade grid toward edges so it doesn't compete with content */
@@ -43,8 +43,8 @@
 /* Alt sections get a stronger grid so the tint surface registers */
 .section--alt::before {
   background-image:
-    linear-gradient(rgba(94, 234, 212, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(94, 234, 212, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(0, 229, 200, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 200, 0.035) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -145,7 +145,7 @@
   font-family: var(--font-sans);
   font-weight: 900;
   font-size: clamp(8rem, 20vw, 18rem);
-  color: rgba(94, 234, 212, 0.025);
+  color: rgba(0, 229, 200, 0.025);
   top: -2rem;
   right: -2rem;
   line-height: 1;

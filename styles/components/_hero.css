@@ -15,8 +15,8 @@
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(94, 234, 212, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(94, 234, 212, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(0, 229, 200, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 200, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -45,7 +45,7 @@
   left: -100px;
   background: radial-gradient(
     circle,
-    rgba(94, 234, 212, 0.12) 0%,
+    rgba(0, 229, 200, 0.12) 0%,
     transparent 70%
   );
   animation: glow-drift-1 20s linear infinite;
@@ -74,7 +74,7 @@
   transform: translateX(-50%);
   background: radial-gradient(
     circle,
-    rgba(94, 234, 212, 0.06) 0%,
+    rgba(0, 229, 200, 0.06) 0%,
     transparent 70%
   );
   animation: glow-drift-3 30s linear infinite;
@@ -105,12 +105,12 @@
 
 .hero {
   position: relative;
-  height: 100vh;
-  min-height: 700px;
+  min-height: 100vh;
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   background-color: var(--color-bg);
+  padding-top: var(--nav-height);
 }
 
 /* --- Hero-specific grid overlay (denser, masked to ellipse) --- */
@@ -120,23 +120,42 @@
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(94, 234, 212, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(94, 234, 212, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(0, 229, 200, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 200, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   /* Fade grid toward edges — keeps focus on content */
   mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
 }
 
-/* --- Content block (bottom-left) --- */
-.hero__content {
+/* --- Two-column inner grid --- */
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+  padding-block: clamp(var(--space-16), 10vh, var(--space-32));
+  width: 100%;
   position: relative;
   z-index: var(--z-raised);
-  padding-left: clamp(var(--space-8), 8vw, var(--space-32));
-  padding-right: clamp(var(--space-8), 4vw, var(--space-16));
-  padding-bottom: clamp(var(--space-16), 14vh, var(--space-40));
-  max-width: 900px;
-  width: 100%;
+}
+
+/* --- Left column: all text content --- */
+.hero__left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* --- Right column: decorative diagram --- */
+.hero__right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* --- Monospace eyebrow label --- */
@@ -166,12 +185,12 @@
 /* --- Main headline --- */
 .hero__headline {
   font-family: var(--font-sans);
-  font-size: clamp(3.5rem, 8vw, 7.5rem);
+  font-size: clamp(3rem, 6vw, 6rem);
   font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.04em;
   color: var(--color-white);
-  margin-bottom: var(--space-8);
+  margin-bottom: var(--space-6);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -261,16 +280,13 @@
 /* Primary CTA (uses .btn--primary from _button.css) */
 /* Secondary ghost CTA (uses .btn--ghost from _button.css) */
 
-/* --- Stats panel (bottom-right, desktop only) --- */
-.hero__stats {
-  position: absolute;
-  right: clamp(var(--space-8), 6vw, var(--space-24));
-  bottom: clamp(var(--space-8), 12vh, var(--space-24));
+/* --- Stats strip (inline, below CTAs) --- */
+.hero__stats-strip {
   display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-  text-align: right;
-  z-index: var(--z-raised);
+  gap: var(--space-8);
+  margin-top: var(--space-10);
+  padding-top: var(--space-8);
+  border-top: 1px solid var(--color-border-subtle);
 }
 
 /* Single stat item */
@@ -283,10 +299,10 @@
 /* Stat number — uses .text-gradient-teal in HTML */
 .hero__stat-value {
   font-family: var(--font-sans);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: 800;
   line-height: 1;
-  letter-spacing: var(--tracking-tightest);
+  letter-spacing: -0.04em;
 }
 
 /* Stat descriptor label */
@@ -294,15 +310,30 @@
   font-family: var(--font-sans);
   font-size: var(--text-xs);
   font-weight: 500;
-  letter-spacing: var(--tracking-caps);
+  letter-spacing: 0.05em;
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
 
-/* Thin separator between stats */
-.hero__stat + .hero__stat {
-  padding-top: var(--space-6);
-  border-top: 1px solid var(--color-border-subtle);
+/* ── Isometric diagram (right column) ── */
+.hero__diagram {
+  width: 100%;
+  max-width: 560px;
+  aspect-ratio: 560 / 520;
+  position: relative;
+  animation: diagram-float 8s ease-in-out infinite;
+}
+
+@keyframes diagram-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-16px); }
+}
+
+.hero__diagram svg {
+  width: 100%;
+  height: 100%;
+  filter: drop-shadow(0 0 60px rgba(0, 229, 200, 0.18))
+          drop-shadow(0 0 20px rgba(0, 212, 255, 0.1));
 }
 
 /* --- Scroll indicator (bottom-center) --- */
@@ -387,7 +418,7 @@
   height: 500px;
   top: -120px;
   left: -120px;
-  background: radial-gradient(circle, rgba(94, 234, 212, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 229, 200, 0.15) 0%, transparent 70%);
 }
 
 .hero__glow--b {
@@ -411,7 +442,7 @@
 
 .hero__bracket-line {
   position: absolute;
-  background-color: rgba(94, 234, 212, 0.3);
+  background-color: rgba(0, 229, 200, 0.3);
 }
 
 .hero__bracket-line--h {
@@ -435,8 +466,8 @@
   right: var(--space-12);
   width: 40px;
   height: 40px;
-  border-top: 1px solid rgba(94, 234, 212, 0.3);
-  border-right: 1px solid rgba(94, 234, 212, 0.3);
+  border-top: 1px solid rgba(0, 229, 200, 0.3);
+  border-right: 1px solid rgba(0, 229, 200, 0.3);
   z-index: var(--z-raised);
   pointer-events: none;
 }
@@ -449,8 +480,8 @@
   left: clamp(var(--space-8), 8vw, var(--space-32));
   border-top: none;
   border-right: none;
-  border-bottom: 1px solid rgba(94, 234, 212, 0.3);
-  border-left: 1px solid rgba(94, 234, 212, 0.3);
+  border-bottom: 1px solid rgba(0, 229, 200, 0.3);
+  border-left: 1px solid rgba(0, 229, 200, 0.3);
 }
 
 /* --- Horizontal accent rules --- */
@@ -478,9 +509,17 @@
    ========================================================================== */
 
 @media (max-width: 1024px) {
-  /* Hide stat block — not enough horizontal room */
-  .hero__stats {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .hero__right {
     display: none;
+  }
+
+  .hero__headline {
+    font-size: clamp(3rem, 9vw, 4.5rem);
   }
 
   /* Hide corner bracket on tablet */
@@ -494,20 +533,8 @@
 }
 
 @media (max-width: 768px) {
-  .hero {
-    min-height: 600px;
-  }
-
-  .hero__content {
-    padding-left: var(--space-6);
-    padding-right: var(--space-6);
-    padding-bottom: clamp(var(--space-20), 16vh, var(--space-32));
-    max-width: 100%;
-  }
-
   .hero__headline {
     font-size: clamp(2.4rem, 11vw, 3.5rem);
-    letter-spacing: -0.03em;
   }
 
   .hero__headline-line {
@@ -536,16 +563,14 @@
     align-items: flex-start;
     gap: var(--space-3);
   }
+
+  .hero__stats-strip {
+    gap: var(--space-6);
+  }
 }
 
 @media (max-width: 380px) {
   .hero__headline {
     font-size: clamp(1.9rem, 9.5vw, 2.4rem);
-    letter-spacing: -0.02em;
-  }
-
-  .hero__content {
-    padding-left: var(--space-4);
-    padding-right: var(--space-4);
   }
 }

@@ -8,6 +8,7 @@
 @import url("layout/_sections.css") layer(layout);
 @import url("layout/_navigation.css") layer(layout);
 @import url("components/_hero.css") layer(components);
+@import url("components/_feature-strip.css") layer(components);
 @import url("components/_button.css") layer(components);
 @import url("components/_tag.css") layer(components);
 @import url("components/_about.css") layer(components);

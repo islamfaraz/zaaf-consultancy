@@ -33,18 +33,20 @@
   transform: translateY(1px);
 }
 
-/* ── Primary: solid teal fill ─────────────────────────────────────────────── */
+/* ── Primary: pill-shaped solid teal fill ─────────────────────────────────── */
 .btn--primary {
   background-color: var(--color-teal-300);
-  color: #050810;
-  box-shadow: 0 0 0 0 rgba(94, 234, 212, 0);
+  color: #0a0f1a;
+  border-radius: var(--radius-full);
+  padding: 0.875rem 1.5rem 0.875rem 2rem;
+  box-shadow: 0 0 0 0 rgba(0, 229, 200, 0);
 }
 
 .btn--primary:hover {
   background-color: var(--color-teal-400);
   box-shadow:
-    0 0 30px rgba(94, 234, 212, 0.4),
-    0 4px 20px rgba(94, 234, 212, 0.25);
+    0 0 40px rgba(0, 229, 200, 0.45),
+    0 4px 20px rgba(0, 229, 200, 0.25);
   transform: translateY(-2px);
 }
 
@@ -69,13 +71,13 @@
 .btn--ghost {
   background-color: transparent;
   color: var(--color-teal-300);
-  border: 1px solid rgba(94, 234, 212, 0.35);
+  border: 1px solid rgba(0, 229, 200, 0.35);
 }
 
 .btn--ghost:hover {
-  background-color: rgba(94, 234, 212, 0.08);
+  background-color: rgba(0, 229, 200, 0.08);
   border-color: var(--color-teal-300);
-  box-shadow: 0 0 20px rgba(94, 234, 212, 0.1);
+  box-shadow: 0 0 20px rgba(0, 229, 200, 0.1);
   transform: translateY(-2px);
 }
 

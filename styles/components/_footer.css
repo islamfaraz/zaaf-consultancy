@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .site-footer {
-  border-top: 1px solid rgba(94, 234, 212, 0.08);
+  border-top: 1px solid rgba(0, 229, 200, 0.08);
   padding-block: var(--space-8);
   position: relative;
   z-index: var(--z-raised);

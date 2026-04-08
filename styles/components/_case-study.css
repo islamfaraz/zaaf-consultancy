@@ -32,14 +32,14 @@
   right: 0;
   width: 48px;
   height: 48px;
-  border-bottom: 1px solid rgba(94, 234, 212, 0.15);
-  border-left: 1px solid rgba(94, 234, 212, 0.15);
+  border-bottom: 1px solid rgba(0, 229, 200, 0.15);
+  border-left: 1px solid rgba(0, 229, 200, 0.15);
   transition: border-color var(--duration-base) var(--ease-out-expo);
   pointer-events: none;
 }
 
 .case-card:hover::before {
-  border-color: rgba(94, 234, 212, 0.4);
+  border-color: rgba(0, 229, 200, 0.4);
 }
 
 /* ── Card elements ────────────────────────────────────────────────────────── */

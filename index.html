@@ -39,11 +39,11 @@
       <a href="#hero" class="site-nav__logo" aria-label="ZAAF Consultancy — home">
         <svg class="site-nav__logo-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 28 28" width="28" height="28" fill="none" aria-hidden="true" focusable="false">
           <!-- Horizontal top bar -->
-          <line x1="4" y1="5" x2="18" y2="5" stroke="#5eead4" stroke-width="2" stroke-linecap="round"/>
+          <line x1="4" y1="5" x2="18" y2="5" stroke="#00e5c8" stroke-width="2" stroke-linecap="round"/>
           <!-- Diagonal slash from top-right to bottom-left -->
-          <line x1="18" y1="5" x2="10" y2="23" stroke="#5eead4" stroke-width="2" stroke-linecap="round"/>
+          <line x1="18" y1="5" x2="10" y2="23" stroke="#00e5c8" stroke-width="2" stroke-linecap="round"/>
           <!-- Horizontal bottom bar -->
-          <line x1="10" y1="23" x2="24" y2="23" stroke="#5eead4" stroke-width="2" stroke-linecap="round"/>
+          <line x1="10" y1="23" x2="24" y2="23" stroke="#00e5c8" stroke-width="2" stroke-linecap="round"/>
         </svg>
         <span class="site-nav__logo-text">ZAAF</span>
       </a>
@@ -104,48 +104,177 @@
       <div class="hero__glow hero__glow--a" aria-hidden="true"></div>
       <div class="hero__glow hero__glow--b" aria-hidden="true"></div>
 
-      <!-- Decorative bracket corner, top-right -->
-      <div class="hero__bracket" aria-hidden="true">
-        <span class="hero__bracket-line hero__bracket-line--h"></span>
-        <span class="hero__bracket-line hero__bracket-line--v"></span>
+      <div class="hero__inner">
+
+        <!-- LEFT: content -->
+        <div class="hero__left">
+          <p class="hero__mono-label" aria-hidden="true">// it-consultancy-services</p>
+
+          <h1 id="hero-headline" class="hero__headline" data-reveal>
+            <span class="hero__headline-line">We build the</span>
+            <span class="hero__headline-line text-gradient">infrastructure</span>
+            <span class="hero__headline-line">that scales.</span>
+          </h1>
+
+          <p class="hero__subtext" data-reveal data-reveal-delay="1">
+            ZAAF Consultancy designs, automates, and secures cloud infrastructure
+            for organisations that move fast and cannot afford to fail.
+          </p>
+
+          <div class="hero__ctas" data-reveal data-reveal-delay="2">
+            <a href="#contact" class="btn btn--primary">Start a project →</a>
+            <a href="#work" class="btn btn--ghost">View our work</a>
+          </div>
+
+          <div class="hero__stats-strip" data-reveal data-reveal-delay="3" aria-label="Key results">
+            <div class="hero__stat">
+              <span class="hero__stat-value text-gradient-teal">94%</span>
+              <span class="hero__stat-label">Deployment time reduced</span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-value text-gradient-teal">100%</span>
+              <span class="hero__stat-label">IaC coverage achieved</span>
+            </div>
+            <div class="hero__stat">
+              <span class="hero__stat-value text-gradient-teal">6 mo</span>
+              <span class="hero__stat-label">ISO 27001 certified</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: isometric network diagram (pure CSS/SVG, no external images) -->
+        <div class="hero__right" aria-hidden="true">
+          <div class="hero__diagram">
+            <svg viewBox="0 0 560 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <radialGradient id="glowCenter" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#00e5c8" stop-opacity="0.2"/>
+                  <stop offset="100%" stop-color="#00e5c8" stop-opacity="0"/>
+                </radialGradient>
+                <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#00e5c8" stop-opacity="0.15"/>
+                  <stop offset="100%" stop-color="#00e5c8" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="blur8">
+                  <feGaussianBlur stdDeviation="8"/>
+                </filter>
+                <filter id="blur4">
+                  <feGaussianBlur stdDeviation="4"/>
+                </filter>
+              </defs>
+
+              <!-- Ambient glow backdrop -->
+              <ellipse cx="280" cy="260" rx="200" ry="160" fill="url(#glowCenter)" filter="url(#blur8)"/>
+
+              <!-- ── Central cloud platform ── -->
+              <!-- Platform shadow -->
+              <ellipse cx="280" cy="360" rx="140" ry="22" fill="#00e5c8" opacity="0.06" filter="url(#blur4)"/>
+              <!-- Platform base — isometric slab -->
+              <polygon points="280,330 420,262 280,194 140,262" fill="#1a2540" stroke="#00e5c8" stroke-width="0.6" opacity="0.9"/>
+              <polygon points="420,262 420,300 280,368 280,330" fill="#111827" stroke="#00e5c8" stroke-width="0.6" opacity="0.85"/>
+              <polygon points="140,262 280,330 280,368 140,300" fill="#0d1421" stroke="#00e5c8" stroke-width="0.6" opacity="0.75"/>
+
+              <!-- Platform grid lines on top face -->
+              <line x1="210" y1="228" x2="350" y2="296" stroke="rgba(0,229,200,0.12)" stroke-width="0.5"/>
+              <line x1="245" y1="211" x2="385" y2="279" stroke="rgba(0,229,200,0.12)" stroke-width="0.5"/>
+              <line x1="175" y1="262" x2="315" y2="194" stroke="rgba(0,229,200,0.08)" stroke-width="0.5"/>
+              <line x1="210" y1="278" x2="350" y2="210" stroke="rgba(0,229,200,0.08)" stroke-width="0.5"/>
+
+              <!-- Server unit on platform — left stack -->
+              <polygon points="200,220 240,200 280,220 240,240" fill="#233050" stroke="#00e5c8" stroke-width="0.8"/>
+              <polygon points="240,200 240,250 280,270 280,220" fill="#1a2540" stroke="#00e5c8" stroke-width="0.8"/>
+              <polygon points="200,220 200,270 240,290 240,240" fill="#151f35" stroke="#00e5c8" stroke-width="0.8"/>
+              <!-- LED indicators left stack -->
+              <circle cx="275" cy="228" r="2.5" fill="#00e5c8" opacity="0.95"/>
+              <circle cx="275" cy="240" r="2.5" fill="#00d4ff" opacity="0.85"/>
+              <circle cx="275" cy="252" r="2.5" fill="#00e5c8" opacity="0.5"/>
+
+              <!-- Server unit on platform — right stack -->
+              <polygon points="280,220 320,200 360,220 320,240" fill="#233050" stroke="#00e5c8" stroke-width="0.8"/>
+              <polygon points="320,200 320,250 360,270 360,220" fill="#1a2540" stroke="#00e5c8" stroke-width="0.8"/>
+              <polygon points="280,220 280,270 320,290 320,240" fill="#151f35" stroke="#00e5c8" stroke-width="0.8"/>
+              <!-- LED indicators right stack -->
+              <circle cx="355" cy="228" r="2.5" fill="#00d4ff" opacity="0.95"/>
+              <circle cx="355" cy="240" r="2.5" fill="#00e5c8" opacity="0.7"/>
+
+              <!-- Floating cloud layer above platform -->
+              <ellipse cx="280" cy="155" rx="100" ry="22" fill="rgba(0,229,200,0.07)" stroke="rgba(0,229,200,0.3)" stroke-width="0.8"/>
+              <ellipse cx="280" cy="150" rx="84" ry="17" fill="#111827" stroke="rgba(0,229,200,0.2)" stroke-width="0.5"/>
+              <ellipse cx="280" cy="145" rx="68" ry="13" fill="#1a2540" stroke="rgba(0,229,200,0.15)" stroke-width="0.5"/>
+              <text x="260" y="151" font-family="monospace" font-size="9" fill="#00e5c8" opacity="0.75" letter-spacing="2">CLOUD</text>
+              <!-- Cloud glow -->
+              <ellipse cx="280" cy="152" rx="90" ry="18" fill="#00e5c8" opacity="0.04" filter="url(#blur4)"/>
+
+              <!-- Vertical connector: cloud to platform -->
+              <line x1="280" y1="168" x2="280" y2="194" stroke="rgba(0,229,200,0.4)" stroke-width="1" stroke-dasharray="3,4"/>
+
+              <!-- ── Satellite nodes ── -->
+              <!-- Node: IaC — bottom-left -->
+              <ellipse cx="90" cy="408" rx="30" ry="30" fill="url(#nodeGlow)" filter="url(#blur4)"/>
+              <circle cx="90" cy="408" r="28" fill="#0d1421" stroke="rgba(0,229,200,0.35)" stroke-width="1"/>
+              <circle cx="90" cy="408" r="22" fill="#111827" stroke="rgba(0,229,200,0.15)" stroke-width="0.5"/>
+              <text x="79" y="404" font-family="monospace" font-size="8" fill="#00e5c8" opacity="0.9">IaC</text>
+              <text x="72" y="416" font-family="monospace" font-size="6" fill="rgba(0,229,200,0.5)">Terraform</text>
+
+              <!-- Node: CI/CD — bottom-right -->
+              <ellipse cx="470" cy="395" rx="30" ry="30" fill="url(#nodeGlow)" filter="url(#blur4)"/>
+              <circle cx="470" cy="395" r="28" fill="#0d1421" stroke="rgba(0,229,200,0.35)" stroke-width="1"/>
+              <circle cx="470" cy="395" r="22" fill="#111827" stroke="rgba(0,229,200,0.15)" stroke-width="0.5"/>
+              <text x="451" y="391" font-family="monospace" font-size="7" fill="#00e5c8" opacity="0.9">CI/CD</text>
+              <text x="455" y="402" font-family="monospace" font-size="6" fill="rgba(0,229,200,0.5)">ArgoCD</text>
+
+              <!-- Node: SEC — top-left -->
+              <ellipse cx="80" cy="120" rx="28" ry="28" fill="url(#nodeGlow)" filter="url(#blur4)"/>
+              <circle cx="80" cy="120" r="26" fill="#0d1421" stroke="rgba(0,212,255,0.35)" stroke-width="1"/>
+              <circle cx="80" cy="120" r="20" fill="#111827" stroke="rgba(0,212,255,0.15)" stroke-width="0.5"/>
+              <text x="68" y="116" font-family="monospace" font-size="8" fill="#00d4ff" opacity="0.9">SEC</text>
+              <text x="66" y="128" font-family="monospace" font-size="5.5" fill="rgba(0,212,255,0.5)">ISO 27001</text>
+
+              <!-- Node: OPS — top-right -->
+              <ellipse cx="470" cy="110" rx="28" ry="28" fill="url(#nodeGlow)" filter="url(#blur4)"/>
+              <circle cx="470" cy="110" r="26" fill="#0d1421" stroke="rgba(0,212,255,0.35)" stroke-width="1"/>
+              <circle cx="470" cy="110" r="20" fill="#111827" stroke="rgba(0,212,255,0.15)" stroke-width="0.5"/>
+              <text x="458" y="106" font-family="monospace" font-size="8" fill="#00d4ff" opacity="0.9">OPS</text>
+              <text x="453" y="118" font-family="monospace" font-size="5.5" fill="rgba(0,212,255,0.5)">Monitoring</text>
+
+              <!-- Node: DEV — far right mid -->
+              <ellipse cx="510" cy="258" rx="24" ry="24" fill="url(#nodeGlow)" filter="url(#blur4)"/>
+              <circle cx="510" cy="258" r="22" fill="#0d1421" stroke="rgba(0,229,200,0.3)" stroke-width="1"/>
+              <circle cx="510" cy="258" r="16" fill="#111827" stroke="rgba(0,229,200,0.12)" stroke-width="0.5"/>
+              <text x="499" y="255" font-family="monospace" font-size="7" fill="#00e5c8" opacity="0.85">DEV</text>
+              <text x="498" y="265" font-family="monospace" font-size="5" fill="rgba(0,229,200,0.45)">K8s</text>
+
+              <!-- ── Connection lines (curved paths) ── -->
+              <path d="M 140,300 Q 115,360 118,380" stroke="rgba(0,229,200,0.2)" stroke-width="1.5" stroke-dasharray="5,7" fill="none"/>
+              <path d="M 420,300 Q 445,350 443,368" stroke="rgba(0,229,200,0.2)" stroke-width="1.5" stroke-dasharray="5,7" fill="none"/>
+              <path d="M 175,262 Q 130,195 106,144" stroke="rgba(0,212,255,0.18)" stroke-width="1" stroke-dasharray="4,6" fill="none"/>
+              <path d="M 385,235 Q 430,175 444,133" stroke="rgba(0,212,255,0.18)" stroke-width="1" stroke-dasharray="4,6" fill="none"/>
+              <path d="M 420,262 Q 465,260 488,258" stroke="rgba(0,229,200,0.15)" stroke-width="1" stroke-dasharray="4,6" fill="none"/>
+
+              <!-- ── Outer orbit rings ── -->
+              <circle cx="280" cy="258" r="170" fill="none" stroke="rgba(0,229,200,0.05)" stroke-width="1" stroke-dasharray="2,8"/>
+              <circle cx="280" cy="258" r="130" fill="none" stroke="rgba(0,229,200,0.04)" stroke-width="0.5"/>
+
+              <!-- ── Floating data packets on connection lines ── -->
+              <circle r="3" fill="#00e5c8" opacity="0.7">
+                <animateMotion dur="4s" repeatCount="indefinite">
+                  <mpath href="#path-iac"/>
+                </animateMotion>
+              </circle>
+              <circle r="2.5" fill="#00d4ff" opacity="0.6">
+                <animateMotion dur="5s" repeatCount="indefinite" begin="1.5s">
+                  <mpath href="#path-ops"/>
+                </animateMotion>
+              </circle>
+
+              <!-- Named paths for packet animation -->
+              <path id="path-iac" d="M 140,300 Q 115,360 118,380" fill="none" visibility="hidden"/>
+              <path id="path-ops" d="M 385,235 Q 430,175 444,133" fill="none" visibility="hidden"/>
+            </svg>
+          </div>
+        </div>
+
       </div>
-
-      <!-- Bottom-left anchored content -->
-      <div class="hero__content">
-        <p class="hero__mono-label" aria-hidden="true">// it-consultancy-services</p>
-
-        <h1 id="hero-headline" class="hero__headline" data-reveal>
-          <span class="hero__headline-line">We build the</span>
-          <span class="hero__headline-line text-gradient">infrastructure</span>
-          <span class="hero__headline-line">that scales.</span>
-        </h1>
-
-        <p class="hero__subtext" data-reveal data-reveal-delay="1">
-          ZAAF Consultancy designs, automates, and secures cloud infrastructure
-          for organisations that move fast and cannot afford to fail.
-        </p>
-
-        <div class="hero__ctas" data-reveal data-reveal-delay="2">
-          <a href="#contact" class="btn btn--primary">Start a project →</a>
-          <a href="#work"    class="btn btn--ghost">View our work</a>
-        </div>
-      </div>
-
-      <!-- Right-aligned stat stack -->
-      <aside class="hero__stats" aria-label="Key results">
-        <div class="hero__stat" data-reveal data-reveal-delay="3">
-          <span class="hero__stat-value text-gradient-teal">94%</span>
-          <span class="hero__stat-label">Deployment time reduced</span>
-        </div>
-        <div class="hero__stat" data-reveal data-reveal-delay="4">
-          <span class="hero__stat-value text-gradient-teal">100%</span>
-          <span class="hero__stat-label">IaC coverage achieved</span>
-        </div>
-        <div class="hero__stat" data-reveal data-reveal-delay="5">
-          <span class="hero__stat-value text-gradient-teal">6 mo</span>
-          <span class="hero__stat-label">ISO 27001 certified</span>
-        </div>
-      </aside>
 
       <!-- Scroll indicator -->
       <div class="hero__scroll-indicator" aria-hidden="true">
@@ -153,6 +282,32 @@
       </div>
 
     </section>
+
+    <!-- Feature strip -->
+    <div class="feature-strip" aria-label="Key capabilities">
+      <div class="feature-strip__inner">
+        <div class="feature-strip__item">
+          <span class="feature-strip__title">DevOps &amp; CI/CD</span>
+          <span class="feature-strip__sub">Pipeline automation at scale</span>
+        </div>
+        <div class="feature-strip__item">
+          <span class="feature-strip__title">Infrastructure as Code</span>
+          <span class="feature-strip__sub">Drift-free, reproducible infra</span>
+        </div>
+        <div class="feature-strip__item">
+          <span class="feature-strip__title">Cloud Architecture</span>
+          <span class="feature-strip__sub">Multi-cloud, cost-efficient</span>
+        </div>
+        <div class="feature-strip__item">
+          <span class="feature-strip__title">Cybersecurity</span>
+          <span class="feature-strip__sub">ISO 27001 &amp; SOC 2 ready</span>
+        </div>
+        <div class="feature-strip__item">
+          <span class="feature-strip__title">IT Strategy</span>
+          <span class="feature-strip__sub">Roadmaps that actually ship</span>
+        </div>
+      </div>
+    </div>
 
 
     <!-- =========================================================

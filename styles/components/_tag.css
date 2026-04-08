@@ -9,8 +9,8 @@
   font-size: 0.7rem;
   font-weight: 400;
   color: var(--color-teal-300);
-  background-color: rgba(94, 234, 212, 0.08);
-  border: 1px solid rgba(94, 234, 212, 0.2);
+  background-color: rgba(0, 229, 200, 0.08);
+  border: 1px solid rgba(0, 229, 200, 0.2);
   border-radius: var(--radius-sm);
   padding: 0.2rem 0.6rem;
   letter-spacing: 0.03em;
@@ -21,8 +21,8 @@
 }
 
 .tag:hover {
-  background-color: rgba(94, 234, 212, 0.14);
-  border-color: rgba(94, 234, 212, 0.4);
+  background-color: rgba(0, 229, 200, 0.14);
+  border-color: rgba(0, 229, 200, 0.4);
 }
 
 /* ── Purple variant ───────────────────────────────────────────────────────── */
