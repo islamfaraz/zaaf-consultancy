@@ -392,3 +392,21 @@
     padding-inline: var(--space-4);
   }
 }
+
+/* --- Desktop: ensure overlay is fully suppressed above mobile breakpoint --- */
+@media (min-width: 769px) {
+  .site-nav__mobile-toggle {
+    display: none;
+  }
+
+  /* Prevent overlay from trapping focus or rendering on desktop */
+  .site-nav__mobile-overlay {
+    display: none !important;
+  }
+}
+
+/* --- Overlay: prevent keyboard focus trap when visually off-screen --- */
+.site-nav__mobile-overlay[hidden] {
+  visibility: hidden;
+  pointer-events: none;
+}

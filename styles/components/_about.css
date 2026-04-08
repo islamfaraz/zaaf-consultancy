@@ -247,6 +247,12 @@
       max-width: none;
     }
 
+    /* Stats: 3-col → 2-col at tablet/mobile boundary */
+    .about__stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* Philosophy cards: 2-col → 1-col */
     .about__philosophy {
       grid-template-columns: 1fr;
     }
@@ -264,6 +270,7 @@
      Responsive — small mobile (≤ 480px)
      ========================================================================= */
   @media (max-width: 480px) {
+    /* Stats: 2-col → 1-col on small phones */
     .about__stats {
       grid-template-columns: 1fr;
     }

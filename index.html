@@ -4,6 +4,23 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="ZAAF Consultancy — IT consultancy specialising in DevOps, Infrastructure as Code, Cloud Architecture, and Digital Transformation. We build the infrastructure that scales.">
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="ZAAF Consultancy — IT Infrastructure &amp; DevOps Specialists">
+  <meta property="og:description" content="Expert IT consultancy specialising in DevOps, Cloud Architecture, Infrastructure as Code, and Cybersecurity. Proven outcomes, defined engagements.">
+  <meta property="og:url" content="https://islamfaraz.github.io/zaaf-consultancy/">
+  <meta property="og:site_name" content="ZAAF Consultancy">
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ZAAF Consultancy — IT Infrastructure &amp; DevOps Specialists">
+  <meta name="twitter:description" content="Expert IT consultancy specialising in DevOps, Cloud Architecture, Infrastructure as Code, and Cybersecurity.">
+  <!-- Canonical & robots -->
+  <link rel="canonical" href="https://islamfaraz.github.io/zaaf-consultancy/">
+  <meta name="robots" content="index, follow">
+  <!-- Theme color for browser chrome -->
+  <meta name="theme-color" content="#060d19">
+  <!-- SVG favicon inline -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'><line x1='4' y1='5' x2='18' y2='5' stroke='%230ea5e9' stroke-width='2.5' stroke-linecap='round'/><line x1='18' y1='5' x2='10' y2='23' stroke='%230ea5e9' stroke-width='2.5' stroke-linecap='round'/><line x1='10' y1='23' x2='24' y2='23' stroke='%230ea5e9' stroke-width='2.5' stroke-linecap='round'/></svg>" type="image/svg+xml">
   <title>ZAAF Consultancy — We build the infrastructure that scales.</title>
 
   <!-- Preconnect for fonts -->
@@ -15,6 +32,20 @@
 
   <!-- Main stylesheet -->
   <link rel="stylesheet" href="styles/main.css">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "ZAAF Consultancy",
+    "url": "https://islamfaraz.github.io/zaaf-consultancy/",
+    "description": "IT consultancy specialising in DevOps, Cloud Architecture, Infrastructure as Code, Cybersecurity, and Digital Transformation.",
+    "serviceType": ["DevOps", "Cloud Architecture", "Infrastructure as Code", "Cybersecurity", "Managed IT Services", "IT Strategy"],
+    "areaServed": "United Kingdom",
+    "priceRange": "££"
+  }
+  </script>
 </head>
 <body>
 
@@ -59,6 +90,7 @@
       <a href="#contact" class="site-nav__cta btn btn--primary">Let's talk</a>
 
       <button
+        type="button"
         class="site-nav__mobile-toggle"
         aria-expanded="false"
         aria-controls="mobile-overlay"
@@ -587,181 +619,160 @@
           measurable outcomes, and a proper handover.
         </p>
 
-        <!-- Two-column service list — distinct from Expertise cards -->
-        <ul class="services__list" role="list">
+        <!-- 3-column service card grid — icon headers, no SVG backgrounds -->
+        <ul class="services__grid" role="list">
 
-          <!-- 01 DevOps & CI/CD -->
-          <li class="service-item" data-reveal data-reveal-delay="1">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+          <!-- 1. DevOps & CI/CD -->
+          <li class="svc-card svc-card--devops glass-card" data-reveal data-reveal-delay="1">
+            <div class="svc-card__header" aria-hidden="true">
+              <div class="svc-card__header-icon">
+                <div class="svc-card__icon-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+                </div>
+              </div>
+              <div class="svc-card__header-metric">
+                <span class="svc-card__metric-value">94%</span>
+                <span class="svc-card__metric-label">faster deploys</span>
+              </div>
             </div>
-            <div class="service-item__body">
-              <div class="service-item__header">
-                <h3 class="service-item__title">DevOps &amp; CI/CD</h3>
-              </div>
-              <p class="service-item__desc">
-                End-to-end pipeline automation from commit to production. We eliminate manual
-                steps, reduce deployment risk, and give your team full visibility of every release.
-              </p>
-              <div class="service-item__footer">
-                <ul class="service-item__tags" role="list" aria-label="Technologies">
-                  <li class="tag">GitHub Actions</li>
-                  <li class="tag">ArgoCD</li>
-                  <li class="tag">Jenkins</li>
-                  <li class="tag">Kubernetes</li>
-                </ul>
-                <span class="service-item__outcome">Up to 94% faster deployments</span>
-              </div>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">DevOps &amp; CI/CD</h3>
+              <p class="svc-card__desc">End-to-end pipeline automation from commit to production. We eliminate manual steps, reduce deployment risk, and give your team full visibility of every release.</p>
+              <ul class="svc-card__stack" role="list" aria-label="Technologies">
+                <li>GitHub Actions</li><li>ArgoCD</li><li>Helm</li><li>Kubernetes</li>
+              </ul>
             </div>
           </li>
 
-          <!-- 02 Infrastructure as Code -->
-          <li class="service-item" data-reveal data-reveal-delay="2">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <!-- 2. Infrastructure as Code -->
+          <li class="svc-card svc-card--iac glass-card" data-reveal data-reveal-delay="2">
+            <div class="svc-card__header" aria-hidden="true">
+              <div class="svc-card__header-icon">
+                <div class="svc-card__icon-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+              </div>
+              <div class="svc-card__header-metric">
+                <span class="svc-card__metric-value">100%</span>
+                <span class="svc-card__metric-label">IaC coverage</span>
+              </div>
             </div>
-            <div class="service-item__body">
-              <div class="service-item__header">
-                <h3 class="service-item__title">Infrastructure as Code</h3>
-              </div>
-              <p class="service-item__desc">
-                Every resource defined, versioned, and reproducible. We migrate teams away from
-                click-ops to auditable, drift-free infrastructure that survives personnel changes.
-              </p>
-              <div class="service-item__footer">
-                <ul class="service-item__tags" role="list" aria-label="Technologies">
-                  <li class="tag">Terraform</li>
-                  <li class="tag">Ansible</li>
-                  <li class="tag">Pulumi</li>
-                  <li class="tag">OPA</li>
-                </ul>
-                <span class="service-item__outcome">100% IaC coverage, 12 weeks</span>
-              </div>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Infrastructure as Code</h3>
+              <p class="svc-card__desc">Every resource defined, versioned, and reproducible. We migrate teams away from click-ops to auditable, drift-free infrastructure that survives personnel changes.</p>
+              <ul class="svc-card__stack" role="list" aria-label="Technologies">
+                <li>Terraform</li><li>Ansible</li><li>Pulumi</li><li>OPA</li>
+              </ul>
             </div>
           </li>
 
-          <!-- 03 Cloud Architecture -->
-          <li class="service-item" data-reveal data-reveal-delay="1">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          <!-- 3. Cloud Architecture -->
+          <li class="svc-card svc-card--cloud glass-card" data-reveal data-reveal-delay="1">
+            <div class="svc-card__header" aria-hidden="true">
+              <div class="svc-card__header-icon">
+                <div class="svc-card__icon-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                </div>
+              </div>
+              <div class="svc-card__header-metric">
+                <span class="svc-card__metric-value">38%</span>
+                <span class="svc-card__metric-label">cloud cost reduction</span>
+              </div>
             </div>
-            <div class="service-item__body">
-              <div class="service-item__header">
-                <h3 class="service-item__title">Cloud Architecture</h3>
-              </div>
-              <p class="service-item__desc">
-                Multi-cloud environments built for your actual workloads — not a vendor's preferred
-                topology. We design for cost efficiency, resilience, and team operability.
-              </p>
-              <div class="service-item__footer">
-                <ul class="service-item__tags" role="list" aria-label="Technologies">
-                  <li class="tag">AWS</li>
-                  <li class="tag">Azure</li>
-                  <li class="tag">GCP</li>
-                  <li class="tag">FinOps</li>
-                </ul>
-                <span class="service-item__outcome">38% average cloud cost reduction</span>
-              </div>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Cloud Architecture</h3>
+              <p class="svc-card__desc">Multi-cloud environments built for your actual workloads — not a vendor’s preferred topology. We design for cost efficiency, resilience, and team operability.</p>
+              <ul class="svc-card__stack" role="list" aria-label="Technologies">
+                <li>AWS</li><li>Azure</li><li>GCP</li><li>FinOps</li>
+              </ul>
             </div>
           </li>
 
-          <!-- 04 Managed IT Services -->
-          <li class="service-item" data-reveal data-reveal-delay="2">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <!-- 4. Managed IT Services -->
+          <li class="svc-card svc-card--managed glass-card" data-reveal data-reveal-delay="2">
+            <div class="svc-card__header" aria-hidden="true">
+              <div class="svc-card__header-icon">
+                <div class="svc-card__icon-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+              </div>
+              <div class="svc-card__header-metric">
+                <span class="svc-card__metric-value">61%</span>
+                <span class="svc-card__metric-label">fewer incidents</span>
+              </div>
             </div>
-            <div class="service-item__body">
-              <div class="service-item__header">
-                <h3 class="service-item__title">Managed IT Services</h3>
-              </div>
-              <p class="service-item__desc">
-                Proactive support with defined SLAs and direct engineer access. No ticket queues
-                hiding behind account managers. You speak to the person who knows your system.
-              </p>
-              <div class="service-item__footer">
-                <ul class="service-item__tags" role="list" aria-label="Technologies">
-                  <li class="tag">Prometheus</li>
-                  <li class="tag">Grafana</li>
-                  <li class="tag">PagerDuty</li>
-                  <li class="tag">ITIL</li>
-                </ul>
-                <span class="service-item__outcome">61% fewer incidents, year one</span>
-              </div>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Managed IT Services</h3>
+              <p class="svc-card__desc">Proactive support with defined SLAs and direct engineer access. No ticket queues hiding behind account managers. You speak to the person who knows your system.</p>
+              <ul class="svc-card__stack" role="list" aria-label="Technologies">
+                <li>Prometheus</li><li>Grafana</li><li>PagerDuty</li><li>ITIL</li>
+              </ul>
             </div>
           </li>
 
-          <!-- 05 Web & App Development -->
-          <li class="service-item" data-reveal data-reveal-delay="1">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <!-- 5. Web & App Development -->
+          <li class="svc-card svc-card--web glass-card" data-reveal data-reveal-delay="1">
+            <div class="svc-card__header" aria-hidden="true">
+              <div class="svc-card__header-icon">
+                <div class="svc-card__icon-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+              </div>
+              <div class="svc-card__header-metric">
+                <span class="svc-card__metric-value">1mo</span>
+                <span class="svc-card__metric-label">to self-sufficient team</span>
+              </div>
             </div>
-            <div class="service-item__body">
-              <div class="service-item__header">
-                <h3 class="service-item__title">Web &amp; App Development</h3>
-              </div>
-              <p class="service-item__desc">
-                Custom digital products maintained by your team after we leave. We build with
-                straightforward technology choices and document every architectural decision as we go.
-              </p>
-              <div class="service-item__footer">
-                <ul class="service-item__tags" role="list" aria-label="Technologies">
-                  <li class="tag">React</li>
-                  <li class="tag">Next.js</li>
-                  <li class="tag">Node.js</li>
-                  <li class="tag">TypeScript</li>
-                </ul>
-                <span class="service-item__outcome">Handover-first delivery model</span>
-              </div>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Web &amp; App Development</h3>
+              <p class="svc-card__desc">Custom digital products maintained by your team after we leave. Straightforward technology choices, documented architectural decisions as we go.</p>
+              <ul class="svc-card__stack" role="list" aria-label="Technologies">
+                <li>React</li><li>Next.js</li><li>Node.js</li><li>TypeScript</li>
+              </ul>
             </div>
           </li>
 
-          <!-- 06 Cybersecurity & Compliance -->
-          <li class="service-item" data-reveal data-reveal-delay="2">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <!-- 6. Cybersecurity & Compliance -->
+          <li class="svc-card svc-card--security glass-card" data-reveal data-reveal-delay="2">
+            <div class="svc-card__header" aria-hidden="true">
+              <div class="svc-card__header-icon">
+                <div class="svc-card__icon-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+              </div>
+              <div class="svc-card__header-metric">
+                <span class="svc-card__metric-value">6mo</span>
+                <span class="svc-card__metric-label">to ISO 27001</span>
+              </div>
             </div>
-            <div class="service-item__body">
-              <div class="service-item__header">
-                <h3 class="service-item__title">Cybersecurity &amp; Compliance</h3>
-              </div>
-              <p class="service-item__desc">
-                From attack surface to certification-ready in defined sprints. We run structured
-                security programmes, not rolling advisory retainers with no visible end state.
-              </p>
-              <div class="service-item__footer">
-                <ul class="service-item__tags" role="list" aria-label="Technologies">
-                  <li class="tag">ISO 27001</li>
-                  <li class="tag">SOC 2</li>
-                  <li class="tag">Pen Testing</li>
-                  <li class="tag">SAST/DAST</li>
-                </ul>
-                <span class="service-item__outcome">ISO 27001 in 6 months</span>
-              </div>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">Cybersecurity &amp; Compliance</h3>
+              <p class="svc-card__desc">From attack surface to certification-ready in defined sprints. Structured security programmes, not rolling advisory retainers with no visible end state.</p>
+              <ul class="svc-card__stack" role="list" aria-label="Technologies">
+                <li>ISO 27001</li><li>SOC 2</li><li>Pen Testing</li><li>SAST/DAST</li>
+              </ul>
             </div>
           </li>
 
-          <!-- 07 IT Strategy -->
-          <li class="service-item" data-reveal data-reveal-delay="1">
-            <div class="service-item__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <!-- 7. IT Strategy -->
+          <li class="svc-card svc-card--strategy glass-card" data-reveal data-reveal-delay="1">
+            <div class="svc-card__header" aria-hidden="true">
+              <div class="svc-card__header-icon">
+                <div class="svc-card__icon-wrap">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                </div>
+              </div>
+              <div class="svc-card__header-metric">
+                <span class="svc-card__metric-value">40%</span>
+                <span class="svc-card__metric-label">velocity uplift</span>
+              </div>
             </div>
-            <div class="service-item__body">
-              <div class="service-item__header">
-                <h3 class="service-item__title">IT Strategy</h3>
-              </div>
-              <p class="service-item__desc">
-                Technology roadmaps deliverable by the team and budget that actually exist.
-                We work from your constraints — not an ideal-world assumption of unlimited resources.
-              </p>
-              <div class="service-item__footer">
-                <ul class="service-item__tags" role="list" aria-label="Technologies">
-                  <li class="tag">CTO Advisory</li>
-                  <li class="tag">OKRs</li>
-                  <li class="tag">Roadmapping</li>
-                  <li class="tag">Fractional CTO</li>
-                </ul>
-                <span class="service-item__outcome">40% velocity uplift, next quarter</span>
-              </div>
+            <div class="svc-card__body">
+              <h3 class="svc-card__title">IT Strategy</h3>
+              <p class="svc-card__desc">Technology roadmaps deliverable by the team and budget that actually exist. We work from your constraints — not an ideal-world assumption of unlimited resources.</p>
+              <ul class="svc-card__stack" role="list" aria-label="Technologies">
+                <li>CTO Advisory</li><li>OKRs</li><li>Roadmapping</li><li>Fractional CTO</li>
+              </ul>
             </div>
           </li>
 
@@ -786,150 +797,320 @@
         <div class="expertise__grid">
 
           <!-- DevOps & CI/CD -->
-          <div class="expertise__card" data-reveal>
-            <div class="expertise__card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+          <div class="expertise__card expertise__card--devops" data-reveal>
+            <div class="expertise__card-visual" aria-hidden="true">
+              <svg class="expertise__card-art" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="pipe-grad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#0ea5e9" stop-opacity="0.7"/>
+                    <stop offset="100%" stop-color="#6366f1" stop-opacity="0.6"/>
+                  </linearGradient>
+                </defs>
+                <rect x="30" y="80" width="96" height="60" rx="7" fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.45"/>
+                <text x="78" y="116" text-anchor="middle" font-size="12" fill="#38bdf8" font-family="monospace" opacity="0.9">BUILD</text>
+                <line x1="126" y1="110" x2="166" y2="110" stroke="url(#pipe-grad)" stroke-width="1.5" stroke-dasharray="5 3"/>
+                <polyline points="162,106 168,110 162,114" fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.5"/>
+                <rect x="168" y="80" width="96" height="60" rx="7" fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.45"/>
+                <text x="216" y="116" text-anchor="middle" font-size="12" fill="#38bdf8" font-family="monospace" opacity="0.9">TEST</text>
+                <line x1="264" y1="110" x2="304" y2="110" stroke="url(#pipe-grad)" stroke-width="1.5" stroke-dasharray="5 3"/>
+                <polyline points="300,106 306,110 300,114" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.5"/>
+                <rect x="306" y="80" width="96" height="60" rx="7" fill="none" stroke="#6366f1" stroke-width="1.5" stroke-opacity="0.45"/>
+                <text x="354" y="116" text-anchor="middle" font-size="12" fill="#818cf8" font-family="monospace" opacity="0.9">DEPLOY</text>
+                <line x1="402" y1="110" x2="442" y2="110" stroke="url(#pipe-grad)" stroke-width="1.5" stroke-dasharray="5 3"/>
+                <polyline points="438,106 444,110 438,114" fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.5"/>
+                <circle cx="482" cy="110" r="32" fill="none" stroke="#0ea5e9" stroke-width="1.5" stroke-opacity="0.5"/>
+                <text x="482" y="115" text-anchor="middle" font-size="12" fill="#38bdf8" font-family="monospace" opacity="0.9">LIVE</text>
+                <line x1="0" y1="40" x2="600" y2="40" stroke="#0ea5e9" stroke-width="0.5" stroke-opacity="0.1"/>
+                <line x1="0" y1="180" x2="600" y2="180" stroke="#0ea5e9" stroke-width="0.5" stroke-opacity="0.1"/>
+              </svg>
+              <div class="expertise__card-visual-overlay"></div>
             </div>
-            <div>
-              <h3 class="expertise__card-title">DevOps &amp; CI/CD</h3>
-              <p class="expertise__card-challenge">The real challenge isn't automation — it's culture.</p>
+            <div class="expertise__card-content">
+              <div class="expertise__card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/></svg>
+              </div>
+              <div>
+                <h3 class="expertise__card-title">DevOps &amp; CI/CD</h3>
+                <p class="expertise__card-challenge">The real challenge isn't automation — it's culture.</p>
+              </div>
+              <p class="expertise__card-desc">Most teams already know they need CI/CD. The blocker is not tooling — it is the absence of agreed standards, ownership, and a pipeline that engineers actually trust. We build pipelines that teams adopt willingly.</p>
+              <ul class="expertise__card-caps" role="list">
+                <li>Pipeline design and migration across GitHub Actions, GitLab CI, Jenkins, and ArgoCD</li>
+                <li>GitOps workflows with policy-as-code gates and automated rollback strategies</li>
+                <li>DORA metric baselines, deployment frequency tracking, and team enablement</li>
+              </ul>
+              <aside class="expertise__card-case">
+                <p class="expertise__card-case-label">Case study</p>
+                <p>A global logistics provider reduced mean deployment time from 4 hours to 14 minutes. Zero rollbacks in the following six months.</p>
+              </aside>
             </div>
-            <p class="expertise__card-desc">Most teams already know they need CI/CD. The blocker is not tooling — it is the absence of agreed standards, ownership, and a pipeline that engineers actually trust. We build pipelines that teams adopt willingly.</p>
-            <ul class="expertise__card-caps" role="list">
-              <li>Pipeline design and migration across GitHub Actions, GitLab CI, Jenkins, and ArgoCD</li>
-              <li>GitOps workflows with policy-as-code gates and automated rollback strategies</li>
-              <li>DORA metric baselines, deployment frequency tracking, and team enablement</li>
-            </ul>
-            <aside class="expertise__card-case">
-              <p class="expertise__card-case-label">Case study</p>
-              <p>A global logistics provider reduced mean deployment time from 4 hours to 14 minutes. Zero rollbacks in the following six months.</p>
-            </aside>
           </div>
 
           <!-- Infrastructure as Code -->
-          <div class="expertise__card" data-reveal data-reveal-delay="1">
-            <div class="expertise__card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <div class="expertise__card expertise__card--iac" data-reveal data-reveal-delay="1">
+            <div class="expertise__card-visual" aria-hidden="true">
+              <svg class="expertise__card-art" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <rect x="60" y="20" width="480" height="180" rx="8" fill="none" stroke="#6366f1" stroke-width="1" stroke-opacity="0.35"/>
+                <rect x="60" y="20" width="480" height="28" rx="8" fill="rgba(99,102,241,0.14)"/>
+                <rect x="61" y="34" width="479" height="14" fill="rgba(99,102,241,0.14)"/>
+                <circle cx="82" cy="34" r="5" fill="#ef4444" opacity="0.55"/>
+                <circle cx="98" cy="34" r="5" fill="#f59e0b" opacity="0.55"/>
+                <circle cx="114" cy="34" r="5" fill="#22c55e" opacity="0.55"/>
+                <rect x="80" y="64" width="110" height="7" rx="3" fill="#818cf8" opacity="0.6"/>
+                <rect x="198" y="64" width="60" height="7" rx="3" fill="#38bdf8" opacity="0.5"/>
+                <rect x="266" y="64" width="44" height="7" rx="3" fill="#fbbf24" opacity="0.4"/>
+                <rect x="96" y="80" width="140" height="7" rx="3" fill="#34d399" opacity="0.45"/>
+                <rect x="244" y="80" width="90" height="7" rx="3" fill="#818cf8" opacity="0.4"/>
+                <rect x="96" y="96" width="80" height="7" rx="3" fill="#38bdf8" opacity="0.5"/>
+                <rect x="184" y="96" width="120" height="7" rx="3" fill="#f472b6" opacity="0.35"/>
+                <rect x="96" y="112" width="160" height="7" rx="3" fill="#818cf8" opacity="0.35"/>
+                <rect x="112" y="128" width="55" height="7" rx="3" fill="#34d399" opacity="0.5"/>
+                <rect x="175" y="128" width="100" height="7" rx="3" fill="#38bdf8" opacity="0.35"/>
+                <rect x="96" y="144" width="180" height="7" rx="3" fill="#818cf8" opacity="0.3"/>
+                <rect x="96" y="160" width="120" height="7" rx="3" fill="#38bdf8" opacity="0.28"/>
+                <rect x="80" y="176" width="18" height="7" rx="3" fill="#818cf8" opacity="0.4"/>
+              </svg>
+              <div class="expertise__card-visual-overlay"></div>
             </div>
-            <div>
-              <h3 class="expertise__card-title">Infrastructure as Code</h3>
-              <p class="expertise__card-challenge">Click-ops is a liability, not a workflow.</p>
+            <div class="expertise__card-content">
+              <div class="expertise__card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              </div>
+              <div>
+                <h3 class="expertise__card-title">Infrastructure as Code</h3>
+                <p class="expertise__card-challenge">Click-ops is a liability, not a workflow.</p>
+              </div>
+              <p class="expertise__card-desc">Manually provisioned infrastructure is unauditable, unrepeatable, and expensive to maintain. We migrate teams to fully codified infrastructure with state management, module libraries, and automated drift detection from day one.</p>
+              <ul class="expertise__card-caps" role="list">
+                <li>Full migration from console-managed to IaC-managed environments</li>
+                <li>Custom Terraform module libraries, state backends, and governance patterns</li>
+                <li>CI-integrated drift detection and policy enforcement with Checkov and OPA</li>
+              </ul>
+              <aside class="expertise__card-case">
+                <p class="expertise__card-case-label">Case study</p>
+                <p>A FinTech Series B achieved 100% IaC coverage across three AWS accounts in 12 weeks. Next environment provisioned in under two hours without ZAAF involvement.</p>
+              </aside>
             </div>
-            <p class="expertise__card-desc">Manually provisioned infrastructure is unauditable, unrepeatable, and expensive to maintain. We migrate teams to fully codified infrastructure with state management, module libraries, and automated drift detection from day one.</p>
-            <ul class="expertise__card-caps" role="list">
-              <li>Full migration from console-managed to IaC-managed environments</li>
-              <li>Custom Terraform module libraries, state backends, and governance patterns</li>
-              <li>CI-integrated drift detection and policy enforcement with Checkov and OPA</li>
-            </ul>
-            <aside class="expertise__card-case">
-              <p class="expertise__card-case-label">Case study</p>
-              <p>A FinTech Series B achieved 100% IaC coverage across three AWS accounts in 12 weeks. Next environment provisioned in under two hours without ZAAF involvement.</p>
-            </aside>
           </div>
 
           <!-- Cloud Architecture -->
-          <div class="expertise__card" data-reveal>
-            <div class="expertise__card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+          <div class="expertise__card expertise__card--cloud" data-reveal>
+            <div class="expertise__card-visual" aria-hidden="true">
+              <svg class="expertise__card-art" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <path d="M242 118 Q236 92 256 85 Q261 60 298 63 Q318 45 338 63 Q362 59 366 85 Q384 90 381 117 Q383 138 358 138 L248 138 Q226 138 242 118Z" fill="none" stroke="#0ea5e9" stroke-width="1.8" stroke-opacity="0.5"/>
+                <circle cx="88" cy="78" r="32" fill="none" stroke="#6366f1" stroke-width="1.4" stroke-opacity="0.4"/>
+                <text x="88" y="75" text-anchor="middle" font-size="11" fill="#818cf8" font-family="monospace">AWS</text>
+                <text x="88" y="89" text-anchor="middle" font-size="8" fill="#818cf8" font-family="monospace" opacity="0.5">EC2/S3/RDS</text>
+                <circle cx="512" cy="78" r="32" fill="none" stroke="#6366f1" stroke-width="1.4" stroke-opacity="0.4"/>
+                <text x="512" y="75" text-anchor="middle" font-size="11" fill="#818cf8" font-family="monospace">Azure</text>
+                <text x="512" y="89" text-anchor="middle" font-size="8" fill="#818cf8" font-family="monospace" opacity="0.5">AKS/Blob</text>
+                <circle cx="88" cy="168" r="32" fill="none" stroke="#0ea5e9" stroke-width="1.4" stroke-opacity="0.4"/>
+                <text x="88" y="172" text-anchor="middle" font-size="11" fill="#38bdf8" font-family="monospace">GCP</text>
+                <circle cx="512" cy="168" r="32" fill="none" stroke="#14b8a6" stroke-width="1.4" stroke-opacity="0.4"/>
+                <text x="512" y="172" text-anchor="middle" font-size="11" fill="#2dd4bf" font-family="monospace">FinOps</text>
+                <line x1="120" y1="86" x2="242" y2="104" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.22" stroke-dasharray="5 4"/>
+                <line x1="480" y1="86" x2="368" y2="104" stroke="#6366f1" stroke-width="1" stroke-opacity="0.22" stroke-dasharray="5 4"/>
+                <line x1="118" y1="158" x2="244" y2="128" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.22" stroke-dasharray="5 4"/>
+                <line x1="480" y1="158" x2="368" y2="128" stroke="#14b8a6" stroke-width="1" stroke-opacity="0.22" stroke-dasharray="5 4"/>
+              </svg>
+              <div class="expertise__card-visual-overlay"></div>
             </div>
-            <div>
-              <h3 class="expertise__card-title">Cloud Architecture</h3>
-              <p class="expertise__card-challenge">Cloud is not a destination — it's an operating model.</p>
+            <div class="expertise__card-content">
+              <div class="expertise__card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+              </div>
+              <div>
+                <h3 class="expertise__card-title">Cloud Architecture</h3>
+                <p class="expertise__card-challenge">Cloud is not a destination — it's an operating model.</p>
+              </div>
+              <p class="expertise__card-desc">Lifting and shifting on-premise workloads to the cloud rarely solves the underlying problem. We design cloud environments around your actual usage patterns, team capabilities, and cost tolerance.</p>
+              <ul class="expertise__card-caps" role="list">
+                <li>Multi-cloud and hybrid cloud architecture across AWS, Azure, and GCP</li>
+                <li>Cost optimisation, reserved capacity planning, and FinOps dashboards</li>
+                <li>Landing zone design and network segmentation for regulated industries</li>
+              </ul>
+              <aside class="expertise__card-case">
+                <p class="expertise__card-case-label">Case study</p>
+                <p>An NHS Trust reduced cloud spend by 38% within 90 days following a structured FinOps review and workload right-sizing exercise. No service degradation.</p>
+              </aside>
             </div>
-            <p class="expertise__card-desc">Lifting and shifting on-premise workloads to the cloud rarely solves the underlying problem. We design cloud environments around your actual usage patterns, team capabilities, and cost tolerance.</p>
-            <ul class="expertise__card-caps" role="list">
-              <li>Multi-cloud and hybrid cloud architecture across AWS, Azure, and GCP</li>
-              <li>Cost optimisation, reserved capacity planning, and FinOps dashboards</li>
-              <li>Landing zone design and network segmentation for regulated industries</li>
-            </ul>
-            <aside class="expertise__card-case">
-              <p class="expertise__card-case-label">Case study</p>
-              <p>An NHS Trust reduced cloud spend by 38% within 90 days following a structured FinOps review and workload right-sizing exercise. No service degradation.</p>
-            </aside>
           </div>
 
           <!-- Managed IT -->
-          <div class="expertise__card" data-reveal data-reveal-delay="1">
-            <div class="expertise__card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <div class="expertise__card expertise__card--managed" data-reveal data-reveal-delay="1">
+            <div class="expertise__card-visual" aria-hidden="true">
+              <svg class="expertise__card-art" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <rect x="44" y="28" width="152" height="86" rx="6" fill="none" stroke="#0ea5e9" stroke-width="0.9" stroke-opacity="0.38"/>
+                <text x="120" y="80" text-anchor="middle" font-size="26" fill="#38bdf8" font-weight="700" font-family="monospace" opacity="0.9">99.9%</text>
+                <text x="120" y="99" text-anchor="middle" font-size="9" fill="#8694a8" font-family="monospace" letter-spacing="0.08em">UPTIME SLA</text>
+                <rect x="224" y="28" width="152" height="86" rx="6" fill="none" stroke="#6366f1" stroke-width="0.9" stroke-opacity="0.38"/>
+                <text x="300" y="80" text-anchor="middle" font-size="26" fill="#818cf8" font-weight="700" font-family="monospace" opacity="0.9">47m</text>
+                <text x="300" y="99" text-anchor="middle" font-size="9" fill="#8694a8" font-family="monospace" letter-spacing="0.08em">AVG RESOLUTION</text>
+                <rect x="404" y="28" width="152" height="86" rx="6" fill="none" stroke="#34d399" stroke-width="0.9" stroke-opacity="0.35"/>
+                <text x="480" y="80" text-anchor="middle" font-size="26" fill="#34d399" font-weight="700" font-family="monospace" opacity="0.9">61%</text>
+                <text x="480" y="99" text-anchor="middle" font-size="9" fill="#8694a8" font-family="monospace" letter-spacing="0.08em">FEWER INCIDENTS</text>
+                <polyline points="44,188 110,166 176,175 242,148 308,158 374,136 440,142 506,120 556,128" fill="none" stroke="#0ea5e9" stroke-width="1.8" stroke-opacity="0.45"/>
+                <circle cx="506" cy="120" r="3.5" fill="#38bdf8" opacity="0.75"/>
+                <line x1="44" y1="196" x2="556" y2="196" stroke="#0ea5e9" stroke-width="0.5" stroke-opacity="0.15"/>
+              </svg>
+              <div class="expertise__card-visual-overlay"></div>
             </div>
-            <div>
-              <h3 class="expertise__card-title">Managed IT Services</h3>
-              <p class="expertise__card-challenge">Support should be proactive, not reactive.</p>
+            <div class="expertise__card-content">
+              <div class="expertise__card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <div>
+                <h3 class="expertise__card-title">Managed IT Services</h3>
+                <p class="expertise__card-challenge">Support should be proactive, not reactive.</p>
+              </div>
+              <p class="expertise__card-desc">Generic managed service providers respond to tickets. We monitor infrastructure proactively, identify degradation before it becomes an incident, and maintain a working knowledge of your system's history. You get a named engineer, not a rota.</p>
+              <ul class="expertise__card-caps" role="list">
+                <li>Defined SLA tiers with transparent escalation paths and engineer-to-client ratios</li>
+                <li>Observability stack: Prometheus, Grafana, PagerDuty, and custom alerting logic</li>
+                <li>Monthly service reviews with written findings, not just uptime dashboards</li>
+              </ul>
+              <aside class="expertise__card-case">
+                <p class="expertise__card-case-label">Case study</p>
+                <p>A B2B SaaS company moved to ZAAF retained support. Incident volume dropped 61% and average resolution time fell from 6 hours to 47 minutes in year one.</p>
+              </aside>
             </div>
-            <p class="expertise__card-desc">Generic managed service providers respond to tickets. We monitor infrastructure proactively, identify degradation before it becomes an incident, and maintain a working knowledge of your system's history. You get a named engineer, not a rota.</p>
-            <ul class="expertise__card-caps" role="list">
-              <li>Defined SLA tiers with transparent escalation paths and engineer-to-client ratios</li>
-              <li>Observability stack: Prometheus, Grafana, PagerDuty, and custom alerting logic</li>
-              <li>Monthly service reviews with written findings, not just uptime dashboards</li>
-            </ul>
-            <aside class="expertise__card-case">
-              <p class="expertise__card-case-label">Case study</p>
-              <p>A B2B SaaS company moved to ZAAF retained support. Incident volume dropped 61% and average resolution time fell from 6 hours to 47 minutes in year one.</p>
-            </aside>
           </div>
 
           <!-- Web & App Dev -->
-          <div class="expertise__card" data-reveal>
-            <div class="expertise__card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <div class="expertise__card expertise__card--web" data-reveal>
+            <div class="expertise__card-visual" aria-hidden="true">
+              <svg class="expertise__card-art" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <rect x="40" y="18" width="520" height="184" rx="10" fill="none" stroke="#0ea5e9" stroke-width="1" stroke-opacity="0.38"/>
+                <rect x="40" y="18" width="520" height="36" rx="10" fill="rgba(14,165,233,0.1)"/>
+                <rect x="41" y="40" width="519" height="14" fill="rgba(14,165,233,0.1)"/>
+                <circle cx="64" cy="36" r="5.5" fill="#ef4444" opacity="0.5"/>
+                <circle cx="82" cy="36" r="5.5" fill="#f59e0b" opacity="0.5"/>
+                <circle cx="100" cy="36" r="5.5" fill="#22c55e" opacity="0.5"/>
+                <rect x="130" y="27" width="320" height="18" rx="5" fill="rgba(14,165,233,0.1)" stroke="#0ea5e9" stroke-width="0.6" stroke-opacity="0.3"/>
+                <text x="290" y="40" text-anchor="middle" font-size="9" fill="#38bdf8" font-family="monospace" opacity="0.8">zaaf.io/dashboard</text>
+                <rect x="58" y="74" width="160" height="13" rx="3" fill="#0ea5e9" opacity="0.32"/>
+                <rect x="58" y="96" width="220" height="8" rx="3" fill="#6366f1" opacity="0.22"/>
+                <rect x="58" y="112" width="190" height="8" rx="3" fill="#6366f1" opacity="0.17"/>
+                <rect x="58" y="128" width="140" height="8" rx="3" fill="#6366f1" opacity="0.14"/>
+                <rect x="58" y="154" width="118" height="26" rx="5" fill="rgba(14,165,233,0.2)" stroke="#0ea5e9" stroke-width="0.8" stroke-opacity="0.4"/>
+                <text x="117" y="172" text-anchor="middle" font-size="9" fill="#38bdf8" font-family="monospace">Get Started</text>
+                <rect x="326" y="68" width="206" height="126" rx="7" fill="none" stroke="#0ea5e9" stroke-width="0.8" stroke-opacity="0.28"/>
+                <rect x="340" y="80" width="86" height="46" rx="5" fill="rgba(99,102,241,0.18)"/>
+                <rect x="340" y="138" width="165" height="7" rx="3" fill="#818cf8" opacity="0.3"/>
+                <rect x="340" y="153" width="130" height="7" rx="3" fill="#818cf8" opacity="0.22"/>
+                <rect x="340" y="172" width="84" height="18" rx="4" fill="rgba(14,165,233,0.22)" stroke="#0ea5e9" stroke-width="0.6" stroke-opacity="0.35"/>
+              </svg>
+              <div class="expertise__card-visual-overlay"></div>
             </div>
-            <div>
-              <h3 class="expertise__card-title">Web &amp; App Development</h3>
-              <p class="expertise__card-challenge">The best handover is one your team doesn't need us for.</p>
+            <div class="expertise__card-content">
+              <div class="expertise__card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <div>
+                <h3 class="expertise__card-title">Web &amp; App Development</h3>
+                <p class="expertise__card-challenge">The best handover is one your team doesn't need us for.</p>
+              </div>
+              <p class="expertise__card-desc">We build digital products with technology your engineers can maintain. We make deliberate stack choices, document architectural decisions as we go, and treat the handover as a deliverable in its own right.</p>
+              <ul class="expertise__card-caps" role="list">
+                <li>React and Next.js front-ends, Node.js and Python back-ends, TypeScript throughout</li>
+                <li>API design, integration architecture, and developer documentation as standard deliverables</li>
+                <li>Performance budgets, Core Web Vitals, and accessibility auditing baked into delivery</li>
+              </ul>
+              <aside class="expertise__card-case">
+                <p class="expertise__card-case-label">Case study</p>
+                <p>A digital health startup launched their patient portal on time and on budget. The internal team shipped three new features independently within the first month of handover.</p>
+              </aside>
             </div>
-            <p class="expertise__card-desc">We build digital products with technology your engineers can maintain. We make deliberate stack choices, document architectural decisions as we go, and treat the handover as a deliverable in its own right.</p>
-            <ul class="expertise__card-caps" role="list">
-              <li>React and Next.js front-ends, Node.js and Python back-ends, TypeScript throughout</li>
-              <li>API design, integration architecture, and developer documentation as standard deliverables</li>
-              <li>Performance budgets, Core Web Vitals, and accessibility auditing baked into delivery</li>
-            </ul>
-            <aside class="expertise__card-case">
-              <p class="expertise__card-case-label">Case study</p>
-              <p>A digital health startup launched their patient portal on time and on budget. The internal team shipped three new features independently within the first month of handover.</p>
-            </aside>
           </div>
 
           <!-- Cybersecurity -->
-          <div class="expertise__card" data-reveal data-reveal-delay="1">
-            <div class="expertise__card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <div class="expertise__card expertise__card--security" data-reveal data-reveal-delay="1">
+            <div class="expertise__card-visual" aria-hidden="true">
+              <svg class="expertise__card-art" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <circle cx="300" cy="110" r="90" fill="rgba(239,68,68,0.08)"/>
+                <path d="M300 22 L372 52 L372 122 Q372 188 300 210 Q228 188 228 122 L228 52 Z" fill="none" stroke="#ef4444" stroke-width="1.8" stroke-opacity="0.5"/>
+                <path d="M300 38 L358 64 L358 122 Q358 178 300 196 Q242 178 242 122 L242 64 Z" fill="rgba(239,68,68,0.05)"/>
+                <polyline points="272,108 293,132 334,86" fill="none" stroke="#ef4444" stroke-width="2.5" stroke-opacity="0.7" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="112" cy="110" r="44" fill="none" stroke="#6366f1" stroke-width="1.2" stroke-opacity="0.32" stroke-dasharray="4 4"/>
+                <text x="112" y="106" text-anchor="middle" font-size="10" fill="#818cf8" font-family="monospace">ISO</text>
+                <text x="112" y="120" text-anchor="middle" font-size="10" fill="#818cf8" font-family="monospace">27001</text>
+                <circle cx="488" cy="110" r="44" fill="none" stroke="#6366f1" stroke-width="1.2" stroke-opacity="0.32" stroke-dasharray="4 4"/>
+                <text x="488" y="106" text-anchor="middle" font-size="10" fill="#818cf8" font-family="monospace">SOC</text>
+                <text x="488" y="120" text-anchor="middle" font-size="10" fill="#818cf8" font-family="monospace">Type II</text>
+                <line x1="155" y1="118" x2="228" y2="118" stroke="#6366f1" stroke-width="0.8" stroke-opacity="0.2" stroke-dasharray="3 3"/>
+                <line x1="445" y1="118" x2="372" y2="118" stroke="#6366f1" stroke-width="0.8" stroke-opacity="0.2" stroke-dasharray="3 3"/>
+              </svg>
+              <div class="expertise__card-visual-overlay"></div>
             </div>
-            <div>
-              <h3 class="expertise__card-title">Cybersecurity &amp; Compliance</h3>
-              <p class="expertise__card-challenge">Compliance without security is theatre.</p>
+            <div class="expertise__card-content">
+              <div class="expertise__card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </div>
+              <div>
+                <h3 class="expertise__card-title">Cybersecurity &amp; Compliance</h3>
+                <p class="expertise__card-challenge">Compliance without security is theatre.</p>
+              </div>
+              <p class="expertise__card-desc">We run security programmes that produce real security posture improvements, not just frameworks of documentation. ISO 27001, SOC 2, Cyber Essentials Plus — we know what auditors actually look for.</p>
+              <ul class="expertise__card-caps" role="list">
+                <li>Attack surface assessments, penetration testing, and remediation roadmaps</li>
+                <li>ISO 27001 and SOC 2 implementation with defined sprint schedules</li>
+                <li>Security-by-design in CI/CD: SAST, DAST, secret scanning, SBOM generation</li>
+              </ul>
+              <aside class="expertise__card-case">
+                <p class="expertise__card-case-label">Case study</p>
+                <p>A payments platform achieved ISO 27001 certification in six months — half the industry average. Zero major non-conformities in the Stage 2 audit.</p>
+              </aside>
             </div>
-            <p class="expertise__card-desc">We run security programmes that produce real security posture improvements, not just frameworks of documentation. ISO 27001, SOC 2, Cyber Essentials Plus — we know what auditors actually look for.</p>
-            <ul class="expertise__card-caps" role="list">
-              <li>Attack surface assessments, penetration testing, and remediation roadmaps</li>
-              <li>ISO 27001 and SOC 2 implementation with defined sprint schedules</li>
-              <li>Security-by-design in CI/CD: SAST, DAST, secret scanning, SBOM generation</li>
-            </ul>
-            <aside class="expertise__card-case">
-              <p class="expertise__card-case-label">Case study</p>
-              <p>A payments platform achieved ISO 27001 certification in six months — half the industry average. Zero major non-conformities in the Stage 2 audit.</p>
-            </aside>
           </div>
 
           <!-- IT Strategy — wide card -->
-          <div class="expertise__card expertise__card--wide" data-reveal>
-            <div class="expertise__card-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <div class="expertise__card expertise__card--strategy expertise__card--wide" data-reveal>
+            <div class="expertise__card-visual" aria-hidden="true">
+              <svg class="expertise__card-art" viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                  <linearGradient id="bar-fill" x1="0" y1="1" x2="0" y2="0">
+                    <stop offset="0%" stop-color="#14b8a6" stop-opacity="0.2"/>
+                    <stop offset="100%" stop-color="#14b8a6" stop-opacity="0.65"/>
+                  </linearGradient>
+                </defs>
+                <line x1="60" y1="190" x2="540" y2="190" stroke="#14b8a6" stroke-width="0.7" stroke-opacity="0.2"/>
+                <line x1="60" y1="154" x2="540" y2="154" stroke="#14b8a6" stroke-width="0.4" stroke-opacity="0.12"/>
+                <line x1="60" y1="118" x2="540" y2="118" stroke="#14b8a6" stroke-width="0.4" stroke-opacity="0.12"/>
+                <line x1="60" y1="82" x2="540" y2="82" stroke="#14b8a6" stroke-width="0.4" stroke-opacity="0.12"/>
+                <rect x="72"  y="162" width="52" height="28"  rx="3" fill="url(#bar-fill)" opacity="0.65"/>
+                <rect x="168" y="136" width="52" height="54"  rx="3" fill="url(#bar-fill)" opacity="0.75"/>
+                <rect x="264" y="104" width="52" height="86"  rx="3" fill="url(#bar-fill)" opacity="0.85"/>
+                <rect x="360" y="72"  width="52" height="118" rx="3" fill="url(#bar-fill)" opacity="0.92"/>
+                <rect x="456" y="40"  width="52" height="150" rx="3" fill="url(#bar-fill)"/>
+                <polyline points="98,162 194,136 290,104 386,72 482,40" fill="none" stroke="#14b8a6" stroke-width="2.2" stroke-opacity="0.65"/>
+                <circle cx="98"  cy="162" r="4" fill="#14b8a6" opacity="0.6"/>
+                <circle cx="194" cy="136" r="4" fill="#14b8a6" opacity="0.7"/>
+                <circle cx="290" cy="104" r="4" fill="#14b8a6" opacity="0.8"/>
+                <circle cx="386" cy="72"  r="4" fill="#14b8a6" opacity="0.9"/>
+                <circle cx="482" cy="40"  r="5" fill="#14b8a6"/>
+                <text x="482" y="28" text-anchor="middle" font-size="10" fill="#14b8a6" font-family="monospace" opacity="0.9">+40%</text>
+              </svg>
+              <div class="expertise__card-visual-overlay"></div>
             </div>
-            <div>
-              <h3 class="expertise__card-title">IT Strategy</h3>
-              <p class="expertise__card-challenge">Strategy without delivery is just a slide deck.</p>
+            <div class="expertise__card-content">
+              <div class="expertise__card-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+              </div>
+              <div>
+                <h3 class="expertise__card-title">IT Strategy</h3>
+                <p class="expertise__card-challenge">Strategy without delivery is just a slide deck.</p>
+              </div>
+              <p class="expertise__card-desc">We produce technology roadmaps grounded in what your team can actually execute, funded by the budget that exists, and reviewed quarterly rather than filed away. We work alongside leadership to make technology decisions that remain coherent as the business changes.</p>
+              <ul class="expertise__card-caps" role="list">
+                <li>Technology audits, current-state assessments, and prioritised improvement backlogs</li>
+                <li>OKR alignment, quarterly roadmap reviews, and board-level technology reporting</li>
+                <li>Fractional CTO and interim engineering leadership for scale-ups and turnarounds</li>
+              </ul>
+              <aside class="expertise__card-case">
+                <p class="expertise__card-case-label">Case study</p>
+                <p>A Series A scale-up replaced three competing technology strategies with a single coherent roadmap. Engineering velocity increased by 40% in the following quarter.</p>
+              </aside>
             </div>
-            <p class="expertise__card-desc">We produce technology roadmaps grounded in what your team can actually execute, funded by the budget that exists, and reviewed quarterly rather than filed away. We work alongside leadership to make technology decisions that remain coherent as the business changes.</p>
-            <ul class="expertise__card-caps" role="list">
-              <li>Technology audits, current-state assessments, and prioritised improvement backlogs</li>
-              <li>OKR alignment, quarterly roadmap reviews, and board-level technology reporting</li>
-              <li>Fractional CTO and interim engineering leadership for scale-ups and turnarounds</li>
-            </ul>
-            <aside class="expertise__card-case">
-              <p class="expertise__card-case-label">Case study</p>
-              <p>A Series A scale-up replaced three competing technology strategies with a single coherent roadmap. Engineering velocity increased by 40% in the following quarter.</p>
-            </aside>
           </div>
 
         </div>
@@ -1134,13 +1315,13 @@
 
         <!-- Filter bar -->
         <div class="work__filters" role="group" aria-label="Filter engagements by domain" data-reveal>
-          <button class="work__filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
-          <button class="work__filter-btn" data-filter="devops"         aria-pressed="false">DevOps &amp; CI/CD</button>
-          <button class="work__filter-btn" data-filter="iac"            aria-pressed="false">Infrastructure as Code</button>
-          <button class="work__filter-btn" data-filter="cloud"          aria-pressed="false">Cloud</button>
-          <button class="work__filter-btn" data-filter="security"       aria-pressed="false">Security</button>
-          <button class="work__filter-btn" data-filter="digital"        aria-pressed="false">Digital Products</button>
-          <button class="work__filter-btn" data-filter="strategy"       aria-pressed="false">IT Strategy</button>
+          <button type="button" class="work__filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="work__filter-btn" data-filter="devops"         aria-pressed="false">DevOps &amp; CI/CD</button>
+          <button type="button" class="work__filter-btn" data-filter="iac"            aria-pressed="false">Infrastructure as Code</button>
+          <button type="button" class="work__filter-btn" data-filter="cloud"          aria-pressed="false">Cloud</button>
+          <button type="button" class="work__filter-btn" data-filter="security"       aria-pressed="false">Security</button>
+          <button type="button" class="work__filter-btn" data-filter="digital"        aria-pressed="false">Digital Products</button>
+          <button type="button" class="work__filter-btn" data-filter="strategy"       aria-pressed="false">IT Strategy</button>
         </div>
 
         <!-- Bento grid -->

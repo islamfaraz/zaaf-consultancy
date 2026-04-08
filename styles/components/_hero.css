@@ -558,6 +558,17 @@
 }
 
 @media (max-width: 768px) {
+  /* Stack to single column and hide decorative right panel */
+  .hero__inner {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ensure the decorative diagram is hidden on mobile (it's already hidden
+     at 1024px above, but this guard prevents any cascade re-showing it) */
+  .hero__right {
+    display: none;
+  }
+
   .hero__headline {
     font-size: clamp(2.4rem, 11vw, 3.5rem);
   }
@@ -583,9 +594,10 @@
     display: none;
   }
 
+  /* Full-width stacked buttons */
   .hero__ctas {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: var(--space-3);
     width: 100%;
   }
@@ -595,9 +607,15 @@
     justify-content: center;
   }
 
+  /* Stats: wrap and allow 2-col layout */
   .hero__stats-strip {
     flex-wrap: wrap;
     gap: var(--space-4);
+  }
+
+  .hero__stat {
+    flex: 1 1 calc(50% - var(--space-4));
+    min-width: 100px;
   }
 }
 
@@ -614,5 +632,10 @@
 @media (max-width: 380px) {
   .hero__headline {
     font-size: clamp(1.9rem, 9.5vw, 2.4rem);
+  }
+
+  /* Single-column stats on very small screens */
+  .hero__stat {
+    flex: 1 1 100%;
   }
 }

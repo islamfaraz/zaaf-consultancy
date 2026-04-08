@@ -5,6 +5,7 @@
 /* ── Section layout ───────────────────────────────────────────────────────── */
 .contact__grid {
   max-width: 640px;
+  width: 100%;
   margin-inline: auto;
 }
 
@@ -218,9 +219,33 @@
   padding: var(--space-8);
 }
 
+/* ── Inline field row (e.g. name + email side-by-side) ───────────────────── */
+.contact-form__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-5);
+}
+
 /* ── Responsive ───────────────────────────────────────────────────────────── */
 @media (max-width: 768px) {
   .contact__form {
+    padding: var(--space-5);
+  }
+
+  /* Stack side-by-side field rows on mobile */
+  .contact-form__row {
+    grid-template-columns: 1fr;
+  }
+
+  /* Ensure all inputs span full width */
+  .form-input,
+  .contact-form__field,
+  .form-field {
+    width: 100%;
+  }
+
+  /* Reduce form card padding on small screens */
+  .contact-form {
     padding: var(--space-5);
   }
 }

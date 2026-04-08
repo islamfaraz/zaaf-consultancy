@@ -28,7 +28,8 @@
 [data-page="expertise"]:not([hidden]),
 [data-page="process"]:not([hidden]),
 [data-page="work"]:not([hidden]),
-[data-page="about"]:not([hidden]) {
+[data-page="about"]:not([hidden]),
+[data-page="contact"]:not([hidden]) {
   padding-top: calc(var(--nav-height) + var(--space-8));
 }
 
