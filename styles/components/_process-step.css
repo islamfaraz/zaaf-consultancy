@@ -48,8 +48,8 @@
 }
 
 .process__step-front {
-  background-color: rgba(13, 20, 36, 0.85);
-  border: 1px solid rgba(0, 229, 200, 0.12);
+  background-color: rgba(13, 27, 48, 0.85);
+  border: 1px solid rgba(14, 165, 233, 0.12);
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -58,7 +58,7 @@
 }
 
 .process__step:hover .process__step-front {
-  border-color: rgba(0, 229, 200, 0.35);
+  border-color: rgba(14, 165, 233, 0.35);
 }
 
 /* ── Step number node ─────────────────────────────────────────────────────── */
@@ -67,14 +67,14 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  border: 1px solid rgba(0, 229, 200, 0.35);
-  background-color: rgba(0, 229, 200, 0.06);
+  border: 1px solid rgba(14, 165, 233, 0.35);
+  background-color: rgba(14, 165, 233, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-teal-300);
+  color: var(--color-accent);
   flex-shrink: 0;
   animation: pulse-glow 3s ease-in-out infinite;
 }
@@ -82,7 +82,7 @@
 .process__node-num {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-teal-300);
+  color: var(--color-accent);
 }
 
 .process__step-title,
@@ -103,8 +103,8 @@
 
 /* ── Back face ────────────────────────────────────────────────────────────── */
 .process__step-back {
-  background: linear-gradient(135deg, rgba(0,229,200,0.1) 0%, rgba(13,20,36,0.95) 60%);
-  border: 1px solid rgba(0, 229, 200, 0.3);
+  background: linear-gradient(135deg, rgba(14,165,233,0.08) 0%, rgba(13,27,48,0.95) 60%);
+  border: 1px solid rgba(14, 165, 233, 0.3);
   transform: rotateY(180deg);
   justify-content: space-between;
   gap: var(--space-3);
@@ -128,7 +128,7 @@
   font-style: italic;
   line-height: 1.5;
   padding-top: var(--space-3);
-  border-top: 1px solid rgba(0, 229, 200, 0.15);
+  border-top: 1px solid rgba(14, 165, 233, 0.15);
   max-width: none;
 }
 

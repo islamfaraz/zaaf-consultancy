@@ -32,14 +32,14 @@
   right: 0;
   width: 48px;
   height: 48px;
-  border-bottom: 1px solid rgba(0, 229, 200, 0.15);
-  border-left: 1px solid rgba(0, 229, 200, 0.15);
+  border-bottom: 1px solid rgba(14, 165, 233, 0.15);
+  border-left: 1px solid rgba(14, 165, 233, 0.15);
   transition: border-color var(--duration-base) var(--ease-out-expo);
   pointer-events: none;
 }
 
 .case-card:hover::before {
-  border-color: rgba(0, 229, 200, 0.4);
+  border-color: rgba(14, 165, 233, 0.4);
 }
 
 /* ── Card elements ────────────────────────────────────────────────────────── */
@@ -48,7 +48,7 @@
 }
 
 .case-card__challenge {
-  font-family: var(--font-serif);
+  font-family: var(--font-heading);
   font-size: clamp(var(--text-lg), 2.5vw, var(--text-xl));
   font-weight: 400;
   line-height: 1.25;

@@ -4,11 +4,9 @@
 
 /* Glass card base — reusable across site */
 .glass-card {
-  background-color: rgba(15, 23, 42, 0.5);
-  border: 1px solid var(--color-border);
+  background-color: var(--color-surface);
+  border: 1px solid rgba(255,255,255,0.07);
   border-radius: var(--radius-lg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   transition:
     border-color var(--duration-base) var(--ease-out-expo),
     box-shadow var(--duration-base) var(--ease-out-expo),
@@ -17,10 +15,9 @@
 }
 
 .glass-card:hover {
-  border-color: var(--color-border-hover);
-  box-shadow: var(--shadow-teal-lg);
+  border-color: rgba(14,165,233,0.3);
+  box-shadow: 0 0 0 1px rgba(14,165,233,0.15), 0 8px 32px rgba(14,165,233,0.08);
   transform: translateY(-6px);
-  background-color: rgba(15, 23, 42, 0.7);
 }
 
 /* ── Services section wrapper ─────────────────────────────────────────────── */
@@ -54,7 +51,7 @@
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(135deg, rgba(0, 229, 200, 0.04) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.04) 0%, transparent 60%);
   opacity: 0;
   transition: opacity var(--duration-base) var(--ease-out-expo);
   pointer-events: none;
@@ -68,7 +65,7 @@
 .service-card__index {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-teal-300);
+  color: var(--color-accent);
   letter-spacing: 0.05em;
   opacity: 0.8;
   margin-bottom: calc(-1 * var(--space-2));
@@ -84,7 +81,7 @@
 }
 
 .service-card:hover .service-card__title {
-  color: var(--color-teal-300);
+  color: var(--color-accent);
 }
 
 .service-card__desc {

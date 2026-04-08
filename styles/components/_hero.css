@@ -15,8 +15,8 @@
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(0, 229, 200, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 200, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(14, 165, 233, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
 }
 
@@ -45,7 +45,7 @@
   left: -100px;
   background: radial-gradient(
     circle,
-    rgba(0, 229, 200, 0.12) 0%,
+    rgba(14, 165, 233, 0.12) 0%,
     transparent 70%
   );
   animation: glow-drift-1 20s linear infinite;
@@ -59,7 +59,7 @@
   right: -150px;
   background: radial-gradient(
     circle,
-    rgba(139, 92, 246, 0.10) 0%,
+    rgba(99, 102, 241, 0.10) 0%,
     transparent 70%
   );
   animation: glow-drift-2 25s linear infinite reverse;
@@ -74,7 +74,7 @@
   transform: translateX(-50%);
   background: radial-gradient(
     circle,
-    rgba(0, 229, 200, 0.06) 0%,
+    rgba(14, 165, 233, 0.06) 0%,
     transparent 70%
   );
   animation: glow-drift-3 30s linear infinite;
@@ -120,8 +120,8 @@
   z-index: 0;
   pointer-events: none;
   background-image:
-    linear-gradient(rgba(0, 229, 200, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 229, 200, 0.04) 1px, transparent 1px);
+    linear-gradient(rgba(14, 165, 233, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
   background-size: 60px 60px;
   /* Fade grid toward edges — keeps focus on content */
   mask-image: radial-gradient(ellipse at 50% 50%, black 30%, transparent 80%);
@@ -166,7 +166,7 @@
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: 400;
-  color: var(--color-teal-300);
+  color: var(--color-accent);
   letter-spacing: 0.05em;
   margin-bottom: var(--space-6);
   opacity: 0.8;
@@ -178,13 +178,13 @@
   display: block;
   width: 16px;
   height: 1px;
-  background-color: var(--color-teal-300);
+  background-color: var(--color-accent);
   flex-shrink: 0;
 }
 
 /* --- Main headline --- */
 .hero__headline {
-  font-family: var(--font-sans);
+  font-family: var(--font-heading);
   font-size: clamp(3rem, 6vw, 6rem);
   font-weight: 800;
   line-height: 1.05;
@@ -208,9 +208,9 @@
   /* Teal-to-cyan gradient text */
   background: linear-gradient(
     135deg,
-    var(--color-teal-300) 0%,
-    var(--color-cyan-400) 50%,
-    var(--color-teal-400) 100%
+    var(--color-accent) 0%,
+    var(--color-accent-light) 50%,
+    var(--color-accent-dark) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -222,9 +222,9 @@
 .text-gradient {
   background: linear-gradient(
     135deg,
-    var(--color-teal-300) 0%,
-    var(--color-cyan-400) 60%,
-    var(--color-teal-400) 100%
+    var(--color-accent) 0%,
+    var(--color-accent-light) 60%,
+    var(--color-accent-dark) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -236,8 +236,8 @@
 .text-gradient-teal {
   background: linear-gradient(
     135deg,
-    var(--color-teal-300) 0%,
-    var(--color-teal-400) 100%
+    var(--color-accent) 0%,
+    var(--color-accent-dark) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -245,12 +245,12 @@
   color: transparent;
 }
 
-/* Purple accent gradient variant */
+/* Indigo accent gradient variant */
 .text-gradient-purple {
   background: linear-gradient(
     135deg,
-    var(--color-purple-400) 0%,
-    var(--color-purple-500) 100%
+    var(--color-indigo-light) 0%,
+    var(--color-indigo) 100%
   );
   -webkit-background-clip: text;
   background-clip: text;
@@ -332,8 +332,8 @@
 .hero__diagram svg {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 0 60px rgba(0, 229, 200, 0.18))
-          drop-shadow(0 0 20px rgba(0, 212, 255, 0.1));
+  filter: drop-shadow(0 0 60px rgba(14, 165, 233, 0.18))
+          drop-shadow(0 0 20px rgba(56, 189, 248, 0.1));
 }
 
 /* --- Scroll indicator (bottom-center) --- */
@@ -368,7 +368,7 @@
   height: 40px;
   background: linear-gradient(
     to bottom,
-    var(--color-teal-300),
+    var(--color-accent),
     transparent
   );
   animation: scroll-line-draw 1.8s var(--ease-in-out) infinite;
@@ -418,7 +418,7 @@
   height: 500px;
   top: -120px;
   left: -120px;
-  background: radial-gradient(circle, rgba(0, 229, 200, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(14,165,233,0.18) 0%, transparent 70%);
 }
 
 .hero__glow--b {
@@ -426,7 +426,7 @@
   height: 400px;
   top: 10%;
   right: -100px;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(99,102,241,0.14) 0%, transparent 70%);
 }
 
 /* --- Decorative bracket (top-right corner) --- */
@@ -442,7 +442,7 @@
 
 .hero__bracket-line {
   position: absolute;
-  background-color: rgba(0, 229, 200, 0.3);
+  background-color: rgba(14, 165, 233, 0.3);
 }
 
 .hero__bracket-line--h {
@@ -466,8 +466,8 @@
   right: var(--space-12);
   width: 40px;
   height: 40px;
-  border-top: 1px solid rgba(0, 229, 200, 0.3);
-  border-right: 1px solid rgba(0, 229, 200, 0.3);
+  border-top: 1px solid rgba(14, 165, 233, 0.3);
+  border-right: 1px solid rgba(14, 165, 233, 0.3);
   z-index: var(--z-raised);
   pointer-events: none;
 }
@@ -480,8 +480,8 @@
   left: clamp(var(--space-8), 8vw, var(--space-32));
   border-top: none;
   border-right: none;
-  border-bottom: 1px solid rgba(0, 229, 200, 0.3);
-  border-left: 1px solid rgba(0, 229, 200, 0.3);
+  border-bottom: 1px solid rgba(14, 165, 233, 0.3);
+  border-left: 1px solid rgba(14, 165, 233, 0.3);
 }
 
 /* --- Horizontal accent rules --- */

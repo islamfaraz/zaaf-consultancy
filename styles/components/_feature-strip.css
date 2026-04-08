@@ -5,7 +5,7 @@
 .feature-strip {
   position: relative;
   z-index: var(--z-raised);
-  background-color: rgba(13, 20, 36, 0.8);
+  background-color: rgba(13, 27, 48, 0.8);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
   backdrop-filter: blur(12px);
@@ -34,7 +34,7 @@
 }
 
 .feature-strip__item:hover {
-  background-color: rgba(0, 229, 200, 0.04);
+  background-color: rgba(14, 165, 233, 0.04);
 }
 
 .feature-strip__title {

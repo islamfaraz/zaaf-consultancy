@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .site-footer {
-  border-top: 1px solid rgba(0, 229, 200, 0.08);
+  border-top: 1px solid rgba(14, 165, 233, 0.08);
   padding-block: var(--space-8);
   position: relative;
   z-index: var(--z-raised);
@@ -44,7 +44,7 @@
 }
 
 .site-footer__link:hover {
-  color: var(--color-teal-300);
+  color: var(--color-accent);
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────────── */
