@@ -72,3 +72,12 @@
     border-right: 1px solid var(--color-border);
   }
 }
+
+@media (max-width: 480px) {
+  .feature-strip__inner {
+    grid-template-columns: 1fr;
+  }
+  .feature-strip__item {
+    border-right: none;
+  }
+}

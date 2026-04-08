@@ -145,131 +145,229 @@
         <!-- RIGHT: isometric network diagram (pure CSS/SVG, no external images) -->
         <div class="hero__right" aria-hidden="true">
           <div class="hero__diagram">
-            <svg viewBox="0 0 560 520" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 600 560" fill="none" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <radialGradient id="glowCenter" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#00e5c8" stop-opacity="0.2"/>
+                <radialGradient id="rg-center" cx="50%" cy="45%" r="55%">
+                  <stop offset="0%"   stop-color="#00e5c8" stop-opacity="0.22"/>
                   <stop offset="100%" stop-color="#00e5c8" stop-opacity="0"/>
                 </radialGradient>
-                <radialGradient id="nodeGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%" stop-color="#00e5c8" stop-opacity="0.15"/>
+                <radialGradient id="rg-node" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%"   stop-color="#00e5c8" stop-opacity="0.18"/>
                   <stop offset="100%" stop-color="#00e5c8" stop-opacity="0"/>
                 </radialGradient>
-                <filter id="blur8">
-                  <feGaussianBlur stdDeviation="8"/>
+                <radialGradient id="rg-node-blue" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%"   stop-color="#00d4ff" stop-opacity="0.18"/>
+                  <stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/>
+                </radialGradient>
+                <linearGradient id="lg-edge-teal" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%"   stop-color="#00e5c8" stop-opacity="0"/>
+                  <stop offset="50%"  stop-color="#00e5c8" stop-opacity="0.6"/>
+                  <stop offset="100%" stop-color="#00e5c8" stop-opacity="0"/>
+                </linearGradient>
+                <filter id="f-blur6" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="6"/>
                 </filter>
-                <filter id="blur4">
-                  <feGaussianBlur stdDeviation="4"/>
+                <filter id="f-blur12" x="-50%" y="-50%" width="200%" height="200%">
+                  <feGaussianBlur stdDeviation="12"/>
+                </filter>
+                <filter id="f-glow" x="-30%" y="-30%" width="160%" height="160%">
+                  <feGaussianBlur stdDeviation="3" result="blur"/>
+                  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
                 </filter>
               </defs>
 
-              <!-- Ambient glow backdrop -->
-              <ellipse cx="280" cy="260" rx="200" ry="160" fill="url(#glowCenter)" filter="url(#blur8)"/>
+              <!-- ── Ambient background glow ── -->
+              <ellipse cx="300" cy="280" rx="220" ry="170" fill="url(#rg-center)" filter="url(#f-blur12)"/>
 
-              <!-- ── Central cloud platform ── -->
-              <!-- Platform shadow -->
-              <ellipse cx="280" cy="360" rx="140" ry="22" fill="#00e5c8" opacity="0.06" filter="url(#blur4)"/>
-              <!-- Platform base — isometric slab -->
-              <polygon points="280,330 420,262 280,194 140,262" fill="#1a2540" stroke="#00e5c8" stroke-width="0.6" opacity="0.9"/>
-              <polygon points="420,262 420,300 280,368 280,330" fill="#111827" stroke="#00e5c8" stroke-width="0.6" opacity="0.85"/>
-              <polygon points="140,262 280,330 280,368 140,300" fill="#0d1421" stroke="#00e5c8" stroke-width="0.6" opacity="0.75"/>
+              <!-- ── Orbit rings ── -->
+              <circle cx="300" cy="270" r="195" fill="none" stroke="rgba(0,229,200,0.055)" stroke-width="1" stroke-dasharray="3,9"/>
+              <circle cx="300" cy="270" r="155" fill="none" stroke="rgba(0,229,200,0.04)"  stroke-width="0.5"/>
+              <circle cx="300" cy="270" r="115" fill="none" stroke="rgba(0,229,200,0.03)"  stroke-width="0.5"/>
 
-              <!-- Platform grid lines on top face -->
-              <line x1="210" y1="228" x2="350" y2="296" stroke="rgba(0,229,200,0.12)" stroke-width="0.5"/>
-              <line x1="245" y1="211" x2="385" y2="279" stroke="rgba(0,229,200,0.12)" stroke-width="0.5"/>
-              <line x1="175" y1="262" x2="315" y2="194" stroke="rgba(0,229,200,0.08)" stroke-width="0.5"/>
-              <line x1="210" y1="278" x2="350" y2="210" stroke="rgba(0,229,200,0.08)" stroke-width="0.5"/>
+              <!-- ============================================================
+                   CENTRAL PLATFORM — isometric base slab
+              ============================================================ -->
+              <!-- Base shadow -->
+              <ellipse cx="300" cy="390" rx="150" ry="24" fill="#00e5c8" opacity="0.05" filter="url(#f-blur6)"/>
+              <!-- Top face (parallelogram) -->
+              <polygon points="300,290 450,215 300,140 150,215" fill="#1a2848" stroke="#00e5c8" stroke-width="0.7" opacity="0.95"/>
+              <!-- Right face -->
+              <polygon points="450,215 450,260 300,335 300,290" fill="#111c30" stroke="#00e5c8" stroke-width="0.7" opacity="0.9"/>
+              <!-- Left face -->
+              <polygon points="150,215 300,290 300,335 150,260" fill="#0d1624" stroke="#00e5c8" stroke-width="0.7" opacity="0.8"/>
 
-              <!-- Server unit on platform — left stack -->
-              <polygon points="200,220 240,200 280,220 240,240" fill="#233050" stroke="#00e5c8" stroke-width="0.8"/>
-              <polygon points="240,200 240,250 280,270 280,220" fill="#1a2540" stroke="#00e5c8" stroke-width="0.8"/>
-              <polygon points="200,220 200,270 240,290 240,240" fill="#151f35" stroke="#00e5c8" stroke-width="0.8"/>
-              <!-- LED indicators left stack -->
-              <circle cx="275" cy="228" r="2.5" fill="#00e5c8" opacity="0.95"/>
-              <circle cx="275" cy="240" r="2.5" fill="#00d4ff" opacity="0.85"/>
-              <circle cx="275" cy="252" r="2.5" fill="#00e5c8" opacity="0.5"/>
+              <!-- Platform surface grid lines -->
+              <line x1="225" y1="177" x2="375" y2="252" stroke="rgba(0,229,200,0.1)" stroke-width="0.5"/>
+              <line x1="262" y1="158" x2="412" y2="233" stroke="rgba(0,229,200,0.08)" stroke-width="0.5"/>
+              <line x1="338" y1="158" x2="188" y2="233" stroke="rgba(0,229,200,0.08)" stroke-width="0.5"/>
+              <line x1="375" y1="177" x2="225" y2="252" stroke="rgba(0,229,200,0.1)" stroke-width="0.5"/>
 
-              <!-- Server unit on platform — right stack -->
-              <polygon points="280,220 320,200 360,220 320,240" fill="#233050" stroke="#00e5c8" stroke-width="0.8"/>
-              <polygon points="320,200 320,250 360,270 360,220" fill="#1a2540" stroke="#00e5c8" stroke-width="0.8"/>
-              <polygon points="280,220 280,270 320,290 320,240" fill="#151f35" stroke="#00e5c8" stroke-width="0.8"/>
-              <!-- LED indicators right stack -->
-              <circle cx="355" cy="228" r="2.5" fill="#00d4ff" opacity="0.95"/>
-              <circle cx="355" cy="240" r="2.5" fill="#00e5c8" opacity="0.7"/>
+              <!-- ============================================================
+                   SERVER RACK LEFT — 3-tier isometric box
+              ============================================================ -->
+              <!-- Top -->
+              <polygon points="210,195 270,165 310,185 250,215" fill="#243255" stroke="#00e5c8" stroke-width="0.8"/>
+              <!-- Right -->
+              <polygon points="270,165 270,225 310,245 310,185" fill="#1a2540" stroke="#00e5c8" stroke-width="0.8"/>
+              <!-- Left -->
+              <polygon points="210,195 210,255 250,275 250,215" fill="#141e32" stroke="#00e5c8" stroke-width="0.8"/>
+              <!-- Rack unit lines on right face -->
+              <line x1="250" y1="225" x2="310" y2="195" stroke="rgba(0,229,200,0.2)" stroke-width="0.5"/>
+              <line x1="250" y1="238" x2="310" y2="208" stroke="rgba(0,229,200,0.2)" stroke-width="0.5"/>
+              <line x1="250" y1="251" x2="310" y2="221" stroke="rgba(0,229,200,0.2)" stroke-width="0.5"/>
+              <!-- LED indicators -->
+              <circle cx="306" cy="198" r="2.5" fill="#00e5c8" opacity="1"  filter="url(#f-glow)"/>
+              <circle cx="306" cy="211" r="2.5" fill="#00d4ff" opacity="0.9" filter="url(#f-glow)"/>
+              <circle cx="306" cy="224" r="2.5" fill="#00e5c8" opacity="0.5"/>
+              <!-- Label on top face -->
+              <text x="243" y="197" font-family="monospace" font-size="7" fill="#00e5c8" opacity="0.8" letter-spacing="1">SRV-01</text>
 
-              <!-- Floating cloud layer above platform -->
-              <ellipse cx="280" cy="155" rx="100" ry="22" fill="rgba(0,229,200,0.07)" stroke="rgba(0,229,200,0.3)" stroke-width="0.8"/>
-              <ellipse cx="280" cy="150" rx="84" ry="17" fill="#111827" stroke="rgba(0,229,200,0.2)" stroke-width="0.5"/>
-              <ellipse cx="280" cy="145" rx="68" ry="13" fill="#1a2540" stroke="rgba(0,229,200,0.15)" stroke-width="0.5"/>
-              <text x="260" y="151" font-family="monospace" font-size="9" fill="#00e5c8" opacity="0.75" letter-spacing="2">CLOUD</text>
-              <!-- Cloud glow -->
-              <ellipse cx="280" cy="152" rx="90" ry="18" fill="#00e5c8" opacity="0.04" filter="url(#blur4)"/>
+              <!-- ============================================================
+                   SERVER RACK RIGHT — taller box
+              ============================================================ -->
+              <!-- Top -->
+              <polygon points="310,185 370,155 415,178 355,208" fill="#243255" stroke="#00e5c8" stroke-width="0.8"/>
+              <!-- Right -->
+              <polygon points="370,155 370,235 415,258 415,178" fill="#1a2540" stroke="#00e5c8" stroke-width="0.8"/>
+              <!-- Left -->
+              <polygon points="310,185 310,265 355,288 355,208" fill="#141e32" stroke="#00e5c8" stroke-width="0.8"/>
+              <!-- Unit lines -->
+              <line x1="355" y1="220" x2="415" y2="192" stroke="rgba(0,229,200,0.2)" stroke-width="0.5"/>
+              <line x1="355" y1="233" x2="415" y2="205" stroke="rgba(0,229,200,0.2)" stroke-width="0.5"/>
+              <line x1="355" y1="246" x2="415" y2="218" stroke="rgba(0,229,200,0.2)" stroke-width="0.5"/>
+              <line x1="355" y1="260" x2="415" y2="232" stroke="rgba(0,229,200,0.2)" stroke-width="0.5"/>
+              <!-- LEDs -->
+              <circle cx="410" cy="195" r="2.5" fill="#00e5c8" opacity="1"  filter="url(#f-glow)"/>
+              <circle cx="410" cy="208" r="2.5" fill="#00e5c8" opacity="0.7"/>
+              <circle cx="410" cy="221" r="2.5" fill="#00d4ff" opacity="0.9" filter="url(#f-glow)"/>
+              <circle cx="410" cy="234" r="2.5" fill="#00e5c8" opacity="0.4"/>
+              <!-- Label -->
+              <text x="345" y="190" font-family="monospace" font-size="7" fill="#00e5c8" opacity="0.8" letter-spacing="1">SRV-02</text>
 
-              <!-- Vertical connector: cloud to platform -->
-              <line x1="280" y1="168" x2="280" y2="194" stroke="rgba(0,229,200,0.4)" stroke-width="1" stroke-dasharray="3,4"/>
+              <!-- ============================================================
+                   FLOATING CLOUD PLATFORM — stacked ellipses
+              ============================================================ -->
+              <!-- Glow bloom -->
+              <ellipse cx="300" cy="105" rx="110" ry="28" fill="#00e5c8" opacity="0.06" filter="url(#f-blur12)"/>
+              <!-- Layer 3 (bottom) -->
+              <ellipse cx="300" cy="118" rx="108" ry="22" fill="rgba(0,229,200,0.06)" stroke="rgba(0,229,200,0.2)" stroke-width="0.7"/>
+              <!-- Layer 2 -->
+              <ellipse cx="300" cy="112" rx="90"  ry="18" fill="#111c30" stroke="rgba(0,229,200,0.25)" stroke-width="0.8"/>
+              <!-- Layer 1 (top) -->
+              <ellipse cx="300" cy="106" rx="72"  ry="14" fill="#1a2848" stroke="rgba(0,229,200,0.35)" stroke-width="1"/>
+              <!-- Inner glow ring -->
+              <ellipse cx="300" cy="106" rx="60"  ry="11" fill="rgba(0,229,200,0.04)" stroke="rgba(0,229,200,0.15)" stroke-width="0.5"/>
+              <!-- Label -->
+              <text x="274" y="111" font-family="monospace" font-size="9" fill="#00e5c8" opacity="0.85" letter-spacing="2">CLOUD</text>
+              <!-- Vertical connector to platform -->
+              <line x1="300" y1="124" x2="300" y2="140" stroke="rgba(0,229,200,0.5)" stroke-width="1.2" stroke-dasharray="3,3"/>
 
-              <!-- ── Satellite nodes ── -->
-              <!-- Node: IaC — bottom-left -->
-              <ellipse cx="90" cy="408" rx="30" ry="30" fill="url(#nodeGlow)" filter="url(#blur4)"/>
-              <circle cx="90" cy="408" r="28" fill="#0d1421" stroke="rgba(0,229,200,0.35)" stroke-width="1"/>
-              <circle cx="90" cy="408" r="22" fill="#111827" stroke="rgba(0,229,200,0.15)" stroke-width="0.5"/>
-              <text x="79" y="404" font-family="monospace" font-size="8" fill="#00e5c8" opacity="0.9">IaC</text>
-              <text x="72" y="416" font-family="monospace" font-size="6" fill="rgba(0,229,200,0.5)">Terraform</text>
+              <!-- ============================================================
+                   NETWORK CABLES — curved paths connecting racks to platform edge
+              ============================================================ -->
+              <path d="M 250 265 Q 260 290 280 300" stroke="#00e5c8" stroke-width="1" opacity="0.25" fill="none"/>
+              <path d="M 355 278 Q 340 295 320 300" stroke="#00e5c8" stroke-width="1" opacity="0.25" fill="none"/>
 
-              <!-- Node: CI/CD — bottom-right -->
-              <ellipse cx="470" cy="395" rx="30" ry="30" fill="url(#nodeGlow)" filter="url(#blur4)"/>
-              <circle cx="470" cy="395" r="28" fill="#0d1421" stroke="rgba(0,229,200,0.35)" stroke-width="1"/>
-              <circle cx="470" cy="395" r="22" fill="#111827" stroke="rgba(0,229,200,0.15)" stroke-width="0.5"/>
-              <text x="451" y="391" font-family="monospace" font-size="7" fill="#00e5c8" opacity="0.9">CI/CD</text>
-              <text x="455" y="402" font-family="monospace" font-size="6" fill="rgba(0,229,200,0.5)">ArgoCD</text>
+              <!-- ============================================================
+                   SATELLITE NODES — 5 orbiting service circles
+              ============================================================ -->
 
-              <!-- Node: SEC — top-left -->
-              <ellipse cx="80" cy="120" rx="28" ry="28" fill="url(#nodeGlow)" filter="url(#blur4)"/>
-              <circle cx="80" cy="120" r="26" fill="#0d1421" stroke="rgba(0,212,255,0.35)" stroke-width="1"/>
-              <circle cx="80" cy="120" r="20" fill="#111827" stroke="rgba(0,212,255,0.15)" stroke-width="0.5"/>
-              <text x="68" y="116" font-family="monospace" font-size="8" fill="#00d4ff" opacity="0.9">SEC</text>
-              <text x="66" y="128" font-family="monospace" font-size="5.5" fill="rgba(0,212,255,0.5)">ISO 27001</text>
+              <!-- Node 1: IaC — bottom-left -->
+              <circle cx="85"  cy="420" r="34" fill="url(#rg-node)"      filter="url(#f-blur6)"/>
+              <circle cx="85"  cy="420" r="30" fill="#0d1624" stroke="rgba(0,229,200,0.4)"  stroke-width="1.2"/>
+              <circle cx="85"  cy="420" r="22" fill="#111c30" stroke="rgba(0,229,200,0.18)" stroke-width="0.6"/>
+              <!-- IaC icon: nested squares -->
+              <rect x="74" y="409" width="8"  height="8"  rx="1" fill="none" stroke="#00e5c8" stroke-width="1"   opacity="0.9"/>
+              <rect x="79" y="414" width="10" height="10" rx="1" fill="none" stroke="#00e5c8" stroke-width="0.7" opacity="0.5"/>
+              <text x="66"  y="436" font-family="monospace" font-size="8"   fill="#00e5c8" opacity="0.95">IaC</text>
+              <text x="60"  y="447" font-family="monospace" font-size="5.5" fill="rgba(0,229,200,0.55)">Terraform</text>
 
-              <!-- Node: OPS — top-right -->
-              <ellipse cx="470" cy="110" rx="28" ry="28" fill="url(#nodeGlow)" filter="url(#blur4)"/>
-              <circle cx="470" cy="110" r="26" fill="#0d1421" stroke="rgba(0,212,255,0.35)" stroke-width="1"/>
-              <circle cx="470" cy="110" r="20" fill="#111827" stroke="rgba(0,212,255,0.15)" stroke-width="0.5"/>
-              <text x="458" y="106" font-family="monospace" font-size="8" fill="#00d4ff" opacity="0.9">OPS</text>
-              <text x="453" y="118" font-family="monospace" font-size="5.5" fill="rgba(0,212,255,0.5)">Monitoring</text>
+              <!-- Node 2: CI/CD — bottom-right -->
+              <circle cx="515" cy="408" r="34" fill="url(#rg-node)"      filter="url(#f-blur6)"/>
+              <circle cx="515" cy="408" r="30" fill="#0d1624" stroke="rgba(0,229,200,0.4)"  stroke-width="1.2"/>
+              <circle cx="515" cy="408" r="22" fill="#111c30" stroke="rgba(0,229,200,0.18)" stroke-width="0.6"/>
+              <!-- CI/CD icon: play button -->
+              <polygon points="504,397 504,419 521,408" fill="none" stroke="#00e5c8" stroke-width="1.2" stroke-linejoin="round" opacity="0.9"/>
+              <text x="494" y="432" font-family="monospace" font-size="7.5" fill="#00e5c8" opacity="0.95">CI/CD</text>
+              <text x="499" y="443" font-family="monospace" font-size="5.5" fill="rgba(0,229,200,0.55)">ArgoCD</text>
 
-              <!-- Node: DEV — far right mid -->
-              <ellipse cx="510" cy="258" rx="24" ry="24" fill="url(#nodeGlow)" filter="url(#blur4)"/>
-              <circle cx="510" cy="258" r="22" fill="#0d1421" stroke="rgba(0,229,200,0.3)" stroke-width="1"/>
-              <circle cx="510" cy="258" r="16" fill="#111827" stroke="rgba(0,229,200,0.12)" stroke-width="0.5"/>
-              <text x="499" y="255" font-family="monospace" font-size="7" fill="#00e5c8" opacity="0.85">DEV</text>
-              <text x="498" y="265" font-family="monospace" font-size="5" fill="rgba(0,229,200,0.45)">K8s</text>
+              <!-- Node 3: SEC — top-left -->
+              <circle cx="70"  cy="130" r="32" fill="url(#rg-node-blue)"  filter="url(#f-blur6)"/>
+              <circle cx="70"  cy="130" r="28" fill="#0d1624" stroke="rgba(0,212,255,0.4)"  stroke-width="1.2"/>
+              <circle cx="70"  cy="130" r="20" fill="#111c30" stroke="rgba(0,212,255,0.18)" stroke-width="0.6"/>
+              <!-- Shield icon -->
+              <path d="M70,118 L80,122 L80,130 Q80,138 70,142 Q60,138 60,130 L60,122 Z" fill="none" stroke="#00d4ff" stroke-width="1.2" stroke-linejoin="round" opacity="0.9"/>
+              <text x="55"  y="155" font-family="monospace" font-size="8"   fill="#00d4ff" opacity="0.95">SEC</text>
+              <text x="48"  y="166" font-family="monospace" font-size="5.5" fill="rgba(0,212,255,0.55)">ISO 27001</text>
 
-              <!-- ── Connection lines (curved paths) ── -->
-              <path d="M 140,300 Q 115,360 118,380" stroke="rgba(0,229,200,0.2)" stroke-width="1.5" stroke-dasharray="5,7" fill="none"/>
-              <path d="M 420,300 Q 445,350 443,368" stroke="rgba(0,229,200,0.2)" stroke-width="1.5" stroke-dasharray="5,7" fill="none"/>
-              <path d="M 175,262 Q 130,195 106,144" stroke="rgba(0,212,255,0.18)" stroke-width="1" stroke-dasharray="4,6" fill="none"/>
-              <path d="M 385,235 Q 430,175 444,133" stroke="rgba(0,212,255,0.18)" stroke-width="1" stroke-dasharray="4,6" fill="none"/>
-              <path d="M 420,262 Q 465,260 488,258" stroke="rgba(0,229,200,0.15)" stroke-width="1" stroke-dasharray="4,6" fill="none"/>
+              <!-- Node 4: OPS — top-right -->
+              <circle cx="530" cy="120" r="32" fill="url(#rg-node-blue)"  filter="url(#f-blur6)"/>
+              <circle cx="530" cy="120" r="28" fill="#0d1624" stroke="rgba(0,212,255,0.4)"  stroke-width="1.2"/>
+              <circle cx="530" cy="120" r="20" fill="#111c30" stroke="rgba(0,212,255,0.18)" stroke-width="0.6"/>
+              <!-- Monitor/chart icon -->
+              <rect x="519" y="110" width="22" height="14" rx="2" fill="none" stroke="#00d4ff" stroke-width="1.2" opacity="0.9"/>
+              <polyline points="522,120 526,116 530,118 534,113 538,115" fill="none" stroke="#00d4ff" stroke-width="1" stroke-linejoin="round" opacity="0.8"/>
+              <text x="515" y="145" font-family="monospace" font-size="8"   fill="#00d4ff" opacity="0.95">OPS</text>
+              <text x="507" y="156" font-family="monospace" font-size="5.5" fill="rgba(0,212,255,0.55)">Monitoring</text>
 
-              <!-- ── Outer orbit rings ── -->
-              <circle cx="280" cy="258" r="170" fill="none" stroke="rgba(0,229,200,0.05)" stroke-width="1" stroke-dasharray="2,8"/>
-              <circle cx="280" cy="258" r="130" fill="none" stroke="rgba(0,229,200,0.04)" stroke-width="0.5"/>
+              <!-- Node 5: DEV — right-mid -->
+              <circle cx="560" cy="270" r="28" fill="url(#rg-node)"      filter="url(#f-blur6)"/>
+              <circle cx="560" cy="270" r="24" fill="#0d1624" stroke="rgba(0,229,200,0.35)" stroke-width="1"/>
+              <circle cx="560" cy="270" r="17" fill="#111c30" stroke="rgba(0,229,200,0.14)" stroke-width="0.5"/>
+              <!-- Code brackets icon -->
+              <text x="550" y="267" font-family="monospace" font-size="11" fill="#00e5c8" opacity="0.85">&lt;/&gt;</text>
+              <text x="550" y="284" font-family="monospace" font-size="5.5" fill="rgba(0,229,200,0.5)">K8s</text>
 
-              <!-- ── Floating data packets on connection lines ── -->
-              <circle r="3" fill="#00e5c8" opacity="0.7">
-                <animateMotion dur="4s" repeatCount="indefinite">
-                  <mpath href="#path-iac"/>
-                </animateMotion>
+              <!-- ============================================================
+                   CONNECTION LINES — dashed paths node to platform
+              ============================================================ -->
+              <!-- IaC to platform-left -->
+              <path d="M 113,402 Q 130,370 150,325" stroke="rgba(0,229,200,0.22)" stroke-width="1.2" stroke-dasharray="5,7" fill="none"/>
+              <!-- CI/CD to platform-right -->
+              <path d="M 487,392 Q 468,358 450,310" stroke="rgba(0,229,200,0.22)" stroke-width="1.2" stroke-dasharray="5,7" fill="none"/>
+              <!-- SEC to cloud left -->
+              <path d="M 97,118 Q 160,100 192,106" stroke="rgba(0,212,255,0.18)" stroke-width="1" stroke-dasharray="4,6" fill="none"/>
+              <!-- OPS to cloud right -->
+              <path d="M 503,118 Q 440,100 408,106" stroke="rgba(0,212,255,0.18)" stroke-width="1" stroke-dasharray="4,6" fill="none"/>
+              <!-- DEV to platform right edge -->
+              <path d="M 536,258 Q 490,240 450,230" stroke="rgba(0,229,200,0.15)" stroke-width="1" stroke-dasharray="4,6" fill="none"/>
+
+              <!-- ============================================================
+                   ANIMATED DATA PACKETS
+              ============================================================ -->
+              <!-- Named paths (hidden) for packet animation -->
+              <path id="pkt-a" d="M 113,402 Q 130,370 150,325" fill="none" visibility="hidden"/>
+              <path id="pkt-b" d="M 487,392 Q 468,358 450,310" fill="none" visibility="hidden"/>
+              <path id="pkt-c" d="M 97,118 Q 160,100 192,106"  fill="none" visibility="hidden"/>
+              <path id="pkt-d" d="M 503,118 Q 440,100 408,106"  fill="none" visibility="hidden"/>
+
+              <!-- Packet A: IaC → platform (teal) -->
+              <circle r="3.5" fill="#00e5c8" opacity="0.85" filter="url(#f-glow)">
+                <animateMotion dur="3.2s" repeatCount="indefinite" begin="0s"><mpath href="#pkt-a"/></animateMotion>
               </circle>
-              <circle r="2.5" fill="#00d4ff" opacity="0.6">
-                <animateMotion dur="5s" repeatCount="indefinite" begin="1.5s">
-                  <mpath href="#path-ops"/>
-                </animateMotion>
+              <!-- Packet B: CI/CD → platform (teal) -->
+              <circle r="3.5" fill="#00e5c8" opacity="0.85" filter="url(#f-glow)">
+                <animateMotion dur="3.8s" repeatCount="indefinite" begin="1.2s"><mpath href="#pkt-b"/></animateMotion>
+              </circle>
+              <!-- Packet C: SEC → cloud (blue) -->
+              <circle r="2.5" fill="#00d4ff" opacity="0.75" filter="url(#f-glow)">
+                <animateMotion dur="4.5s" repeatCount="indefinite" begin="0.6s"><mpath href="#pkt-c"/></animateMotion>
+              </circle>
+              <!-- Packet D: OPS → cloud (blue) -->
+              <circle r="2.5" fill="#00d4ff" opacity="0.75" filter="url(#f-glow)">
+                <animateMotion dur="4s"  repeatCount="indefinite" begin="2s"><mpath href="#pkt-d"/></animateMotion>
               </circle>
 
-              <!-- Named paths for packet animation -->
-              <path id="path-iac" d="M 140,300 Q 115,360 118,380" fill="none" visibility="hidden"/>
-              <path id="path-ops" d="M 385,235 Q 430,175 444,133" fill="none" visibility="hidden"/>
+              <!-- ============================================================
+                   STATUS BAR — bottom of diagram
+              ============================================================ -->
+              <rect x="160" y="458" width="280" height="28" rx="6" fill="rgba(13,20,36,0.85)" stroke="rgba(0,229,200,0.2)" stroke-width="0.8"/>
+              <!-- Status dots -->
+              <circle cx="178" cy="472" r="4" fill="#00e5c8" opacity="0.9" filter="url(#f-glow)"/>
+              <text x="188" y="476" font-family="monospace" font-size="7" fill="rgba(0,229,200,0.8)">ALL SYSTEMS OPERATIONAL</text>
+              <!-- Uptime bar -->
+              <rect x="170" y="492" width="260" height="3" rx="1.5" fill="rgba(255,255,255,0.06)"/>
+              <rect x="170" y="492" width="248" height="3" rx="1.5" fill="#00e5c8" opacity="0.5"/>
             </svg>
           </div>
         </div>
@@ -776,91 +874,67 @@
         <ol class="process__timeline" role="list" data-reveal data-reveal-delay="3">
 
           <li class="process__step">
-            <div class="process__node" aria-hidden="true">
-              <span class="process__node-num">01</span>
-            </div>
-            <div class="process__connector" aria-hidden="true"></div>
-            <div class="process__content">
-              <h3 class="process__step-title">Discovery</h3>
-              <p class="process__step-desc">
-                We spend the first week listening, not presenting. Structured interviews across
-                engineering, operations, and leadership to map the actual problem — not the
-                assumed one.
-              </p>
-              <p class="process__anti-pattern">
-                <em>Anti-pattern avoided: skipping discovery to "save time" and scoping the wrong problem at pace.</em>
-              </p>
+            <div class="process__step-inner">
+              <div class="process__step-front">
+                <div class="process__node" aria-hidden="true"><span class="process__node-num">01</span></div>
+                <h3 class="process__step-title">Discovery</h3>
+              </div>
+              <div class="process__step-back">
+                <p class="process__step-desc">We spend the first week listening, not presenting. Structured interviews across engineering, operations, and leadership to map the actual problem — not the assumed one.</p>
+                <p class="process__anti-pattern"><em>Anti-pattern avoided: skipping discovery to "save time" and scoping the wrong problem at pace.</em></p>
+              </div>
             </div>
           </li>
 
           <li class="process__step">
-            <div class="process__node" aria-hidden="true">
-              <span class="process__node-num">02</span>
-            </div>
-            <div class="process__connector" aria-hidden="true"></div>
-            <div class="process__content">
-              <h3 class="process__step-title">Architecture</h3>
-              <p class="process__step-desc">
-                A written architecture document, shared before any code is written. Decisions
-                documented, alternatives considered, trade-offs explicit. You review it; we
-                revise it; then we build it.
-              </p>
-              <p class="process__anti-pattern">
-                <em>Anti-pattern avoided: building first and documenting never, leaving tribal knowledge as the only map.</em>
-              </p>
+            <div class="process__step-inner">
+              <div class="process__step-front">
+                <div class="process__node" aria-hidden="true"><span class="process__node-num">02</span></div>
+                <h3 class="process__step-title">Architecture</h3>
+              </div>
+              <div class="process__step-back">
+                <p class="process__step-desc">A written architecture document, shared before any code is written. Decisions documented, alternatives considered, trade-offs explicit. You review it; we revise it; then we build it.</p>
+                <p class="process__anti-pattern"><em>Anti-pattern avoided: building first and documenting never, leaving tribal knowledge as the only map.</em></p>
+              </div>
             </div>
           </li>
 
           <li class="process__step">
-            <div class="process__node" aria-hidden="true">
-              <span class="process__node-num">03</span>
-            </div>
-            <div class="process__connector" aria-hidden="true"></div>
-            <div class="process__content">
-              <h3 class="process__step-title">Delivery</h3>
-              <p class="process__step-desc">
-                Two-week sprints with visible progress, written updates, and no surprises.
-                Your engineers are involved throughout — pair programming, review sessions,
-                and knowledge transfer are part of every sprint, not an add-on at the end.
-              </p>
-              <p class="process__anti-pattern">
-                <em>Anti-pattern avoided: disappearing for six weeks and returning with something that misses the brief.</em>
-              </p>
+            <div class="process__step-inner">
+              <div class="process__step-front">
+                <div class="process__node" aria-hidden="true"><span class="process__node-num">03</span></div>
+                <h3 class="process__step-title">Delivery</h3>
+              </div>
+              <div class="process__step-back">
+                <p class="process__step-desc">Two-week sprints with visible progress, written updates, and no surprises. Your engineers are involved throughout — pair programming, review sessions, and knowledge transfer are part of every sprint, not an add-on at the end.</p>
+                <p class="process__anti-pattern"><em>Anti-pattern avoided: disappearing for six weeks and returning with something that misses the brief.</em></p>
+              </div>
             </div>
           </li>
 
           <li class="process__step">
-            <div class="process__node" aria-hidden="true">
-              <span class="process__node-num">04</span>
-            </div>
-            <div class="process__connector" aria-hidden="true"></div>
-            <div class="process__content">
-              <h3 class="process__step-title">Handover</h3>
-              <p class="process__step-desc">
-                A formal handover sprint. Full documentation, runbooks, architecture diagrams,
-                and a structured knowledge transfer programme. We measure success by whether your
-                team can operate the system without us.
-              </p>
-              <p class="process__anti-pattern">
-                <em>Anti-pattern avoided: handover as a single 90-minute call with a shared drive link and a goodbye email.</em>
-              </p>
+            <div class="process__step-inner">
+              <div class="process__step-front">
+                <div class="process__node" aria-hidden="true"><span class="process__node-num">04</span></div>
+                <h3 class="process__step-title">Handover</h3>
+              </div>
+              <div class="process__step-back">
+                <p class="process__step-desc">A formal handover sprint. Full documentation, runbooks, architecture diagrams, and a structured knowledge transfer programme. We measure success by whether your team can operate the system without us.</p>
+                <p class="process__anti-pattern"><em>Anti-pattern avoided: handover as a single 90-minute call with a shared drive link and a goodbye email.</em></p>
+              </div>
             </div>
           </li>
 
           <li class="process__step process__step--last">
-            <div class="process__node" aria-hidden="true">
-              <span class="process__node-num">05</span>
-            </div>
-            <div class="process__content">
-              <h3 class="process__step-title">Retained <span class="process__step-optional">(Optional)</span></h3>
-              <p class="process__step-desc">
-                For organisations that want ongoing engineering support, we offer a retained
-                arrangement: a named engineer, defined capacity per month, monthly service
-                review, and a direct line — not a ticket portal.
-              </p>
-              <p class="process__anti-pattern">
-                <em>Anti-pattern avoided: open-ended retained contracts with no defined scope and no exit criteria.</em>
-              </p>
+            <div class="process__step-inner">
+              <div class="process__step-front">
+                <div class="process__node" aria-hidden="true"><span class="process__node-num">05</span></div>
+                <h3 class="process__step-title">Retained <span class="process__step-optional">(Optional)</span></h3>
+              </div>
+              <div class="process__step-back">
+                <p class="process__step-desc">For organisations that want ongoing engineering support, we offer a retained arrangement: a named engineer, defined capacity per month, monthly service review, and a direct line — not a ticket portal.</p>
+                <p class="process__anti-pattern"><em>Anti-pattern avoided: open-ended retained contracts with no defined scope and no exit criteria.</em></p>
+              </div>
             </div>
           </li>
 

@@ -189,6 +189,10 @@
     margin-bottom: clamp(2rem, 5vw, 3rem);
   }
 
+  .section__inner {
+    padding-inline: var(--space-4);
+  }
+
   .section__watermark {
     font-size: clamp(5rem, 22vw, 10rem);
     right: -1rem;
@@ -200,8 +204,18 @@
     opacity: 0.03;
   }
 
+  .section-heading {
+    font-size: clamp(1.8rem, 7vw, 2.5rem);
+  }
+
   /* Disable grid pseudo on small screens to save paint */
   .section::before {
     display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .section__inner {
+    padding-inline: var(--space-4);
   }
 }

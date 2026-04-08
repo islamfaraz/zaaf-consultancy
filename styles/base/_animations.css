@@ -94,3 +94,74 @@
 [data-reveal-delay="4"] { transition-delay: 400ms; }
 [data-reveal-delay="5"] { transition-delay: 500ms; }
 [data-reveal-delay="6"] { transition-delay: 600ms; }
+
+/* Stagger counter for grid children */
+.process__step:nth-child(1) .process__step-inner { transition-delay: 0ms; }
+.process__step:nth-child(2) .process__step-inner { transition-delay: 30ms; }
+.process__step:nth-child(3) .process__step-inner { transition-delay: 60ms; }
+.process__step:nth-child(4) .process__step-inner { transition-delay: 90ms; }
+.process__step:nth-child(5) .process__step-inner { transition-delay: 120ms; }
+
+/* Teal scan-line animation for cards on reveal */
+@keyframes scan-line {
+  0%   { transform: translateY(-100%); opacity: 0.6; }
+  100% { transform: translateY(400%);  opacity: 0; }
+}
+
+/* Counter up animation (number countup effect via CSS) */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Teal border rotate animation */
+@keyframes border-rotate {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Slide in from left */
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Slide in from right */
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* Entrance for feature strip items */
+@keyframes strip-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.feature-strip__item:nth-child(1) { animation: strip-in 0.5s 0.1s var(--ease-out-quint) both; }
+.feature-strip__item:nth-child(2) { animation: strip-in 0.5s 0.2s var(--ease-out-quint) both; }
+.feature-strip__item:nth-child(3) { animation: strip-in 0.5s 0.3s var(--ease-out-quint) both; }
+.feature-strip__item:nth-child(4) { animation: strip-in 0.5s 0.4s var(--ease-out-quint) both; }
+.feature-strip__item:nth-child(5) { animation: strip-in 0.5s 0.5s var(--ease-out-quint) both; }
+
+/* Glass card hover lift with glow */
+.glass-card {
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.glass-card:hover {
+  box-shadow: 0 8px 40px rgba(0,229,200,0.15), 0 0 0 1px rgba(0,229,200,0.2);
+}
+
+/* Service card stagger */
+.service-card:nth-child(1) { animation-delay: 0.05s; }
+.service-card:nth-child(2) { animation-delay: 0.10s; }
+.service-card:nth-child(3) { animation-delay: 0.15s; }
+.service-card:nth-child(4) { animation-delay: 0.20s; }
+.service-card:nth-child(5) { animation-delay: 0.25s; }
+.service-card:nth-child(6) { animation-delay: 0.30s; }
+.service-card:nth-child(7) { animation-delay: 0.35s; }

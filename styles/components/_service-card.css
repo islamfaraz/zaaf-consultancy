@@ -90,7 +90,7 @@
 .service-card__desc {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+  color: rgba(234,229,236,0.88);
   line-height: 1.7;
   flex: 1;
   max-width: none;

@@ -83,7 +83,7 @@
 
 .about__body p {
   font-size: var(--text-base);
-  color: var(--color-text-secondary);
+  color: rgba(234,229,236,0.88);
   line-height: 1.8;
   margin-bottom: var(--space-5);
   max-width: 58ch;

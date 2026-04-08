@@ -1,102 +1,94 @@
 /* ==========================================================================
-   Process Steps — horizontal 5-step timeline with pulsing nodes
+   Process — 5-step flip card grid
    ========================================================================== */
 
-.process__timeline {
-  position: relative;
-  padding-top: var(--space-4);
-}
-
-/* ── Step grid (ol.process__timeline is the grid container in HTML) ──────── */
 .process__timeline,
 .process__steps {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: var(--space-4);
+  gap: var(--space-5);
   list-style: none;
   padding: 0;
-  margin: 0;
-  position: relative;
+  margin: var(--space-10) 0 0;
 }
 
-/* Connecting dashed line between nodes */
-.process__timeline::before,
-.process__steps::before {
-  content: "";
-  position: absolute;
-  top: 23px; /* vertically centres the 48px node */
-  left: calc(10% + 24px);
-  right: calc(10% + 24px);
-  height: 1px;
-  background: repeating-linear-gradient(
-    to right,
-    rgba(0, 229, 200, 0.25) 0px,
-    rgba(0, 229, 200, 0.25) 6px,
-    transparent 6px,
-    transparent 12px
-  );
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ── Individual step ──────────────────────────────────────────────────────── */
+/* ── Flip card wrapper ────────────────────────────────────────────────────── */
 .process__step,
 .process-step {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: var(--space-5);
-  position: relative;
-  z-index: 1;
+  perspective: 1000px;
+  height: 280px;
+  cursor: default;
 }
 
-/* ── Circular node ────────────────────────────────────────────────────────── */
+/* ── Card inner (rotates) ─────────────────────────────────────────────────── */
+.process__step-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.process__step:hover .process__step-inner,
+.process-step:hover .process__step-inner {
+  transform: rotateY(180deg);
+}
+
+/* ── Front face ───────────────────────────────────────────────────────────── */
+.process__step-front,
+.process__step-back {
+  position: absolute;
+  inset: 0;
+  border-radius: 14px;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-6);
+}
+
+.process__step-front {
+  background-color: rgba(13, 20, 36, 0.85);
+  border: 1px solid rgba(0, 229, 200, 0.12);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: var(--space-4);
+  transition: border-color 0.3s ease;
+}
+
+.process__step:hover .process__step-front {
+  border-color: rgba(0, 229, 200, 0.35);
+}
+
+/* ── Step number node ─────────────────────────────────────────────────────── */
 .process__node,
 .process-step__node {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-full);
-  border: 1px solid rgba(0, 229, 200, 0.3);
-  background-color: rgba(15, 23, 42, 0.8);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 229, 200, 0.35);
+  background-color: rgba(0, 229, 200, 0.06);
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  font-weight: 400;
   color: var(--color-teal-300);
   flex-shrink: 0;
-  position: relative;
-  z-index: 1;
-  transition:
-    background-color var(--duration-base) var(--ease-out-expo),
-    border-color var(--duration-base) var(--ease-out-expo),
-    box-shadow var(--duration-base) var(--ease-out-expo);
   animation: pulse-glow 3s ease-in-out infinite;
-  animation-play-state: paused;
 }
 
-.process__step:hover .process__node,
-.process-step:hover .process-step__node {
-  background-color: rgba(0, 229, 200, 0.1);
-  border-color: var(--color-teal-300);
-  box-shadow: 0 0 20px rgba(0, 229, 200, 0.3);
-  animation-play-state: running;
-}
-
-/* ── Content block ────────────────────────────────────────────────────────── */
-.process__content,
-.process-step__content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+.process__node-num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-teal-300);
 }
 
 .process__step-title,
 .process-step__title {
   font-family: var(--font-sans);
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   font-weight: 700;
   color: var(--color-white);
   line-height: 1.3;
@@ -104,76 +96,72 @@
 
 .process__step-optional,
 .process-step__optional {
-  font-family: var(--font-sans);
   font-size: var(--text-xs);
-  color: var(--color-text-muted);
+  color: rgba(234,229,236,0.65);
   font-weight: 400;
+}
+
+/* ── Back face ────────────────────────────────────────────────────────────── */
+.process__step-back {
+  background: linear-gradient(135deg, rgba(0,229,200,0.1) 0%, rgba(13,20,36,0.95) 60%);
+  border: 1px solid rgba(0, 229, 200, 0.3);
+  transform: rotateY(180deg);
+  justify-content: space-between;
+  gap: var(--space-3);
 }
 
 .process__step-desc,
 .process-step__desc {
   font-family: var(--font-sans);
   font-size: var(--text-xs);
-  color: var(--color-text-secondary);
-  line-height: 1.6;
+  color: rgba(234,229,236,0.9);
+  line-height: 1.7;
+  flex: 1;
   max-width: none;
 }
 
-/* Anti-pattern note — mono italic in muted colour */
 .process__anti-pattern,
 .process-step__anti {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--color-text-muted);
+  font-size: 0.65rem;
+  color: rgba(234,229,236,0.6);
   font-style: italic;
   line-height: 1.5;
-  padding-top: var(--space-2);
-  border-top: 1px solid var(--color-border-subtle);
+  padding-top: var(--space-3);
+  border-top: 1px solid rgba(0, 229, 200, 0.15);
   max-width: none;
 }
 
-/* Node number text (span inside node) */
-.process__node-num {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
-  color: var(--color-teal-300);
-}
-
-/* Connector element between steps (decorative, hidden on mobile) */
-.process__connector {
-  display: none; /* handled by ::before on the grid */
-}
+/* Connector hidden — not needed for card layout */
+.process__connector { display: none; }
 
 /* ── Responsive ───────────────────────────────────────────────────────────── */
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .process__timeline,
   .process__steps {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .process__timeline::before,
-  .process__steps::before {
-    display: none;
   }
 }
 
 @media (max-width: 768px) {
   .process__timeline,
   .process__steps {
-    grid-template-columns: 1fr;
-    gap: var(--space-6);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
   }
-
   .process__step,
   .process-step {
-    flex-direction: row;
-    text-align: left;
-    align-items: flex-start;
-    gap: var(--space-5);
+    height: 260px;
   }
+}
 
-  .process__node,
-  .process-step__node {
-    flex-shrink: 0;
+@media (max-width: 480px) {
+  .process__timeline,
+  .process__steps {
+    grid-template-columns: 1fr;
+  }
+  .process__step,
+  .process-step {
+    height: 240px;
   }
 }

@@ -13,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-  color: var(--color-text-secondary);
+  color: rgba(234,229,236,0.88);
   line-height: var(--leading-normal);
   text-align: justify;
 }
@@ -66,7 +66,7 @@ p {
 
 .section-subheading {
   font-size: clamp(var(--text-base), 1.5vw, var(--text-md));
-  color: var(--color-text-secondary);
+  color: rgba(234,229,236,0.85);
   line-height: var(--leading-normal);
   max-width: 56ch;
   margin-top: var(--space-5);
@@ -75,7 +75,7 @@ p {
 /* Lead text */
 .lead-text {
   font-size: clamp(var(--text-base), 1.4vw, var(--text-md));
-  color: var(--color-text-secondary);
+  color: rgba(234,229,236,0.85);
   line-height: var(--leading-loose);
   font-weight: 400;
 }

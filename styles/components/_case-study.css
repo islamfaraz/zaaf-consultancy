@@ -71,7 +71,7 @@
 .case-card__metric-label {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: var(--color-text-muted);
+  color: rgba(234,229,236,0.65);
   letter-spacing: 0.03em;
   max-width: none;
 }
@@ -79,7 +79,7 @@
 .case-card__outcome {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  color: var(--color-text-secondary);
+  color: rgba(234,229,236,0.88);
   line-height: 1.7;
   max-width: none;
 }
@@ -102,5 +102,9 @@
 @media (max-width: 768px) {
   .work__grid {
     grid-template-columns: 1fr;
+  }
+
+  .case-card__metric {
+    font-size: clamp(3rem, 15vw, 4.5rem);
   }
 }

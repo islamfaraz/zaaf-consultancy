@@ -368,4 +368,8 @@
   .site-nav__mobile-toggle {
     display: flex;
   }
+
+  .site-nav__inner {
+    padding-inline: var(--space-4);
+  }
 }
