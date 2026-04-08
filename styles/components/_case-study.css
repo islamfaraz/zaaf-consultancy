@@ -1,0 +1,110 @@
+.work__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-8);
+  align-items: start;
+}
+
+.work__grid .grid-stagger__item:nth-child(2) {
+  margin-top: var(--space-16);
+}
+
+.case-study {
+  position: relative;
+  background-color: var(--color-surface-1);
+  border: 1px solid var(--color-border);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  transition:
+    transform var(--duration-base) var(--ease-out-expo),
+    border-color var(--duration-base) var(--ease-out-expo),
+    box-shadow var(--duration-base) var(--ease-out-expo);
+  overflow: hidden;
+}
+
+.case-study::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--duration-slow) var(--ease-out-expo);
+}
+
+.case-study:hover {
+  transform: translateY(-8px);
+  border-color: var(--color-border-lit);
+  box-shadow: var(--shadow-lg);
+}
+
+.case-study:hover::after {
+  transform: scaleX(1);
+}
+
+.case-study__industry {
+  align-self: flex-start;
+}
+
+.case-study__challenge {
+  font-family: var(--font-serif);
+  font-size: var(--text-lg);
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+  letter-spacing: var(--tracking-tight);
+}
+
+.case-study__metric {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+}
+
+.case-study__metric-value {
+  font-family: var(--font-serif);
+  font-size: clamp(var(--text-3xl), 6vw, var(--text-4xl));
+  font-weight: 400;
+  color: var(--color-accent-glow);
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+}
+
+.case-study__metric-unit {
+  font-size: var(--text-xl);
+  color: var(--color-accent);
+}
+
+.case-study__outcome {
+  font-family: var(--font-sans);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-loose);
+}
+
+.case-study__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: auto;
+}
+
+@media (max-width: 1024px) {
+  .work__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .work__grid .grid-stagger__item:nth-child(2) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .work__grid {
+    grid-template-columns: 1fr;
+  }
+}

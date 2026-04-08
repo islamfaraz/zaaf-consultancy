@@ -1,0 +1,56 @@
+.about {
+  position: relative;
+}
+
+.about__grid {
+  gap: var(--space-16);
+}
+
+.about__pull-quote {
+  position: relative;
+  padding-left: var(--space-8);
+  border-left: 1px solid var(--color-accent-dim);
+}
+
+.about__pull-quote .section-number {
+  position: absolute;
+  top: calc(-1 * var(--space-10));
+  left: 0;
+  font-size: var(--text-5xl);
+  opacity: 0.05;
+  z-index: var(--z-below);
+  pointer-events: none;
+  user-select: none;
+}
+
+.about__quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+  line-height: var(--leading-snug);
+  color: var(--color-text-primary);
+  letter-spacing: var(--tracking-tight);
+  max-width: 22ch;
+}
+
+.about__quote p {
+  color: var(--color-text-primary);
+  font-size: inherit;
+  max-width: none;
+}
+
+.about__heading {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-8);
+}
+
+.about__body p {
+  font-size: var(--text-sm);
+  line-height: var(--leading-loose);
+  margin-bottom: var(--space-5);
+  max-width: 60ch;
+}
+
+.about__body p:last-child {
+  margin-bottom: 0;
+}
