@@ -934,75 +934,270 @@
           Selected engagements
         </h2>
         <p class="section-subheading" data-reveal data-reveal-delay="2">
-          Real projects. Real constraints. Real outcomes.
+          Seven engagements across infrastructure, security, cloud, and digital products.
+          Real constraints. Measurable outcomes.
         </p>
 
-        <ul class="work__grid" role="list">
+        <!-- Stats bar -->
+        <div class="work__stats" data-reveal data-reveal-delay="2" aria-label="Engagement outcomes summary">
+          <div class="work__stat">
+            <span class="work__stat-value text-gradient-teal">7+</span>
+            <span class="work__stat-label">Engagements</span>
+          </div>
+          <div class="work__stat">
+            <span class="work__stat-value text-gradient-teal">94%</span>
+            <span class="work__stat-label">Avg. time saved</span>
+          </div>
+          <div class="work__stat">
+            <span class="work__stat-value text-gradient-teal">6</span>
+            <span class="work__stat-label">Sectors served</span>
+          </div>
+          <div class="work__stat">
+            <span class="work__stat-value text-gradient-teal">0</span>
+            <span class="work__stat-label">Rollbacks post-launch</span>
+          </div>
+        </div>
 
-          <!-- Case 1: Global Logistics -->
-          <li class="case-card glass-card" data-reveal data-reveal-delay="1">
-            <p class="case-card__industry">Global Logistics</p>
+        <!-- Filter bar -->
+        <div class="work__filters" role="group" aria-label="Filter engagements by domain" data-reveal>
+          <button class="work__filter-btn is-active" data-filter="all" aria-pressed="true">All</button>
+          <button class="work__filter-btn" data-filter="devops"         aria-pressed="false">DevOps &amp; CI/CD</button>
+          <button class="work__filter-btn" data-filter="iac"            aria-pressed="false">Infrastructure as Code</button>
+          <button class="work__filter-btn" data-filter="cloud"          aria-pressed="false">Cloud</button>
+          <button class="work__filter-btn" data-filter="security"       aria-pressed="false">Security</button>
+          <button class="work__filter-btn" data-filter="digital"        aria-pressed="false">Digital Products</button>
+          <button class="work__filter-btn" data-filter="strategy"       aria-pressed="false">IT Strategy</button>
+        </div>
+
+        <!-- Bento grid -->
+        <ul class="work__bento" role="list" id="work-bento">
+
+          <!-- ─── CARD 01: Global Logistics — HERO ─────────────────────────── -->
+          <li class="case-card case-card--hero" data-reveal data-domain="devops iac" data-reveal-delay="1">
+            <span class="case-card__index" aria-hidden="true">01 / 07</span>
+            <p class="case-card__industry">Global Logistics &amp; Supply Chain</p>
             <h3 class="case-card__challenge">
-              Fragile manual deployments across 12 regional environments causing frequent
-              production incidents.
+              Fragile manual deployments across 12 regional environments were causing weekly
+              production incidents and burning engineering capacity.
             </h3>
-            <p class="case-card__metric text-gradient-teal" aria-label="94 percent">94%</p>
-            <p class="case-card__metric-label">reduction in deployment time</p>
-            <p class="case-card__outcome">
-              Rebuilt CI/CD pipeline architecture with progressive delivery, automated rollbacks,
-              and full observability. Deployment frequency increased by 8× with zero rollbacks in
-              the following six months.
-            </p>
-            <ul class="case-card__tags" role="list" aria-label="Technologies used">
-              <li class="tag">GitHub Actions</li>
-              <li class="tag">ArgoCD</li>
-              <li class="tag">Kubernetes</li>
-              <li class="tag">Terraform</li>
-            </ul>
+
+            <div class="case-card__body">
+              <div>
+                <div class="case-card__metric-block">
+                  <div class="case-card__metric-group">
+                    <span class="case-card__metric text-gradient-teal" aria-label="94 percent">94%</span>
+                    <span class="case-card__metric-label">reduction in deployment time</span>
+                  </div>
+                  <div class="case-card__metric-group">
+                    <span class="case-card__metric text-gradient-teal" aria-label="8x">8×</span>
+                    <span class="case-card__metric-label">increase in deployment frequency</span>
+                  </div>
+                </div>
+                <ul class="case-card__footer" role="list" style="margin-top: var(--space-6)">
+                  <ul class="case-card__tags" role="list" aria-label="Technologies used">
+                    <li class="tag">GitHub Actions</li>
+                    <li class="tag">ArgoCD</li>
+                    <li class="tag">Kubernetes</li>
+                    <li class="tag">Terraform</li>
+                    <li class="tag">Prometheus</li>
+                  </ul>
+                  <span class="case-card__duration">Duration: 14 weeks</span>
+                </ul>
+              </div>
+              <div>
+                <p class="case-card__outcome">
+                  The client operated 12 regional data centres with no shared deployment tooling.
+                  Releases were manual, undocumented, and environment-specific — meaning every
+                  deployment was a one-off event. We rebuilt the pipeline architecture from the
+                  ground up: a single GitOps workflow using ArgoCD, progressive delivery with
+                  automated canary analysis, and full observability across all regions.
+                  Deployment frequency went from bi-weekly to daily. Zero rollbacks in the six
+                  months following handover.
+                </p>
+              </div>
+            </div>
           </li>
 
-          <!-- Case 2: FinTech Series B -->
-          <li class="case-card glass-card" data-reveal data-reveal-delay="2">
-            <p class="case-card__industry">FinTech Series B</p>
+          <!-- ─── CARD 02: FinTech Series B ────────────────────────────────── -->
+          <li class="case-card case-card--half" data-reveal data-domain="iac" data-reveal-delay="1">
+            <span class="case-card__index" aria-hidden="true">02 / 07</span>
+            <p class="case-card__industry">FinTech — Series B</p>
             <h3 class="case-card__challenge">
-              Console-managed AWS infrastructure with no audit trail and no repeatable
-              environment provisioning process.
+              Console-managed AWS infrastructure across three accounts with no audit trail,
+              no repeatability, and an impending SOC 2 audit.
             </h3>
-            <p class="case-card__metric text-gradient-teal" aria-label="100 percent">100%</p>
-            <p class="case-card__metric-label">IaC coverage achieved in 12 weeks</p>
+            <div class="case-card__metric-block">
+              <div class="case-card__metric-group">
+                <span class="case-card__metric text-gradient-teal" aria-label="100 percent">100%</span>
+                <span class="case-card__metric-label">IaC coverage in 12 weeks</span>
+              </div>
+            </div>
             <p class="case-card__outcome">
-              Migrated three AWS accounts to fully codified Terraform with state management,
-              module libraries, and CI-integrated drift detection. Next environment provisioned
-              in under two hours by the internal team.
+              Migrated three AWS accounts to fully codified Terraform. Custom module library,
+              remote state with locking, CI-integrated drift detection via Checkov and OPA.
+              The internal team provisioned the next environment independently in under two hours.
+              SOC 2 Type II audit passed without infrastructure findings.
             </p>
-            <ul class="case-card__tags" role="list" aria-label="Technologies used">
-              <li class="tag">Terraform</li>
-              <li class="tag">AWS</li>
-              <li class="tag">OPA</li>
-              <li class="tag">Checkov</li>
-            </ul>
+            <div class="case-card__footer">
+              <ul class="case-card__tags" role="list" aria-label="Technologies used">
+                <li class="tag">Terraform</li>
+                <li class="tag">AWS</li>
+                <li class="tag">OPA</li>
+                <li class="tag">Checkov</li>
+              </ul>
+              <span class="case-card__duration">12 weeks</span>
+            </div>
           </li>
 
-          <!-- Case 3: NHS Trust -->
-          <li class="case-card glass-card" data-reveal data-reveal-delay="3">
-            <p class="case-card__industry">NHS Trust</p>
+          <!-- ─── CARD 03: NHS Trust ────────────────────────────────────────── -->
+          <li class="case-card case-card--half" data-reveal data-domain="cloud" data-reveal-delay="2">
+            <span class="case-card__index" aria-hidden="true">03 / 07</span>
+            <p class="case-card__industry">NHS Trust — Public Sector</p>
             <h3 class="case-card__challenge">
-              Rapidly escalating cloud costs following an unplanned migration, with no visibility
-              into spend drivers or optimisation levers.
+              Escalating cloud costs following an unplanned lift-and-shift migration, with zero
+              visibility into spend drivers or workload efficiency.
             </h3>
-            <p class="case-card__metric text-gradient-teal" aria-label="68 percent">68%</p>
-            <p class="case-card__metric-label">reduction in wasted cloud spend</p>
+            <div class="case-card__metric-block">
+              <div class="case-card__metric-group">
+                <span class="case-card__metric text-gradient-teal" aria-label="38 percent">38%</span>
+                <span class="case-card__metric-label">reduction in total cloud spend</span>
+              </div>
+            </div>
             <p class="case-card__outcome">
-              Delivered a FinOps programme covering cost attribution, workload right-sizing, and
-              reserved capacity planning. Overall cloud spend reduced by 38% within 90 days with
-              no service degradation. Waste reduced by 68%.
+              Delivered a structured FinOps programme: cost attribution tagging, workload
+              right-sizing, reserved instance planning, and a Grafana-based spend dashboard
+              for finance and engineering teams. Overall cloud spend reduced within 90 days
+              with no service degradation. Wasted spend reduced by 68%.
             </p>
-            <ul class="case-card__tags" role="list" aria-label="Technologies used">
-              <li class="tag">Azure</li>
-              <li class="tag">FinOps</li>
-              <li class="tag">Grafana</li>
-              <li class="tag">Prometheus</li>
-            </ul>
+            <div class="case-card__footer">
+              <ul class="case-card__tags" role="list" aria-label="Technologies used">
+                <li class="tag">Azure</li>
+                <li class="tag">FinOps</li>
+                <li class="tag">Grafana</li>
+                <li class="tag">Prometheus</li>
+              </ul>
+              <span class="case-card__duration">10 weeks</span>
+            </div>
+          </li>
+
+          <!-- ─── CARD 04: Payments Platform — Security ─────────────────────── -->
+          <li class="case-card case-card--third" data-reveal data-domain="security" data-reveal-delay="1">
+            <span class="case-card__index" aria-hidden="true">04 / 07</span>
+            <p class="case-card__industry">Payments Platform — FinTech</p>
+            <h3 class="case-card__challenge">
+              ISO 27001 certification required within six months to close an enterprise contract.
+              No existing ISMS, no documentation baseline.
+            </h3>
+            <div class="case-card__metric-block">
+              <div class="case-card__metric-group">
+                <span class="case-card__metric text-gradient-teal" aria-label="6 months">6 mo</span>
+                <span class="case-card__metric-label">to ISO 27001 certification</span>
+              </div>
+            </div>
+            <p class="case-card__outcome">
+              Built the ISMS from scratch. Defined policies, asset register, risk treatment plan,
+              and security controls aligned to Annex A. Zero major non-conformities at Stage 2.
+              Half the industry average timeline.
+            </p>
+            <div class="case-card__footer">
+              <ul class="case-card__tags" role="list" aria-label="Technologies used">
+                <li class="tag">ISO 27001</li>
+                <li class="tag">ISMS</li>
+                <li class="tag">Risk Management</li>
+              </ul>
+              <span class="case-card__duration">6 months</span>
+            </div>
+          </li>
+
+          <!-- ─── CARD 05: Digital Health Startup ───────────────────────────── -->
+          <li class="case-card case-card--third" data-reveal data-domain="digital" data-reveal-delay="2">
+            <span class="case-card__index" aria-hidden="true">05 / 07</span>
+            <p class="case-card__industry">Digital Health — Start-up</p>
+            <h3 class="case-card__challenge">
+              Patient portal needed to go live in 16 weeks, with NHS data residency requirements
+              and a team that had never shipped a regulated digital product before.
+            </h3>
+            <div class="case-card__metric-block">
+              <div class="case-card__metric-group">
+                <span class="case-card__metric text-gradient-teal" aria-label="3 features">3</span>
+                <span class="case-card__metric-label">features shipped by client team in month one post-handover</span>
+              </div>
+            </div>
+            <p class="case-card__outcome">
+              Delivered the portal on time and on budget. NHS DSPT-compliant deployment on
+              Azure UK South. Structured handover programme — internal team shipped
+              independently within weeks.
+            </p>
+            <div class="case-card__footer">
+              <ul class="case-card__tags" role="list" aria-label="Technologies used">
+                <li class="tag">Next.js</li>
+                <li class="tag">Azure</li>
+                <li class="tag">NHS DSPT</li>
+                <li class="tag">TypeScript</li>
+              </ul>
+              <span class="case-card__duration">16 weeks</span>
+            </div>
+          </li>
+
+          <!-- ─── CARD 06: B2B SaaS — Managed IT ───────────────────────────── -->
+          <li class="case-card case-card--third" data-reveal data-domain="devops cloud" data-reveal-delay="3">
+            <span class="case-card__index" aria-hidden="true">06 / 07</span>
+            <p class="case-card__industry">B2B SaaS — Managed Support</p>
+            <h3 class="case-card__challenge">
+              High incident volume and slow resolution times were directly impacting customer
+              churn. Support was reactive, undocumented, and engineer-dependent.
+            </h3>
+            <div class="case-card__metric-block">
+              <div class="case-card__metric-group">
+                <span class="case-card__metric text-gradient-teal" aria-label="61 percent">61%</span>
+                <span class="case-card__metric-label">drop in incident volume in year one</span>
+              </div>
+            </div>
+            <p class="case-card__outcome">
+              Deployed a proactive observability stack with Prometheus, Grafana, and PagerDuty.
+              Built runbooks for every known failure mode. Average resolution time fell from
+              6 hours to 47 minutes.
+            </p>
+            <div class="case-card__footer">
+              <ul class="case-card__tags" role="list" aria-label="Technologies used">
+                <li class="tag">Prometheus</li>
+                <li class="tag">Grafana</li>
+                <li class="tag">PagerDuty</li>
+                <li class="tag">Kubernetes</li>
+              </ul>
+              <span class="case-card__duration">Ongoing retained</span>
+            </div>
+          </li>
+
+          <!-- ─── CARD 07: Series A Scale-up — IT Strategy ──────────────────── -->
+          <li class="case-card case-card--half" data-reveal data-domain="strategy" data-reveal-delay="1">
+            <span class="case-card__index" aria-hidden="true">07 / 07</span>
+            <p class="case-card__industry">Series A Scale-up — IT Strategy</p>
+            <h3 class="case-card__challenge">
+              Three competing technology roadmaps across product, engineering, and the board.
+              No shared definition of what the technology estate should look like in 18 months.
+            </h3>
+            <div class="case-card__metric-block">
+              <div class="case-card__metric-group">
+                <span class="case-card__metric text-gradient-teal" aria-label="40 percent">40%</span>
+                <span class="case-card__metric-label">increase in engineering velocity, following quarter</span>
+              </div>
+            </div>
+            <p class="case-card__outcome">
+              Ran a structured current-state assessment across all functions. Produced a single
+              coherent technology roadmap with OKR-aligned quarterly milestones, a prioritised
+              improvement backlog, and a board-level technology summary updated monthly.
+              Fractional CTO engagement continued for two quarters post-delivery.
+            </p>
+            <div class="case-card__footer">
+              <ul class="case-card__tags" role="list" aria-label="Technologies used">
+                <li class="tag">IT Strategy</li>
+                <li class="tag">OKRs</li>
+                <li class="tag">Fractional CTO</li>
+                <li class="tag">Roadmapping</li>
+              </ul>
+              <span class="case-card__duration">Ongoing advisory</span>
+            </div>
           </li>
 
         </ul>
@@ -1136,12 +1331,13 @@
   <!-- ============================================================
        SCRIPTS (all deferred)
   ============================================================ -->
-  <script src="js/scroll-trigger.js" defer></script>
-  <script src="js/parallax.js"       defer></script>
-  <script src="js/nav.js"            defer></script>
-  <script src="js/tabs.js"           defer></script>
-  <script src="js/form.js"           defer></script>
-  <script src="js/router.js"         defer></script>
+  <script src="js/scroll-trigger.js"  defer></script>
+  <script src="js/parallax.js"        defer></script>
+  <script src="js/nav.js"             defer></script>
+  <script src="js/tabs.js"            defer></script>
+  <script src="js/form.js"            defer></script>
+  <script src="js/work-filter.js"     defer></script>
+  <script src="js/router.js"          defer></script>
 
 </body>
 </html>

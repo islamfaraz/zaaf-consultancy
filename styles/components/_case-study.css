@@ -1,110 +1,406 @@
 /* ==========================================================================
-   Case Study Cards — metric-forward glass cards with corner accent
+   Work / Case Studies — featured hero + bento grid layout
    ========================================================================== */
 
-/* ── Grid wrapper ─────────────────────────────────────────────────────────── */
-.work__grid {
+/* ── Filter bar ───────────────────────────────────────────────────────────── */
+.work__filters {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-12);
+}
+
+.work__filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: var(--space-2) var(--space-5);
+  cursor: pointer;
+  transition:
+    color var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out),
+    background var(--duration-base) var(--ease-out);
+}
+
+.work__filter-btn:hover {
+  color: var(--color-accent);
+  border-color: rgba(14, 165, 233, 0.4);
+}
+
+.work__filter-btn.is-active {
+  color: var(--color-bg);
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* ── Stats bar ────────────────────────────────────────────────────────────── */
+.work__stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
-  align-items: start;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: var(--space-12);
+}
+
+.work__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-6) var(--space-4);
+  background: var(--color-navy);
+  text-align: center;
+}
+
+.work__stat-value {
+  font-family: var(--font-sans);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.work__stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+/* ── Bento grid ───────────────────────────────────────────────────────────── */
+.work__bento {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: minmax(0, auto);
+  gap: var(--space-4);
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* ── Card base ────────────────────────────────────────────────────────────── */
 .case-card {
-  padding: var(--space-8);
+  position: relative;
+  background: var(--color-navy);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
+  padding: var(--space-8);
   gap: var(--space-5);
-  position: relative;
-  overflow: hidden;
   transition:
-    transform var(--duration-base) var(--ease-out-expo),
-    border-color var(--duration-base) var(--ease-out-expo),
-    box-shadow var(--duration-base) var(--ease-out-expo);
+    border-color 0.3s var(--ease-out-expo),
+    box-shadow    0.3s var(--ease-out-expo),
+    transform     0.3s var(--ease-out-expo);
 }
 
-/* Corner bracket accent — top-right */
-.case-card::before {
+.case-card:hover {
+  border-color: rgba(14, 165, 233, 0.35);
+  box-shadow:
+    0 0 0 1px rgba(14, 165, 233, 0.12),
+    0 16px 48px rgba(14, 165, 233, 0.1),
+    0 4px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+}
+
+/* Ambient glow on hover */
+.case-card::after {
   content: "";
   position: absolute;
-  top: 0;
-  right: 0;
-  width: 48px;
-  height: 48px;
-  border-bottom: 1px solid rgba(14, 165, 233, 0.15);
-  border-left: 1px solid rgba(14, 165, 233, 0.15);
-  transition: border-color var(--duration-base) var(--ease-out-expo);
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(14, 165, 233, 0.06) 0%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.3s var(--ease-out);
   pointer-events: none;
 }
 
-.case-card:hover::before {
-  border-color: rgba(14, 165, 233, 0.4);
+.case-card:hover::after {
+  opacity: 1;
 }
 
-/* ── Card elements ────────────────────────────────────────────────────────── */
+/* ── Bento size variants ──────────────────────────────────────────────────── */
+
+/* Featured hero — spans 8 of 12 columns */
+.case-card--hero {
+  grid-column: span 8;
+  padding: var(--space-10);
+}
+
+/* Side tall card — spans 4 columns */
+.case-card--tall {
+  grid-column: span 4;
+}
+
+/* Standard half-width */
+.case-card--half {
+  grid-column: span 6;
+}
+
+/* Third-width */
+.case-card--third {
+  grid-column: span 4;
+}
+
+/* ── Card index number ────────────────────────────────────────────────────── */
+.case-card__index {
+  position: absolute;
+  top: var(--space-6);
+  right: var(--space-7);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  color: rgba(14, 165, 233, 0.3);
+  letter-spacing: 0.08em;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* ── Industry / domain badge ─────────────────────────────────────────────── */
 .case-card__industry {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: rgba(14, 165, 233, 0.08);
+  border: 1px solid rgba(14, 165, 233, 0.2);
+  border-radius: var(--radius-full);
+  padding: 0.25rem 0.75rem;
   align-self: flex-start;
+  width: fit-content;
+  max-width: none;
+  margin: 0;
 }
 
+.case-card__industry::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+/* ── Challenge headline ───────────────────────────────────────────────────── */
 .case-card__challenge {
   font-family: var(--font-heading);
-  font-size: clamp(var(--text-lg), 2.5vw, var(--text-xl));
-  font-weight: 400;
-  line-height: 1.25;
+  font-size: clamp(var(--text-base), 1.6vw, var(--text-xl));
+  font-weight: 600;
+  line-height: 1.3;
   color: var(--color-white);
   letter-spacing: -0.02em;
+  max-width: none;
 }
 
-/* ── Metric block (HTML: plain <p> tag with gradient text class) ─────────── */
+.case-card--hero .case-card__challenge {
+  font-size: clamp(var(--text-xl), 2.5vw, 1.8rem);
+  font-weight: 700;
+}
+
+/* ── Metric block ────────────────────────────────────────────────────────── */
+.case-card__metric-block {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  padding-block: var(--space-4);
+  border-block: 1px solid var(--color-border-subtle);
+}
+
+.case-card--hero .case-card__metric-block {
+  gap: var(--space-8);
+}
+
 .case-card__metric {
   font-family: var(--font-sans);
-  font-size: clamp(var(--text-3xl), 8vw, 5.5rem);
   font-weight: 900;
   line-height: 1;
   letter-spacing: -0.05em;
-  padding-block: var(--space-5);
-  border-block: 1px solid var(--color-border-subtle);
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  padding: 0;
+  border: none;
   max-width: none;
+}
+
+.case-card--hero .case-card__metric {
+  font-size: clamp(3.5rem, 7vw, 6rem);
 }
 
 .case-card__metric-label {
   font-family: var(--font-mono);
   font-size: var(--text-xs);
-  color: rgba(234,229,236,0.65);
+  color: var(--color-text-muted);
   letter-spacing: 0.03em;
+  line-height: 1.4;
+  max-width: 18ch;
   max-width: none;
 }
 
+/* Multiple metrics in hero card */
+.case-card__metric-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* ── Outcome description ─────────────────────────────────────────────────── */
 .case-card__outcome {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  color: rgba(234,229,236,0.88);
-  line-height: 1.7;
+  color: var(--color-text-secondary);
+  line-height: 1.75;
   max-width: none;
+  flex: 1;
+}
+
+.case-card--hero .case-card__outcome {
+  font-size: var(--text-base);
+  max-width: 72ch;
+}
+
+/* ── Horizontal rule divider ─────────────────────────────────────────────── */
+.case-card__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--color-border-subtle);
+  flex-shrink: 0;
+}
+
+/* ── Footer: tags + duration ─────────────────────────────────────────────── */
+.case-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: auto;
+  flex-wrap: wrap;
 }
 
 .case-card__tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  margin-top: auto;
-  padding-top: var(--space-4);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.case-card__duration {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* ── Hero card body grid (two-col on wide screens) ───────────────────────── */
+.case-card--hero .case-card__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+  align-items: start;
+}
+
+/* ── Hidden state for filter ─────────────────────────────────────────────── */
+.case-card.is-filtered-out {
+  display: none;
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────────── */
+@media (max-width: 1280px) {
+  .case-card--hero {
+    grid-column: span 12;
+  }
+
+  .case-card--tall {
+    grid-column: span 6;
+  }
+}
+
 @media (max-width: 1024px) {
-  .work__grid {
-    grid-template-columns: repeat(2, 1fr);
+  .case-card--hero .case-card__body {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+
+  .case-card--hero {
+    grid-column: span 12;
+  }
+
+  .case-card--half {
+    grid-column: span 6;
+  }
+
+  .case-card--third,
+  .case-card--tall {
+    grid-column: span 6;
   }
 }
 
 @media (max-width: 768px) {
-  .work__grid {
-    grid-template-columns: 1fr;
+  .work__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .case-card--hero,
+  .case-card--half,
+  .case-card--third,
+  .case-card--tall {
+    grid-column: span 12;
+  }
+
+  .case-card--hero {
+    padding: var(--space-7);
   }
 
   .case-card__metric {
-    font-size: clamp(3rem, 15vw, 4.5rem);
+    font-size: clamp(2.5rem, 14vw, 3.5rem);
+  }
+
+  .case-card--hero .case-card__metric {
+    font-size: clamp(3rem, 16vw, 4.5rem);
+  }
+
+  .work__filters {
+    gap: var(--space-2);
+  }
+}
+
+@media (max-width: 480px) {
+  .work__stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .work__bento {
+    gap: var(--space-3);
+  }
+
+  .case-card {
+    padding: var(--space-6);
   }
 }
