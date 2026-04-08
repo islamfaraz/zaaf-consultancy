@@ -49,11 +49,11 @@
       </a>
 
       <ul class="site-nav__links" role="list">
+        <li class="site-nav__item"><a href="#about"     class="site-nav__link" data-nav-page="about">About</a></li>
         <li class="site-nav__item"><a href="#services"  class="site-nav__link" data-nav-page="services">Services</a></li>
         <li class="site-nav__item"><a href="#expertise" class="site-nav__link" data-nav-page="expertise">Expertise</a></li>
         <li class="site-nav__item"><a href="#process"   class="site-nav__link" data-nav-page="process">How We Work</a></li>
         <li class="site-nav__item"><a href="#work"      class="site-nav__link" data-nav-page="work">Work</a></li>
-        <li class="site-nav__item"><a href="#about"     class="site-nav__link" data-nav-page="about">About</a></li>
       </ul>
 
       <a href="#contact" class="site-nav__cta btn btn--primary">Let's talk</a>
@@ -79,11 +79,11 @@
       hidden
     >
       <ul class="site-nav__mobile-links" role="list">
+        <li><a href="#about"     class="site-nav__mobile-link">About</a></li>
         <li><a href="#services"  class="site-nav__mobile-link">Services</a></li>
         <li><a href="#expertise" class="site-nav__mobile-link">Expertise</a></li>
         <li><a href="#process"   class="site-nav__mobile-link">How We Work</a></li>
         <li><a href="#work"      class="site-nav__mobile-link">Work</a></li>
-        <li><a href="#about"     class="site-nav__mobile-link">About</a></li>
         <li><a href="#contact"   class="site-nav__mobile-link site-nav__mobile-link--cta">Let's talk →</a></li>
       </ul>
     </div>
@@ -445,49 +445,130 @@
     <section id="about" class="about section section--alt section--has-rule" aria-labelledby="about-heading" data-page="about">
       <div class="section__inner">
 
-        <p class="section-label" data-reveal>// 01 — about</p>
-
-        <h2 id="about-heading" class="section-heading" data-reveal data-reveal-delay="1">
-          We don't sell effort.<br>We sell outcomes.
-        </h2>
-
-        <div class="about__grid">
-
-          <!-- Left: large pull-quote -->
-          <blockquote class="about__quote" data-reveal data-reveal-delay="2">
-            <p>"We document the decisions that most consultancies quietly avoid."</p>
-          </blockquote>
-
-          <!-- Right: editorial paragraphs -->
-          <div class="about__body" data-reveal data-reveal-delay="3">
+        <!-- ── Zone 1 — Hero statement row ──────────────────────────────────────── -->
+        <div class="about__hero" data-reveal>
+          <h2 id="about-heading" class="about__hero-heading">
+            We don't sell effort.<br>
+            We sell <span class="text-gradient-teal">outcomes.</span>
+          </h2>
+          <div class="about__hero-body" data-reveal data-reveal-delay="1">
             <p>
-              ZAAF Consultancy was founded on a single conviction: that most technology
-              projects fail not because of poor tooling, but because of poor decisions made
-              early and never revisited. We exist to make those decisions explicit, documented,
-              and defensible — so the organisations we work with can move forward with confidence
-              rather than hope.
+              ZAAF Consultancy partners with organisations that need engineering decisions
+              made well — not just made quickly. We work at the intersection of infrastructure,
+              security, and product delivery to build systems your team can fully own.
             </p>
-            <p>
-              Every engagement we take on ends with a handover that is genuinely usable.
-              No black-box systems. No tribal knowledge. No dependency on us to keep the lights
-              on. We build things that your own engineers can own, extend, and improve the day
-              we leave.
-            </p>
-            <p>
-              Our team operates at the intersection of infrastructure engineering, security, and
-              product delivery. We have worked across logistics, fintech, healthcare, and the
-              public sector. The problems change; the discipline does not.
-            </p>
-
-            <!-- Stat pills -->
-            <ul class="about__pills" role="list" aria-label="Company figures">
-              <li class="about__pill">50+ Projects</li>
-              <li class="about__pill">4 Years</li>
-              <li class="about__pill">3 Countries</li>
-            </ul>
           </div>
+        </div>
+
+        <!-- ── Zone 2 — Stat tiles ──────────────────────────────────────────── -->
+        <div class="about__stats-wrapper" data-reveal data-reveal-delay="1">
+          <dl class="about__stats" aria-label="Company metrics">
+
+            <div class="about__stat">
+              <dt class="about__stat-label">Projects delivered</dt>
+              <dd class="about__stat-number text-gradient-teal">50+</dd>
+            </div>
+
+            <div class="about__stat">
+              <dt class="about__stat-label">In the industry</dt>
+              <dd class="about__stat-number text-gradient-teal">4 yrs</dd>
+            </div>
+
+            <div class="about__stat">
+              <dt class="about__stat-label">Countries served</dt>
+              <dd class="about__stat-number text-gradient-teal">3</dd>
+            </div>
+
+          </dl>
+        </div>
+
+        <!-- ── Zone 3 — Philosophy cards ──────────────────────────────────────── -->
+        <div class="about__philosophy" role="list" aria-label="Our working principles" data-reveal data-reveal-delay="1">
+
+          <!-- Card 1 — No black-box systems -->
+          <article class="about__phil-card" role="listitem" data-reveal data-reveal-delay="1">
+            <div class="about__phil-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </div>
+            <div class="about__phil-content">
+              <h3 class="about__phil-title">No black-box systems</h3>
+              <p class="about__phil-desc">
+                Every system we build comes with documentation your team can actually use.
+                We treat the handover as a deliverable, not an afterthought.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 2 — Decisions in writing -->
+          <article class="about__phil-card" role="listitem" data-reveal data-reveal-delay="2">
+            <div class="about__phil-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <line x1="6" y1="3" x2="6" y2="15"/>
+                <circle cx="18" cy="6" r="3"/>
+                <circle cx="6" cy="18" r="3"/>
+                <path d="M18 9a9 9 0 0 1-9 9"/>
+              </svg>
+            </div>
+            <div class="about__phil-content">
+              <h3 class="about__phil-title">Decisions in writing</h3>
+              <p class="about__phil-desc">
+                We document every architectural decision as we make it — not at the end of the
+                project. When you inherit the system, you inherit the reasoning.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 3 — Your engineers, not ours -->
+          <article class="about__phil-card" role="listitem" data-reveal data-reveal-delay="3">
+            <div class="about__phil-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+            <div class="about__phil-content">
+              <h3 class="about__phil-title">Your engineers, not ours</h3>
+              <p class="about__phil-desc">
+                We pair with your team throughout every engagement. The goal is for your
+                engineers to own the system independently the day we leave.
+              </p>
+            </div>
+          </article>
+
+          <!-- Card 4 — Security by default -->
+          <article class="about__phil-card" role="listitem" data-reveal data-reveal-delay="4">
+            <div class="about__phil-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            </div>
+            <div class="about__phil-content">
+              <h3 class="about__phil-title">Security by default</h3>
+              <p class="about__phil-desc">
+                Security is not a final audit — it is a design constraint applied from the
+                first sprint. Every system we build assumes hostile conditions.
+              </p>
+            </div>
+          </article>
 
         </div>
+
+        <!-- ── Zone 4 — Founder pull-quote ──────────────────────────────────────── -->
+        <blockquote class="about__quote-block" data-reveal data-reveal-delay="2">
+          <p class="about__quote-text">
+            &ldquo;Most technology projects fail not because of poor tooling, but because of
+            poor decisions made early and never revisited.&rdquo;
+          </p>
+          <footer class="about__quote-attr">
+            <cite>— ZAAF Consultancy founding principle</cite>
+          </footer>
+        </blockquote>
+
       </div>
     </section>
 
@@ -498,7 +579,6 @@
     <section id="services" class="services section section--has-rule" aria-labelledby="services-heading" data-page="services">
       <div class="section__inner">
 
-        <p class="section-label" data-reveal>// 02 — services</p>
         <h2 id="services-heading" class="section-heading" data-reveal data-reveal-delay="1">
           What we deliver
         </h2>
@@ -517,7 +597,6 @@
             </div>
             <div class="service-item__body">
               <div class="service-item__header">
-                <span class="service-item__num" aria-hidden="true">01</span>
                 <h3 class="service-item__title">DevOps &amp; CI/CD</h3>
               </div>
               <p class="service-item__desc">
@@ -543,7 +622,6 @@
             </div>
             <div class="service-item__body">
               <div class="service-item__header">
-                <span class="service-item__num" aria-hidden="true">02</span>
                 <h3 class="service-item__title">Infrastructure as Code</h3>
               </div>
               <p class="service-item__desc">
@@ -569,7 +647,6 @@
             </div>
             <div class="service-item__body">
               <div class="service-item__header">
-                <span class="service-item__num" aria-hidden="true">03</span>
                 <h3 class="service-item__title">Cloud Architecture</h3>
               </div>
               <p class="service-item__desc">
@@ -595,7 +672,6 @@
             </div>
             <div class="service-item__body">
               <div class="service-item__header">
-                <span class="service-item__num" aria-hidden="true">04</span>
                 <h3 class="service-item__title">Managed IT Services</h3>
               </div>
               <p class="service-item__desc">
@@ -621,7 +697,6 @@
             </div>
             <div class="service-item__body">
               <div class="service-item__header">
-                <span class="service-item__num" aria-hidden="true">05</span>
                 <h3 class="service-item__title">Web &amp; App Development</h3>
               </div>
               <p class="service-item__desc">
@@ -647,7 +722,6 @@
             </div>
             <div class="service-item__body">
               <div class="service-item__header">
-                <span class="service-item__num" aria-hidden="true">06</span>
                 <h3 class="service-item__title">Cybersecurity &amp; Compliance</h3>
               </div>
               <p class="service-item__desc">
@@ -673,7 +747,6 @@
             </div>
             <div class="service-item__body">
               <div class="service-item__header">
-                <span class="service-item__num" aria-hidden="true">07</span>
                 <h3 class="service-item__title">IT Strategy</h3>
               </div>
               <p class="service-item__desc">
@@ -703,7 +776,6 @@
     <section id="expertise" class="expertise section section--has-rule" aria-labelledby="expertise-heading" data-page="expertise">
       <div class="section__inner">
 
-        <p class="section-label" data-reveal>// 03 — expertise</p>
         <h2 id="expertise-heading" class="section-heading" data-reveal data-reveal-delay="1">
           Deep capability areas
         </h2>
@@ -871,7 +943,6 @@
     <section id="process" class="process section section--has-rule" aria-labelledby="process-heading" data-page="process">
       <div class="section__inner">
 
-        <p class="section-label" data-reveal>// 04 — how we work</p>
         <h2 id="process-heading" class="section-heading" data-reveal data-reveal-delay="1">
           From idea to live product,<br><span class="text-gradient">without the guesswork.</span>
         </h2>
@@ -885,7 +956,6 @@
           <li class="process__phase" data-reveal>
             <div class="process__phase-left" aria-hidden="true">
               <div class="process__phase-node">
-                <span class="process__phase-num">01</span>
               </div>
             </div>
             <div class="process__phase-right">
@@ -914,7 +984,6 @@
           <li class="process__phase" data-reveal data-reveal-delay="1">
             <div class="process__phase-left" aria-hidden="true">
               <div class="process__phase-node">
-                <span class="process__phase-num">02</span>
               </div>
             </div>
             <div class="process__phase-right">
@@ -943,7 +1012,6 @@
           <li class="process__phase" data-reveal data-reveal-delay="2">
             <div class="process__phase-left" aria-hidden="true">
               <div class="process__phase-node">
-                <span class="process__phase-num">03</span>
               </div>
             </div>
             <div class="process__phase-right">
@@ -972,7 +1040,6 @@
           <li class="process__phase" data-reveal data-reveal-delay="3">
             <div class="process__phase-left" aria-hidden="true">
               <div class="process__phase-node">
-                <span class="process__phase-num">04</span>
               </div>
             </div>
             <div class="process__phase-right">
@@ -1001,7 +1068,6 @@
           <li class="process__phase" data-reveal data-reveal-delay="4">
             <div class="process__phase-left" aria-hidden="true">
               <div class="process__phase-node">
-                <span class="process__phase-num">05</span>
               </div>
             </div>
             <div class="process__phase-right">
@@ -1038,7 +1104,6 @@
     <section id="work" class="work section section--alt section--has-rule" aria-labelledby="work-heading" data-page="work">
       <div class="section__inner">
 
-        <p class="section-label" data-reveal>// 05 — work</p>
         <h2 id="work-heading" class="section-heading" data-reveal data-reveal-delay="1">
           Selected engagements
         </h2>
@@ -1083,7 +1148,6 @@
 
           <!-- ─── CARD 01: Global Logistics — HERO ─────────────────────────── -->
           <li class="case-card case-card--hero" data-reveal data-domain="devops iac" data-reveal-delay="1">
-            <span class="case-card__index" aria-hidden="true">01 / 07</span>
             <p class="case-card__industry">Global Logistics &amp; Supply Chain</p>
             <h3 class="case-card__challenge">
               Fragile manual deployments across 12 regional environments were causing weekly
@@ -1129,7 +1193,6 @@
 
           <!-- ─── CARD 02: FinTech Series B ────────────────────────────────── -->
           <li class="case-card case-card--half" data-reveal data-domain="iac" data-reveal-delay="1">
-            <span class="case-card__index" aria-hidden="true">02 / 07</span>
             <p class="case-card__industry">FinTech — Series B</p>
             <h3 class="case-card__challenge">
               Console-managed AWS infrastructure across three accounts with no audit trail,
@@ -1160,7 +1223,6 @@
 
           <!-- ─── CARD 03: NHS Trust ────────────────────────────────────────── -->
           <li class="case-card case-card--half" data-reveal data-domain="cloud" data-reveal-delay="2">
-            <span class="case-card__index" aria-hidden="true">03 / 07</span>
             <p class="case-card__industry">NHS Trust — Public Sector</p>
             <h3 class="case-card__challenge">
               Escalating cloud costs following an unplanned lift-and-shift migration, with zero
@@ -1191,7 +1253,6 @@
 
           <!-- ─── CARD 04: Payments Platform — Security ─────────────────────── -->
           <li class="case-card case-card--third" data-reveal data-domain="security" data-reveal-delay="1">
-            <span class="case-card__index" aria-hidden="true">04 / 07</span>
             <p class="case-card__industry">Payments Platform — FinTech</p>
             <h3 class="case-card__challenge">
               ISO 27001 certification required within six months to close an enterprise contract.
@@ -1220,7 +1281,6 @@
 
           <!-- ─── CARD 05: Digital Health Startup ───────────────────────────── -->
           <li class="case-card case-card--third" data-reveal data-domain="digital" data-reveal-delay="2">
-            <span class="case-card__index" aria-hidden="true">05 / 07</span>
             <p class="case-card__industry">Digital Health — Start-up</p>
             <h3 class="case-card__challenge">
               Patient portal needed to go live in 16 weeks, with NHS data residency requirements
@@ -1250,7 +1310,6 @@
 
           <!-- ─── CARD 06: B2B SaaS — Managed IT ───────────────────────────── -->
           <li class="case-card case-card--third" data-reveal data-domain="devops cloud" data-reveal-delay="3">
-            <span class="case-card__index" aria-hidden="true">06 / 07</span>
             <p class="case-card__industry">B2B SaaS — Managed Support</p>
             <h3 class="case-card__challenge">
               High incident volume and slow resolution times were directly impacting customer
@@ -1280,7 +1339,6 @@
 
           <!-- ─── CARD 07: Series A Scale-up — IT Strategy ──────────────────── -->
           <li class="case-card case-card--half" data-reveal data-domain="strategy" data-reveal-delay="1">
-            <span class="case-card__index" aria-hidden="true">07 / 07</span>
             <p class="case-card__industry">Series A Scale-up — IT Strategy</p>
             <h3 class="case-card__challenge">
               Three competing technology roadmaps across product, engineering, and the board.
@@ -1319,8 +1377,6 @@
     ========================================================= -->
     <section id="contact" class="contact section section--alt section--has-rule" aria-labelledby="contact-heading" data-page="home">
       <div class="section__inner">
-
-        <p class="section-label" data-reveal>// 06 — contact</p>
 
         <h2 id="contact-heading" class="contact__statement section-heading" data-reveal data-reveal-delay="1">
           Ready to build something<br>
