@@ -70,7 +70,6 @@
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  /* default fallback */
   background: linear-gradient(135deg, #071a2e 0%, #0c2a42 60%, rgba(14,165,233,0.25) 100%);
 }
 
@@ -108,82 +107,20 @@
   background: linear-gradient(135deg, #051e20 0%, #072830 60%, rgba(20,184,166,0.25) 100%);
 }
 
-/* ── Header icon — centered circle ──────────────────────────────────────── */
-.svc-card__header-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* ── Header illustration — full-bleed SVG ────────────────────────────────── */
+.svc-card__illus {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
+  display: block;
+  opacity: 0.92;
+  transition: transform 500ms var(--ease-out-expo), opacity 300ms var(--ease-out-expo);
 }
 
-.svc-card__icon-wrap {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: rgba(6,13,25,0.62);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(14,165,233,0.30);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow:
-    0 0 0 8px rgba(14,165,233,0.05),
-    0 4px 24px rgba(14,165,233,0.15),
-    inset 0 1px 0 rgba(255,255,255,0.05);
-  transition:
-    box-shadow   280ms var(--ease-out-expo),
-    border-color 280ms var(--ease-out-expo),
-    transform    280ms var(--ease-out-expo);
-}
-
-.svc-card__icon-wrap svg {
-  width: 26px;
-  height: 26px;
-  stroke: var(--color-accent);
-  fill: none;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* Security — red accent */
-.svc-card--security .svc-card__icon-wrap {
-  border-color: rgba(239,68,68,0.35);
-  box-shadow:
-    0 0 0 8px rgba(239,68,68,0.04),
-    0 4px 24px rgba(239,68,68,0.14),
-    inset 0 1px 0 rgba(255,255,255,0.05);
-}
-.svc-card--security .svc-card__icon-wrap svg { stroke: #f87171; }
-
-/* Strategy — teal accent */
-.svc-card--strategy .svc-card__icon-wrap {
-  border-color: rgba(20,184,166,0.35);
-  box-shadow:
-    0 0 0 8px rgba(20,184,166,0.05),
-    0 4px 24px rgba(20,184,166,0.15),
-    inset 0 1px 0 rgba(255,255,255,0.05);
-}
-.svc-card--strategy .svc-card__icon-wrap svg { stroke: #2dd4bf; }
-
-/* Hover glow intensifies */
-.svc-card:hover .svc-card__icon-wrap {
-  box-shadow:
-    0 0 0 10px rgba(14,165,233,0.08),
-    0 6px 32px rgba(14,165,233,0.25),
-    inset 0 1px 0 rgba(255,255,255,0.07);
-  border-color: rgba(14,165,233,0.55);
-  transform: scale(1.08);
-}
-.svc-card--security:hover .svc-card__icon-wrap {
-  box-shadow: 0 0 0 10px rgba(239,68,68,0.06), 0 6px 32px rgba(239,68,68,0.22), inset 0 1px 0 rgba(255,255,255,0.07);
-  border-color: rgba(239,68,68,0.55);
-}
-.svc-card--strategy:hover .svc-card__icon-wrap {
-  box-shadow: 0 0 0 10px rgba(20,184,166,0.07), 0 6px 32px rgba(20,184,166,0.22), inset 0 1px 0 rgba(255,255,255,0.07);
-  border-color: rgba(20,184,166,0.55);
+.svc-card:hover .svc-card__illus {
+  transform: scale(1.04);
+  opacity: 1;
 }
 
 /* ── Metric badge — top right ────────────────────────────────────────────── */
@@ -227,7 +164,7 @@
 
 /* ── Card body ───────────────────────────────────────────────────────────── */
 .svc-card__body {
-  padding: var(--space-6) var(--space-7) var(--space-7);
+  padding: var(--space-6) var(--space-6) var(--space-8);
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
@@ -258,10 +195,9 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
-  padding-top: var(--space-4);
+  padding: var(--space-4) 0 0 0;
   border-top: 1px solid rgba(99,102,241,0.1);
   list-style: none;
-  padding-left: 0;
   margin: 0;
 }
 

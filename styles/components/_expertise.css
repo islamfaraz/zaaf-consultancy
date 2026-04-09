@@ -1,209 +1,159 @@
 /* ==========================================================================
-   Expertise — capability cards grid with visual header zones
+   Expertise — Vertical Accordion with Illustrated Panels
    ========================================================================== */
 
-.expertise__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-5);
-  margin-top: var(--space-10);
-}
-
-/* ── Capability card ──────────────────────────────────────────────────────── */
-.expertise__card {
-  background: var(--color-navy);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
+.exp-accordion {
+  margin-top: var(--space-12);
   display: flex;
   flex-direction: column;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
   overflow: hidden;
-  position: relative;
-  transition:
-    border-color 250ms var(--ease-out-expo),
-    box-shadow   250ms var(--ease-out-expo),
-    transform    250ms var(--ease-out-expo);
-  will-change: transform;
 }
 
-/* Radial glow at card top-edge on hover */
-.expertise__card::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    ellipse at 50% 0%,
-    rgba(14, 165, 233, 0.07) 0%,
-    transparent 65%
-  );
-  opacity: 0;
-  transition: opacity 300ms var(--ease-out);
-  pointer-events: none;
-  z-index: 3;
+/* ── Row item ─────────────────────────────────────────────────────────────── */
+.exp-item {
+  border-bottom: 1px solid var(--color-border);
+}
+.exp-item:last-child {
+  border-bottom: none;
 }
 
-.expertise__card:hover {
-  border-color: rgba(14, 165, 233, 0.35);
-  box-shadow:
-    0 0 0 1px rgba(14, 165, 233, 0.12),
-    0 8px 40px rgba(14, 165, 233, 0.1),
-    0 2px 8px rgba(0, 0, 0, 0.4);
-  transform: translateY(-4px);
+/* ── Trigger button ───────────────────────────────────────────────────────── */
+.exp-item__trigger {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 3rem 1fr auto auto;
+  align-items: center;
+  gap: var(--space-5);
+  padding: var(--space-5) var(--space-8);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  transition: background 200ms var(--ease-out);
 }
 
-.expertise__card:hover::before {
+.exp-item__trigger:hover {
+  background: rgba(14, 165, 233, 0.04);
+}
+
+.exp-item[data-open] .exp-item__trigger {
+  background: rgba(14, 165, 233, 0.06);
+}
+
+.exp-item__num {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  opacity: 0.6;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.exp-item[data-open] .exp-item__num {
   opacity: 1;
 }
 
-/* Last card (IT Strategy) — full width, constrained */
-.expertise__card--wide {
-  grid-column: 1 / -1;
-  max-width: 680px;
-  margin-inline: auto;
-  width: 100%;
-}
-
-/* ── Visual header zone ───────────────────────────────────────────────────── */
-.expertise__card-visual {
-  position: relative;
-  height: 220px;
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-/* Bottom-fade overlay so card content reads cleanly against the visual */
-.expertise__card-visual-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: linear-gradient(to top, var(--color-navy) 0%, transparent 100%);
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* 1px teal separator line at the base of the visual zone */
-.expertise__card-visual::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(14, 165, 233, 0.25), transparent);
-  z-index: 2;
-}
-
-/* ── SVG decorative art ───────────────────────────────────────────────────── */
-.expertise__card-art {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  opacity: 0.7;
-  pointer-events: none;
-}
-
-.expertise__card:hover .expertise__card-art {
-  opacity: 0.45;
-  transition: opacity 300ms ease;
-}
-
-/* ── Per-card gradient backgrounds ───────────────────────────────────────── */
-.expertise__card--devops .expertise__card-visual {
-  background: linear-gradient(135deg, #071a2e 0%, #0a2540 60%, rgba(14, 165, 233, 0.3) 100%);
-}
-
-.expertise__card--iac .expertise__card-visual {
-  background: linear-gradient(135deg, #0c0f2e 0%, #12144a 60%, rgba(99, 102, 241, 0.32) 100%);
-}
-
-.expertise__card--cloud .expertise__card-visual {
-  background: linear-gradient(135deg, #051e28 0%, #072432 60%, rgba(14, 165, 233, 0.26) 100%);
-}
-
-.expertise__card--managed .expertise__card-visual {
-  background: linear-gradient(135deg, #0e0c2a 0%, #14103e 60%, rgba(99, 102, 241, 0.28) 100%);
-}
-
-.expertise__card--web .expertise__card-visual {
-  background: linear-gradient(135deg, #061828 0%, #091f36 60%, rgba(14, 165, 233, 0.22) 100%);
-}
-
-.expertise__card--security .expertise__card-visual {
-  background: linear-gradient(135deg, #1a0808 0%, #280e10 60%, rgba(239, 68, 68, 0.24) 100%);
-}
-
-.expertise__card--strategy .expertise__card-visual {
-  background: linear-gradient(135deg, #051e20 0%, #072628 60%, rgba(20, 184, 166, 0.28) 100%);
-}
-
-/* ── Card content zone ────────────────────────────────────────────────────── */
-.expertise__card-content {
-  padding: var(--space-7, 1.75rem);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-4);
-  flex: 1;
-}
-
-/* ── Card icon ────────────────────────────────────────────────────────────── */
-.expertise__card-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: var(--radius-lg);
-  background: rgba(14, 165, 233, 0.1);
-  border: 1px solid rgba(14, 165, 233, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  transition: background var(--duration-base) var(--ease-out);
-}
-
-.expertise__card:hover .expertise__card-icon {
-  background: rgba(14, 165, 233, 0.18);
-}
-
-.expertise__card-icon svg {
-  width: 20px;
-  height: 20px;
-  stroke: var(--color-accent);
-  fill: none;
-  stroke-width: 1.75;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-/* ── Card header ──────────────────────────────────────────────────────────── */
-.expertise__card-title {
+.exp-item__name {
   font-family: var(--font-heading);
-  font-size: var(--text-xl);
+  font-size: var(--text-lg);
   font-weight: 700;
   color: var(--color-white);
-  line-height: 1.2;
   letter-spacing: var(--tracking-tight);
+  line-height: 1.2;
 }
 
-.expertise__card-challenge {
-  font-family: var(--font-sans);
-  font-size: var(--text-sm);
-  font-style: italic;
-  color: var(--color-accent);
-  line-height: 1.5;
-  margin-top: var(--space-1);
+.exp-item[data-open] .exp-item__name {
+  color: #7dd3fc;
 }
 
-/* ── Body text ────────────────────────────────────────────────────────────── */
-.expertise__card-desc {
+.exp-item__tagline {
   font-family: var(--font-sans);
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
-  line-height: var(--leading-relaxed);
+  font-style: italic;
+  opacity: 0.7;
+  padding-right: var(--space-6);
+  text-align: right;
+  line-height: 1.4;
 }
 
-/* ── Capabilities list ────────────────────────────────────────────────────── */
-.expertise__card-caps {
+@media (max-width: 760px) {
+  .exp-item__tagline { display: none; }
+}
+
+.exp-item__chevron {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  stroke: var(--color-accent);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 300ms var(--ease-out-expo);
+  opacity: 0.6;
+}
+
+.exp-item[data-open] .exp-item__chevron {
+  transform: rotate(180deg);
+  opacity: 1;
+}
+
+/* ── Panel ────────────────────────────────────────────────────────────────── */
+.exp-item__panel {
+  overflow: hidden;
+}
+
+.exp-item__panel[hidden] {
+  display: none;
+}
+
+.exp-item__panel:not([hidden]) {
+  animation: exp-panel-open 380ms var(--ease-out-expo) both;
+}
+
+@keyframes exp-panel-open {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Panel body: content left + visual right ──────────────────────────────── */
+.exp-item__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--color-border);
+}
+
+/* ── Left: text content ───────────────────────────────────────────────────── */
+.exp-item__content {
+  padding: var(--space-8) var(--space-8) var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  border-right: 1px solid var(--color-border);
+}
+
+.exp-item__domain-tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin: 0;
+}
+
+.exp-item__desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin: 0;
+}
+
+.exp-item__caps {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -212,63 +162,104 @@
   gap: var(--space-2);
 }
 
-.expertise__card-caps li {
+.exp-item__caps li {
   display: flex;
   align-items: flex-start;
   gap: var(--space-3);
-  font-family: var(--font-sans);
   font-size: var(--text-sm);
   color: var(--color-text-secondary);
   line-height: 1.55;
 }
 
-.expertise__card-caps li::before {
+.exp-item__caps li::before {
   content: "→";
   color: var(--color-accent);
   font-size: var(--text-xs);
   flex-shrink: 0;
-  margin-top: 2px;
+  margin-top: 3px;
+  opacity: 0.8;
 }
 
-/* ── Case study callout ───────────────────────────────────────────────────── */
-.expertise__card-case {
-  margin-top: auto;
+/* ── Stat callout ─────────────────────────────────────────────────────────── */
+.exp-item__stat {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-4);
   padding: var(--space-4) var(--space-5);
   background: rgba(14, 165, 233, 0.05);
   border-left: 2px solid var(--color-accent);
   border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
+  margin-top: auto;
 }
 
-.expertise__card-case-label {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  letter-spacing: var(--tracking-caps);
-  text-transform: uppercase;
-  color: var(--color-accent);
-  opacity: 0.8;
+.exp-item__stat-num {
+  font-family: var(--font-heading);
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  flex-shrink: 0;
 }
 
-.expertise__card-case p {
+.exp-item__stat-label {
+  font-family: var(--font-sans);
   font-size: var(--text-xs);
   color: var(--color-text-secondary);
-  line-height: 1.65;
+  line-height: 1.5;
+}
+
+/* ── Right: SVG visual ────────────────────────────────────────────────────── */
+.exp-item__visual {
+  background: rgba(6, 10, 24, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  min-height: 320px;
+}
+
+.exp-item__visual svg {
+  width: 100%;
+  height: auto;
+  max-height: 320px;
 }
 
 /* ── Responsive ───────────────────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .expertise__grid {
+  .exp-item__body {
     grid-template-columns: 1fr;
   }
-
-  .expertise__card--wide {
-    grid-column: auto;
-    max-width: 100%;
+  .exp-item__content {
+    border-right: none;
+    border-bottom: 1px solid var(--color-border);
   }
+  .exp-item__visual {
+    min-height: 240px;
+  }
+}
 
-  .expertise__card-visual {
-    height: 180px;
+@media (max-width: 600px) {
+  .exp-item__trigger {
+    grid-template-columns: 2.5rem 1fr auto;
+    padding: var(--space-4) var(--space-5);
+    gap: var(--space-3);
+  }
+  .exp-item__name {
+    font-size: var(--text-base);
+  }
+  .exp-item__content {
+    padding: var(--space-6) var(--space-5) var(--space-8);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .exp-item__panel:not([hidden]),
+  .exp-item__chevron {
+    animation: none !important;
+    transition: none !important;
   }
 }

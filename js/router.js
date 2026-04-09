@@ -64,6 +64,9 @@
 
     currentPage = pageId;
 
+    // Notify page-specific scripts
+    window.dispatchEvent(new CustomEvent('pagechange', { detail: { page: pageId } }));
+
     // Re-trigger reveal animations for new page
     setTimeout(function () {
       var reveals = document.querySelectorAll('[data-page="' + pageId + '"] [data-reveal], [data-reveal][data-page="' + pageId + '"]');
